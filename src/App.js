@@ -4,6 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
