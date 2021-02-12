@@ -1,27 +1,31 @@
 import logo from './logo.svg';
-import './App.css';
+//import './App.css';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+//import ProductsGrid from './components/ProductsGrid';
+import { BrowserRouter as Router, Route, Switch,Link } from "react-router-dom";
+import Food from './components/Food';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
+        <Navbar></Navbar>
       </header>
+      <Switch>
+        <Route path="/" exact path component={Home}></Route>
+        <Route path="/food" path component={Food}></Route>
+      </Switch>
+      {/* <Home></Home>
+      <ProductsGrid></ProductsGrid> */}
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
+    </Router>
   );
 }
 
