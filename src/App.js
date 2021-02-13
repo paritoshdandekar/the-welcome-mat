@@ -1,27 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Food from './components/Food';
+import SupportandMaintaince from './components/SupportAndMaintaince';
+import Laundary from './components/Laundary';
+import Internet from './components/Internet';
+import Housekeeping from './components/Housekeeping';
 
 function App() {
   return (
-    <div className="App">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Navbar />
+        </header>
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/food" component={Food} />
+          <Route exact path="/internet" component={Internet} />
+          <Route exact path="/housekeeping" component={Housekeeping} />
+          <Route exact path="/laundary" component={Laundary} />
+          <Route exact path="/support" component={SupportandMaintaince} />
+        </Switch>
+
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </Router>
   );
 }
 
