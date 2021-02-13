@@ -63,7 +63,7 @@ class Internet extends Component {
                                 </div>
                             </form>
                         </div>
-                        <div id="modal1" class="modal teal">
+                        <div id="modal1" class="modal">
                             <div className="modal-content">
                                 <h4>Confirm</h4>
                                 <p>Do you want to Register this Issue ?</p>
@@ -72,8 +72,9 @@ class Internet extends Component {
                                 <a className="modal-close waves-effect waves-green btn-flat" onClick={this.onAlert}>Agree</a>
                             </div>
                         </div>
-
-                        <button className="waves-effect waves-light btn modal-trigger col s12 m5 l2 push-l5 push-m3" href="#modal1">SUBMIT</button>
+                        <div className="center">
+                            <button className="btn waves-effect waves-light modal-trigger" href="#modal1">SUBMIT</button>
+                        </div>
                     </form>
                     </div>
             </div>
