@@ -7,25 +7,53 @@ class Footer extends Component {
                 <footer class="page-footer blue-grey darken-4">
                     <div class="container">
                         <div class="row">
-                            <div class="col l6 s12">
-                                <h5 class="white-text">Footer Content</h5>
-                                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                            {/* WELCOME MAT */}
+                            <div class="col l3 s12 ">
+                                <h5 class="white-text " style={{ fontFamily: "Lobster" }}>The Welcome Mat</h5>
+                                <p class="grey-text text-lighten-4">Come in as Guests.
+                                <br></br> Leave as Family.</p>
                             </div>
-                            <div class="col l4 offset-l2 s12">
-                                <h5 class="white-text">Links</h5>
+
+                            {/* CONTACT */}
+
+
+                            <div class="col l2 s12 ">
+                                <h6 class=" large material-icons text-lighten-3 " >local_phone</h6>
                                 <ul>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                                    <li><a class="grey-text text-lighten-3" >1111111111</a></li>
+                                    <li><a class="grey-text text-lighten-3" >2222222222</a></li>
+                                    <li><a class="grey-text text-lighten-3" >3333333333</a></li>
                                 </ul>
                             </div>
+                            {/* LINKS */}
+                            <div class="col l2 s12 ">
+                                <h6 class="white-text">Links</h6>
+                                
+                                <ul>
+                                    <li><a class="grey-text text-lighten-3" href="#!">FAQ's</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>
+                                    <li><a class="grey-text text-lighten-3" href="#!">Terms and Conditions</a></li>
+                                </ul>
+                            </div>
+
+                            {/* VISIT */}
+                            <div class="col l5  s12 ">
+                                <h6 class="white-text">Visit</h6>
+                                <ul>
+                                    <li><a class="grey-text text-lighten-3" >
+                                        Shri Ramdeobaba College of Engineering and Management<br></br></a></li>
+                                    <li><a class="grey-text text-lighten-3" >Katol Road<br></br></a></li>
+                                    <li><a class="grey-text text-lighten-3" >Nagpur,<br></br></a></li>
+                                    <li><a class="grey-text text-lighten-3" >Maharashtra 440013<br></br></a></li>
+
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                     <div class="footer-copyright">
                         <div class="container">
-                            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                            © 2021 Copyright Text
                         </div>
                     </div>
                 </footer>
