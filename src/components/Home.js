@@ -34,7 +34,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Laundry<i className="material-icons right">close</i></span>
-                                    <blockquote>Wash -> Dry -> Fold -> Repeat</blockquote>
+                                    <blockquote>Loving your clothes like you</blockquote>
                                 </div>
                             </div>
                         </div>
