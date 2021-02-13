@@ -9,12 +9,15 @@ class Food extends Component {
         M.Collapsible.init(elems, {});
 
     }
+    onAlert() {
+        alert("yay! Food Ordered!!")
+    }
     render() {
         return (
-            <div className="container">
+            <div className="container section z-depth-1 blue-grey lighten-5">
                 <h2 className="center-align">Food Menu</h2>
                 <div className="row">
-                    <div className="card col s12 m10 l6 push-l3 push-m1">
+                    <div className="card col s12 m10 l6 push-l3 push-m1 z-depth-5">
 
                         <div className="card-tabs">
                             <ul className="tabs tabs-fixed-width">
@@ -30,7 +33,7 @@ class Food extends Component {
                                         <i className="material-icons circle">emoji_food_beverage</i>
                                         <span>Aloo Paratha</span>
                                         <p>₹ 350</p>
-                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
+                                        <a href="#!" className="secondary-content"><button  onClick={this.onAlert} className="btn-small">Order</button></a>
                                     </li>
                                     <li className="collection-item avatar">
                                         <i className="material-icons circle">emoji_food_beverage</i>

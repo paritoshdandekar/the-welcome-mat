@@ -1,30 +1,34 @@
-import logo from './logo.svg';
-//import './App.css';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-//import ProductsGrid from './components/ProductsGrid';
-import { BrowserRouter as Router, Route, Switch,Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Food from './components/Food';
+import SupportandMaintaince from './components/SupportAndMaintaince';
+import Laundary from './components/Laundary';
+import Internet from './components/Internet';
+import Housekeeping from './components/Housekeeping';
 
 function App() {
   return (
     <Router>
-    <div className="App">
-      <header className="App-header">
-        
-        <Navbar></Navbar>
-      </header>
-      <Switch>
-        <Route path="/" exact path component={Home}></Route>
-        <Route path="/food" path component={Food}></Route>
-      </Switch>
-      {/* <Home></Home>
-      <ProductsGrid></ProductsGrid> */}
-      <footer>
-        <Footer></Footer>
-      </footer>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <Navbar />
+        </header>
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/food" component={Food} />
+          <Route exact path="/internet" component={Internet} />
+          <Route exact path="/housekeeping" component={Housekeeping} />
+          <Route exact path="/laundary" component={Laundary} />
+          <Route exact path="/support" component={SupportandMaintaince} />
+        </Switch>
+
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </Router>
   );
 }
