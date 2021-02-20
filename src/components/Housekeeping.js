@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import M from "materialize-css";
 
-export class Housekeeping extends Component {
+class Housekeeping extends Component {
   constructor(props) {
     super(props)
 
   }
 
   componentDidMount() {
-    document.addEventListener('DOMContentLoaded', function () {
+    
       var elems1 = document.querySelectorAll('select');
       M.FormSelect.init(elems1, {});
       var elems = document.querySelectorAll('.modal');
       M.Modal.init(elems, {});
-    });
+   
   }
   render() {
     return (
       <div class="container" >
         <h4> HOUSEKEEPING SERVICES </h4>
-        <p>Choose the services(s) you need:</p>
+        <p>Choose the service(s) you need:</p>
         <form action="#">
           <div class="valign-wrapper" class="card-panel grey lighten-2" >
             <p>
