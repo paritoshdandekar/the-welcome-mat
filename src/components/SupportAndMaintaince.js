@@ -20,79 +20,71 @@ class SupportandMaintaince extends Component {
 
     onAlert() {
 
-        alert("Success..!! The correspondant will contact you in some time.")
+        alert("Your issue will be processed in priority!")
     }
     
     render() {
         return (
-            <div className="section container valign-wrapper z-depth-5" >
-                <div className="row input-field">
-                    <p><h3>Enter the type of Electrical maintenance you need.</h3></p>
-
-
+            <div className="container section z-depth-5 blue-grey lighten-5" >
+                <div className="row">
+                    <h3 className="center-align">Electrical Maintenance</h3>
+                    <p className="center-align">Enter the type of Electrical maintenance you need:</p>
+                    <div className="col s12 m10 l6 push-l3 push-m1">
                     <form action="#">
-
+                    <div class="valign-wrapper" class="card-panel" >
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>Switch Board issues</span>
+                                <span class="black-text">Switch Board issues</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>Ceiling Fans</span>
+                                <span class="black-text">Ceiling Fans</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>Lights</span>
+                                <span class="black-text">Lights</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>Geysers and Room Heaters</span>
+                                <span class="black-text">Geysers and Room Heaters</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>Issues with the Entry Key</span>
+                                <span class="black-text">Issues with the Entry Key</span>
                             </label>
                         </p>
-                        <br></br>
-                        <br></br>
                         <br></br>
 
                         <p><h6>Any specific details which you want to highlight. [Optional]</h6></p>
                         <div className="row section">
                             <form className="col s12 l12">
-                                <div className="row">
+                                
                                     <div className="input-field col s12">
                                         <textarea id="textarea1" class="materialize-textarea"></textarea>
                                         <label for="textarea1">Textarea</label>
                                     </div>
-                                </div>
+                               
                             </form>
                         </div>
-                        <div id="modal1" class="modal">
-                            <div className="modal-content">
-                                <h4>Confirmation</h4>
-                                <p>Do you want to file this complaint ticket?</p>
-                            </div>
-                            <div className="modal-footer">
-                                <a className="modal-close waves-effect waves-green btn-flat" onClick={this.onAlert}>Agree</a>
-                            </div>
-                        </div>
+                        
                         <div className="center">
-                            <button className="btn waves-effect waves-light modal-trigger" href="#modal1">SUBMIT</button>
+                            <button onClick={this.onAlert} className="btn-small">Submit</button>
+                            </div>
                         </div>
                     </form>
-
+                  </div>
                 </div>
-            </div>
+                </div>
+            
 
         )
     }

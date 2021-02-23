@@ -10,14 +10,14 @@ class Food extends Component {
 
     }
     onAlert() {
-        alert("yay! Food Ordered!!")
+        alert("yay, Your Food has been Ordered!")
     }
     render() {
         return (
-            <div className="container section z-depth-1 blue-grey lighten-5">
+            <div className="container section z-depth-5 blue-grey lighten-5">
                 <h2 className="center-align">Food Menu</h2>
                 <div className="row">
-                    <div className="card col s12 m10 l6 push-l3 push-m1 z-depth-5">
+                    <div className="card col s12 m10 l6 push-l3 push-m1 ">
 
                         <div className="card-tabs">
                             <ul className="tabs tabs-fixed-width">

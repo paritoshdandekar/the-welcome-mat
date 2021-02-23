@@ -6,76 +6,86 @@ class Housekeeping extends Component {
     super(props)
 
   }
-
   componentDidMount() {
-    
-      var elems1 = document.querySelectorAll('select');
-      M.FormSelect.init(elems1, {});
-      var elems = document.querySelectorAll('.modal');
-      M.Modal.init(elems, {});
-   
+
+    var elems1 = document.querySelectorAll('select');
+    M.FormSelect.init(elems1, {});
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems, {});
+
   }
+  onAlert() {
+    alert("The requested services will be provided in priority!")
+  }
+
   render() {
     return (
-      <div class="container" >
-        <h4> HOUSEKEEPING SERVICES </h4>
-        <p>Choose the service(s) you need:</p>
-        <form action="#">
-          <div class="valign-wrapper" class="card-panel grey lighten-2" >
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Sweeping and Mopping the floor</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Making the bed</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Changing the dirty Linen and Towels</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Restocking toiletries</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Restocking other room amenities</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Collecting Garbage</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="checkbox" />
-                <span class="black-text">Cleaning Toilet </span>
-              </label>
-            </p>
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit</a>
-            <div id="modal1" class="modal">
-              <div class="modal-content">
-                <h5>Request Recorded</h5>
-                <p>Your request will be processed soon!</p>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">OKAY</a>
+      <div className="container section z-depth-5 blue-grey lighten-5" >
+        <div class="container" >
+        <h4 className="center-align"> Housekeeping </h4>
+          <p className="center-align">Choose the service(s) you need:</p>
+          <form action="#">
+            <div class="valign-wrapper" class="card-panel " >
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Sweeping and Mopping the floor</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Making the bed</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Changing the dirty Linen and Towels</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Restocking toiletries</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Restocking other room amenities</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Collecting Garbage</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span class="black-text">Cleaning Toilet </span>
+                </label>
+              </p>
+              <br></br>
+              <p><h6>Any specific details which you want to highlight. [Optional]</h6></p>
+                        <div className="row section">
+                            <form className="col s12 l12">
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Textarea</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+              <div className="center">
+                <button onClick={this.onAlert} className="btn-small">Submit</button>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
     )

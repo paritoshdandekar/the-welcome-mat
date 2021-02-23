@@ -18,7 +18,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Order Food<i className="material-icons right">close</i></span>
-                                    <blockquote>Bless this meal Once!!!!</blockquote>
+                                    <blockquote>Bless this meal 'once'!!</blockquote>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Laundry<i className="material-icons right">close</i></span>
-                                    <blockquote>Loving your clothes like you</blockquote>
+                                    <blockquote>Loving your clothes the way you love them!</blockquote>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Housekeeping<i className="material-icons right">close</i></span>
-                                    <blockquote>Looking for beautiful place, we make your place beautiful.</blockquote>
+                                    <blockquote>Looking for a beautiful place? We make your place beautiful!</blockquote>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Support & Maintenance<i className="material-icons right">close</i></span>
-                                    <blockquote>What creates a problem is not important, how it gets solved is important</blockquote>
+                                    <blockquote>What creates a problem is not important, how it gets solved is!</blockquote>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Internet<i className="material-icons right">close</i></span>
-                                    <blockquote>Home is where I work, And I work Everywhere.</blockquote>
+                                    <blockquote>At your service to ensure uninterupted connectivity!</blockquote>
                                     
                                 </div>
                             </div>
