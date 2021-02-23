@@ -16,7 +16,7 @@ class OrderHistory extends Component {
             // orderTotal: Number,
         }   
     }
-    componentDidMount() {
+    componentDidMount() {   
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
         var i = 0;
