@@ -9,8 +9,8 @@ class Navbar extends Component {
                         <div className="nav-wrapper container">
                             <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
                             <ul className="right hide-on-med-and-down">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
+                                <li><Link to="/Home">Home</Link></li>
+                                <li><Link to="/About">About</Link></li>
                             </ul>
                         </div>
                     </nav>

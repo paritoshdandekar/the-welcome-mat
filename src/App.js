@@ -7,6 +7,8 @@ import SupportandMaintaince from './components/SupportAndMaintaince';
 import Laundary from './components/Laundary';
 import Internet from './components/Internet';
 import Housekeeping from './components/Housekeeping';
+import About from './components/About';
+
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route exact path="/housekeeping" component={Housekeeping} />
           <Route exact path="/laundary" component={Laundary} />
           <Route exact path="/support" component={SupportandMaintaince} />
+          <Route exact path="/About" component={About}/>
+          <Route exact path="/Home" component={Home}/>
         </Switch>
 
         <footer>
