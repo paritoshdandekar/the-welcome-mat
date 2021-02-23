@@ -14,7 +14,7 @@ class OrderHistory extends Component {
             // orderQuantity:Number,
             // orderTime: ,
             // orderTotal: Number,
-        }
+        }   
     }
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
