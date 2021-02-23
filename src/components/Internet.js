@@ -12,42 +12,44 @@ class Internet extends Component {
             M.Collapsible.init(elems, {});
             var elems1 = document.querySelectorAll('select');
             M.FormSelect.init(elems1, {});
-            var elems2 = document.querySelectorAll('.modal');
-            M.Modal.init(elems2, {});
+            
        
     }
     onAlert() {
 
-        alert("Success..!! The correspondant will contact you in some time.")
+        alert("Your issue will be processed in priority!")
     }
     render() {
         return (
-            <div className="section container valign-wrapper z-depth-5" >
-                <div className="row input-field">
-                    <p><h3>Report an Internet Issue Here...</h3></p>
+            <div className="container section z-depth-5 blue-grey lighten-5" >
+                <div className="row">
+                <div className="col s12 m10 l6 push-l3 push-m1">
+                <h3 className="center-align"> Internet Issues</h3>
+                    <p className="center-align">Enter your issues here:</p>
                     <form >
+                    <div class="valign-wrapper" class="card-panel " >
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>  Download Speed of wifi in my room is too slow.</span>
+                                <span class="black-text"> Slow wifi 'Download Speed'.</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>  Upload Speed of wifi in my room is too slow.</span>
+                                <span  class="black-text"> Slow wifi 'Upload Speed'.</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>  Wifi Network speed is not stable(Fluctuating).</span>
+                                <span  class="black-text"> Fluctuating network speed.</span>
                             </label>
                         </p>
                         <p>
                             <label>
                                 <input type="checkbox" />
-                                <span>  I am not getting wifi Service at my room or WIfi network is stopped suddenly.</span>
+                                <span  class="black-text"> No wifi range at all.</span>
                             </label>
                         </p>
                         <br></br>
@@ -63,19 +65,13 @@ class Internet extends Component {
                                 </div>
                             </form>
                         </div>
-                        <div id="modal1" class="modal">
-                            <div className="modal-content">
-                                <h4>Confirm</h4>
-                                <p>Do you want to Register this Issue ?</p>
-                            </div>
-                            <div className="modal-footer">
-                                <a className="modal-close waves-effect waves-green btn-flat" onClick={this.onAlert}>Agree</a>
-                            </div>
-                        </div>
                         <div className="center">
-                            <button className="btn waves-effect waves-light modal-trigger" href="#modal1">SUBMIT</button>
-                        </div>
+                            <button onClick={this.onAlert} className="btn-small">Submit</button>
+                            </div>
+                    </div>
+                    
                     </form>
+                    </div>
                     </div>
             </div>
         )
