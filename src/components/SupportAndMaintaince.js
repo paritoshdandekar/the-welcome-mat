@@ -72,7 +72,7 @@ class SupportandMaintaince extends Component {
                                 <div className="row">
                                     <div className="input-field col s12">
                                         <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1">Textarea</label>
+                                        <label for="textarea1">Write your issue here</label>
                                     </div>
                                 </div>
                             </form>
