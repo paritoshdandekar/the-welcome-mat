@@ -11,6 +11,8 @@ class Navbar extends Component {
                             <ul className="right hide-on-med-and-down">
                                 <li><Link to="/Home">Home</Link></li>
                                 <li><Link to="/About">About</Link></li>
+                                <li><Link to="/Order">Orders</Link></li>
+                                <li><Link to="/Profile">Profile</Link></li>
                             </ul>
                         </div>
                     </nav>

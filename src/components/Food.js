@@ -15,7 +15,7 @@ class Food extends Component {
     render() {
         return (
             <div className="container section z-depth-5 blue-grey lighten-5">
-                <h2 className="center-align">Food Menu</h2>
+                <h3 className="center-align">Food Menu</h3>
                 <div className="row">
                     <div className="card col s12 m10 l6 push-l3 push-m1 ">
 

@@ -22,7 +22,7 @@ class Housekeeping extends Component {
     return (
       <div className="container section z-depth-5 blue-grey lighten-5" >
         <div class="container" >
-        <h4 className="center-align"> Housekeeping </h4>
+        <h3 className="center-align"> Housekeeping </h3>
           <p className="center-align">Choose the service(s) you need:</p>
           <form action="#">
             <div class="valign-wrapper" class="card-panel " >

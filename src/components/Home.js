@@ -82,7 +82,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Internet<i className="material-icons right">close</i></span>
-                                    <blockquote>At your service to ensure uninterupted connectivity!</blockquote>
+                                    <blockquote>At your service to ensure uninterrupted connectivity!</blockquote>
                                     
                                 </div>
                             </div>

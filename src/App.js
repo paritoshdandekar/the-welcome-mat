@@ -8,6 +8,8 @@ import Laundary from './components/Laundary';
 import Internet from './components/Internet';
 import Housekeeping from './components/Housekeeping';
 import About from './components/About';
+import OrderHistory from './components/OrderHistory';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route exact path="/support" component={SupportandMaintaince} />
           <Route exact path="/About" component={About}/>
           <Route exact path="/Home" component={Home}/>
+          <Route exact path="/Order" component={OrderHistory}/>
+          <Route exact path="/Profile" component={Profile}/>
         </Switch>
 
         <footer>

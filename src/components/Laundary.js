@@ -13,7 +13,7 @@ class Laundary extends Component {
     render() {
         return (
             <div className="container section z-depth-5 blue-grey lighten-5" >
-                <h2 className="center-align">Laundary</h2>
+                <h3 className="center-align">Laundary</h3>
                 <div className=" row">
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form action="#">
@@ -43,7 +43,7 @@ class Laundary extends Component {
                             {/* what to do */}
                             <div className="input-field section">
                                 <select multiple className="validate">
-                                    <option value="" disabled selected class="grey-text text-lighten-3">Choose your options</option>
+                                    <option value="" disabled class="grey-text text-lighten-3">Choose your options.</option>
                                     <option value="1">Wash</option>
                                     <option value="2">Iron</option>
                                     <option value="3">Dry Clean</option>
