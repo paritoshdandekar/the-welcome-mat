@@ -20,7 +20,7 @@ class OrderHistory extends Component {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
         var i = 0;
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('./data.json')
             .then(resp => {
                 //console.log(resp);
                 // ab upr ki state me jo orders hai 
@@ -50,18 +50,18 @@ class OrderHistory extends Component {
                         <tbody>
                             {this.state.orders.map((item) => {
                                 return <tr>
-                                    <td>{item.id}</td>
-                                    <td>{item.username}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.phone}</td>
-                                    <td>{item.website}</td>
-                                    <td>{item.name}</td>
+                                    <td className="center">{item.orderno}</td>
+                                    <td>{item.category}</td>
+                                    <td>{item.itemname}</td>
+                                    <td>{item.itemprice}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>{item.total}</td>
+                                    <td>{item.time}</td>
                                 </tr>;
                             })}
                         </tbody>
                     </table>
-                    <h3 className="right-align">Total= </h3>
+                    <h3 className="right-align">Total= 220/-</h3>
                 </div >
             </div >
         )

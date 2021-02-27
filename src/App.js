@@ -10,6 +10,7 @@ import Housekeeping from './components/Housekeeping';
 import About from './components/About';
 import OrderHistory from './components/OrderHistory';
 import Profile from './components/Profile';
+import Admin1 from './components/Admin1';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/Profile" component={Profile}/>
         </Switch>
 
+{/* <Admin1></Admin1> */}
         <footer>
           <Footer />
         </footer>
