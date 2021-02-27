@@ -18,7 +18,7 @@ export class Profile extends Component {
             <div class="container section row">
 
                 <div class="">
-                    <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="circle col s4" width="100px" height="390"></img>
+                    <img src="./images/user.png" alt="user" class="circle col s4"></img>
 
                 </div>
                 <div class="col s8" >

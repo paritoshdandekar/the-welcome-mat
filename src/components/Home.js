@@ -13,8 +13,8 @@ class Home extends Component {
                                     <img className="activator" alt="card" src="../images/food.jpg" />
                                 </div>
                                 <div className="card-content">
-                                    <span className="card-title activator grey-text text-darken-4">Order Food<i className="material-icons right">more_vert</i></span>
-                                    <Link to="/food" class="btn-floating pulse waves-effect waves-light"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <span className="card-title activator grey-text text-darken-4">Order Food<i className="material-icons blue-text right">info</i></span>
+                                    <Link to="/food" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Order Food<i className="material-icons right">close</i></span>
@@ -29,8 +29,8 @@ class Home extends Component {
                                     <img className="activator responsive-img" alt="card" src="../images/laundry.jfif" />
                                 </div>
                                 <div className="card-content">
-                                    <span className="card-title activator grey-text text-darken-4">Laundry<i className="material-icons right">more_vert</i></span>
-                                    <Link to="/laundary" class="btn-floating pulse waves-effect waves-light"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <span className="card-title activator grey-text text-darken-4">Laundry<i className="material-icons blue-text right">info</i></span>
+                                    <Link to="/laundary" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Laundry<i className="material-icons right">close</i></span>
@@ -45,8 +45,8 @@ class Home extends Component {
                                     <img className="activator responsive-img" alt="card" src="../images/hk2.jpg" />
                                 </div>
                                 <div className="card-content">
-                                    <span className="card-title activator grey-text text-darken-4">Housekeeping<i className="material-icons right">more_vert</i></span>
-                                    <Link to="/housekeeping" class="btn-floating pulse waves-effect waves-light"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <span className="card-title activator grey-text text-darken-4">Housekeeping<i className="material-icons blue-text right">info</i></span>
+                                    <Link to="/housekeeping" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Housekeeping<i className="material-icons right">close</i></span>
@@ -61,8 +61,8 @@ class Home extends Component {
                                     <img className="activator responsive-img" alt="card" src="../images/support.png" />
                                 </div>
                                 <div className="card-content">
-                                    <span className="card-title activator grey-text text-darken-4">Support & Maintenance<i className="material-icons right">more_vert</i></span>
-                                    <Link to="/support" class="btn-floating pulse waves-effect waves-light"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <span className="card-title activator grey-text text-darken-4">Support & Maintenance<i className="material-icons blue-text right">info</i></span>
+                                    <Link to="/support" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Support & Maintenance<i className="material-icons right">close</i></span>
@@ -77,8 +77,8 @@ class Home extends Component {
                                     <img className="activator responsive-img" alt="card" src="../images/internet.jpg" />
                                 </div>
                                 <div className="card-content">
-                                    <span className="card-title activator grey-text text-darken-4">Internet<i className="material-icons right">more_vert</i></span>
-                                    <Link to="/internet" class="btn-floating pulse waves-effect waves-light"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <span className="card-title activator grey-text text-darken-4">Internet<i className="material-icons blue-text right">info</i></span>
+                                    <Link to="/internet" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Internet<i className="material-icons right">close</i></span>
