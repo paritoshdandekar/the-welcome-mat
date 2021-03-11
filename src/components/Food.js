@@ -10,9 +10,11 @@ class Food extends Component {
 
         this.state = {
             menus: [],
+            userId: '',
             food_type: '',
             food_name: '',
-            food_price: ''
+            food_price: '',
+            status:''
         }
     }
 

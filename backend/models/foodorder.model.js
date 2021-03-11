@@ -7,6 +7,7 @@ const foodOrderSchema = new Schema({
     food_name: { type: String, required: true },
     food_type: { type: String, required: true },
     food_price: { type: String, required: true },
+    status:{type: String, required: true },
 },
     {
         timestamps: true,
