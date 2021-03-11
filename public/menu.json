@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "name": "Aloo Paratha",
+        "price": 60
+    },
+    {
+        "id":2,
+        "name": "Aloo Paratha",
+        "price": 160
+    },
+    {
+        "id":3,
+        "name": "Aloo Paratha",
+        "price": 20
+    },
+    {
+        "id":4,
+        "name": "Aloo Paratha",
+        "price": 360
+    },
+    {
+        "id":5,
+        "name": "Aloo Paratha",
+        "price": 460
+    }
+]
