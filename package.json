@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "materialize-css": "^1.0.0-rc.2",
     "materialize-social": "^1.0.3",
-    "mongoose": "^5.11.19",
+    "mongoose": "^5.11.20",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",
