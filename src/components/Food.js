@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
 import axios from 'axios';
-import { getByTestId } from '@testing-library/dom';
-import { findByTestId } from '@testing-library/dom';
 
 class Food extends Component {
     constructor(props) {
@@ -46,9 +44,8 @@ class Food extends Component {
         console.log(FoodOrder);
 
     }
-    onAlert(id) {
-        const f = findByTestId(id)
-        alert(`${this.state.name} ${this.state.title} ${this.state.body}`)
+    onAlert() {
+        alert(`${this.state.food_name} ${this.state.food_price}`)
     }
     render() {
         return (
@@ -71,7 +68,7 @@ class Food extends Component {
                                         <i className="material-icons circle">emoji_food_beverage</i>
                                         <span>{menu.name}</span>
                                         <p>{menu.price}</p>
-                                        <a href="#!" className="secondary-content"><button onClick={this.onAlert(menu.id)} className="btn-small">Order</button></a>
+                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
                                     </li>)}
                                 </ul>
                             </div>
