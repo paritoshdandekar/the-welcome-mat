@@ -3,7 +3,7 @@ let FoodOrder = require('../models/foodorder.model');
 
 router.route('/').get((req, res) => {
   FoodOrder.find()
-    .then(complaints => res.json(complaints))
+    .then(foodorders => res.json(foodorders))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
