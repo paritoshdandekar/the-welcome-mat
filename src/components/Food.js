@@ -1,16 +1,51 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
+import axios from 'axios';
 
 class Food extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            menus: [],
+            userId: '',
+            food_type: '',
+            food_name: '',
+            food_price: '',
+            status:''
+        }
+    }
+
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
         var elems = document.querySelectorAll('.collapsible');
         M.Collapsible.init(elems, {});
+        axios.get('./menu.json')
+            .then(resp => {
+                this.setState({
+                    menus: resp.data
+                })
+            })
+
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
+        const FoodOrder = {
+            food_type: this.state.food_type,
+            food_name: this.state.food_name
+        }
+
+        console.log(FoodOrder);
 
     }
     onAlert() {
-        alert("yay, Your Food has been Ordered!")
+        alert(`${this.state.food_name} ${this.state.food_price}`)
     }
     render() {
         return (
@@ -29,36 +64,12 @@ class Food extends Component {
                         <div className="card-content grey lighten-4">
                             <div id="test4">
                                 <ul className="collection">
-                                    <li className="collection-item avatar">
+                                    {this.state.menus.map(menu => <li class="collection-item avatar" key={menu.id}>
                                         <i className="material-icons circle">emoji_food_beverage</i>
-                                        <span>Aloo Paratha</span>
-                                        <p>₹ 350</p>
-                                        <a href="#!" className="secondary-content"><button  onClick={this.onAlert} className="btn-small">Order</button></a>
-                                    </li>
-                                    <li className="collection-item avatar">
-                                        <i className="material-icons circle">emoji_food_beverage</i>
-                                        <span>Upma</span>
-                                        <p>₹ 350</p>
+                                        <span>{menu.name}</span>
+                                        <p>{menu.price}</p>
                                         <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
-                                    </li>
-                                    <li className="collection-item avatar">
-                                        <i className="material-icons circle">emoji_food_beverage</i>
-                                        <span>Masala Dosa</span>
-                                        <p>₹ 350</p>
-                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
-                                    </li>
-                                    <li className="collection-item avatar">
-                                        <i className="material-icons circle">emoji_food_beverage</i>
-                                        <span>Uttapam</span>
-                                        <p>₹ 350</p>
-                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
-                                    </li>
-                                    <li className="collection-item avatar">
-                                        <i className="material-icons circle">emoji_food_beverage</i>
-                                        <span>Poha</span>
-                                        <p>₹ 350</p>
-                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
-                                    </li>
+                                    </li>)}
                                 </ul>
                             </div>
                             <div id="test5">
