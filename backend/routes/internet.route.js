@@ -13,12 +13,8 @@ router.route('/').get((req, res) => {
     const status= req.body.status;
     const data= req.body.data;
     const specific= req.body.specific;
-    const isdownload= req.body.isdownload;
-    const isupload= req.body.isupload;
-    const isfluctuate= req.body.isfluctuate;
-    const isrange= req.body.isrange;
 
-    const newInternet = new Internet({userId,status,data,specific,isdownload,isupload,isfluctuate,isrange});
+    const newInternet = new Internet({userId,status,data,specific});
 
   newInternet.save()
     .then(() => res.json('Internet query added!'))
