@@ -14,7 +14,7 @@ router.route('/').get((req, res) => {
     const data= req.body.data;
     const specific= req.body.specific;
 
-    const newInternet = new Internet({userId,status,data,specific});
+    const newInternet = new Internet({userId,specific,status,data});
 
   newInternet.save()
     .then(() => res.json('Internet query added!'))
