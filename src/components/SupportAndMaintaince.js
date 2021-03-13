@@ -16,7 +16,7 @@ class SupportandMaintaince extends Component {
             islight: false,
             isheat: false,
             iskey: false,
-            data:''
+            data: ''
 
         }
     }
@@ -89,6 +89,17 @@ class SupportandMaintaince extends Component {
         // this.state.data = {
         //     check: arr.toString()
         // };
+
+        const Support ={
+            userId: this.state.userId,
+            status: this.state.status,
+            data: this.state.data,
+            furtherdetails: this.state.furtherdetails,
+            }
+
+        axios.post('http://localhost:5000/support/add', Support)
+            .then(res => console.log(res.data));
+
         console.log(this.state.data);
         alert(`${this.state.furtherdetails}`)
         this.setState = {
@@ -100,7 +111,7 @@ class SupportandMaintaince extends Component {
             islight: false,
             isheat: false,
             iskey: false,
-            data:''
+            data: ''
 
         }
     }
