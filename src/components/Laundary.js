@@ -37,20 +37,20 @@ class Laundary extends Component {
 
     submitHandler = e => {
         const varLaundary = {
-            userId: this.state.userId,
+            userId: "user1",
             laundaryclothCount: this.state.laundaryclothCount,
             laundarySlot: this.state.laundarySlot,
             laundaryTask: this.state.laundaryTask,
-            status: this.state.status
+            status: "Recieved"
         }
 
         alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
         
-        console.log(varLaundary);
+        
 
         axios.post('http://localhost:5000/laundary/add',varLaundary)
             .then(res => console.log(res.data));
-
+        console.log(varLaundary);
         this.setState = {
             userId: null,
             status: null,
