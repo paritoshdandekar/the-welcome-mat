@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
+import axios from 'axios';
 
 class Laundary extends Component {
 
@@ -8,12 +9,15 @@ class Laundary extends Component {
        
         this.state = {
             userId: null,
-            status: null,
             laundaryclothCount: 0,
             laundarySlot: null,
-            laundaryTask: [ ]
+            laundaryTask: [ ],
+            status: null,
         }
     }
+
+
+
 
     componentDidMount() {
         var elems = document.querySelectorAll('select');
@@ -32,9 +36,21 @@ class Laundary extends Component {
 
 
     submitHandler = e => {
-        
+        const varLaundary = {
+            userId: this.state.userId,
+            laundaryclothCount: this.state.laundaryclothCount,
+            laundarySlot: this.state.laundarySlot,
+            laundaryTask: this.state.laundaryTask,
+            status: this.state.status
+        }
+
         alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
-    
+        
+        console.log(varLaundary);
+
+        axios.post('http://localhost:5000/laundary/add',varLaundary)
+            .then(res => console.log(res.data));
+
         this.setState = {
             userId: null,
             status: null,
