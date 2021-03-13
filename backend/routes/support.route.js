@@ -9,11 +9,12 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
 
-  const furtherdetails = req.body.furtherdetails;
+
   const userId= req.body.userId;
+  const furtherdetails = req.body.furtherdetails;
+  const status=req.body.status;
   const data= req.body.data;
-  
-  const newSupport = new Support({furtherdetails,userId,data});
+  const newSupport = new Support({userId,furtherdetails,status,data});
 
   newSupport.save()
     .then(() => res.json('Support query added!'))

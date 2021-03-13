@@ -16,7 +16,8 @@ class SupportandMaintaince extends Component {
             islight: false,
             isheat: false,
             iskey: false,
-            data:''
+            data:'',
+            status: true
 
         }
     }
