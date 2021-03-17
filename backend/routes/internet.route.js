@@ -10,9 +10,10 @@ router.route('/').get((req, res) => {
   router.route('/add').post((req, res) => {
 
     const userId=req.body.userId;
+    const specific= req.body.specific;
     const status= req.body.status;
     const data= req.body.data;
-    const specific= req.body.specific;
+    
 
     const newInternet = new Internet({userId,specific,status,data});
 
@@ -20,3 +21,5 @@ router.route('/').get((req, res) => {
     .then(() => res.json('Internet query added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+module.exports = router;

@@ -54,7 +54,21 @@ class Internet extends Component {
         this.setState({ [e.target.name]:e.target.value })
     }
     
-    
+    onSubmit(e) {
+        e.preventDefault();
+        {
+            const Internet ={
+                userId:
+                this.state.userId,
+                status:
+                this.state.status,
+                data:
+                this.state.data,
+                specific:
+                this.state.specific,
+                }
+                console.log(Internet);
+        }
 
     submitHandler = e => {
         let arr = [];
