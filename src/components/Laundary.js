@@ -6,12 +6,12 @@ class Laundary extends Component {
 
     constructor(props) {
         super(props);
-       
+
         this.state = {
             userId: null,
             laundaryclothCount: 0,
             laundarySlot: null,
-            laundaryTask: [ ],
+            laundaryTask: [],
             status: null,
         }
     }
@@ -45,10 +45,10 @@ class Laundary extends Component {
         }
 
         alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
-        
-        
 
-        axios.post('http://localhost:5000/laundary/add',varLaundary)
+
+
+        axios.post('http://localhost:5000/laundary/add', varLaundary)
             .then(res => console.log(res.data));
         console.log(varLaundary);
         this.setState = {
@@ -56,7 +56,7 @@ class Laundary extends Component {
             status: null,
             laundaryclothCount: 0,
             laundarySlot: null,
-            laundaryTask: [ ]
+            laundaryTask: []
         }
     }
 
@@ -69,41 +69,42 @@ class Laundary extends Component {
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form onSubmit={this.submitHandler} action="#" >
                             {/* no. of cloths */}
+                            <div class="valign-wrapper" class="card-panel">
+                                <div className="input-field section">
+                                    <input id="clothCount" type="number" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
+                                    <label for="clothCount">Number of cloths</label>
+                                </div>
 
-                            <div className="input-field section">
-                                <input id="clothCount" type="number" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
-                                <label for="clothCount">Number of cloths</label>
-                            </div>
+                                {/* choose  */}
+                                <div className="input-field section">
+                                    <select value={this.laundarySlot} name='laundarySlot' onChange={this.changeHandler} className="validate">
+                                        <option value="" disabled selected >Choose your option</option>
+                                        <option value="08AM to 09AM">08AM to 09AM</option>
+                                        <option value="09AM to 10AM">09AM to 10AM</option>
+                                        <option value="10AM to 11AM">10AM to 11AM</option>
+                                        <option value="11AM to 12PM">11AM to 12PM</option>
+                                        <option value="12PM to 1PM">12PM to 1PM</option>
+                                        <option value="2PM to 3PM">2PM to 3PM</option>
+                                        <option value="5PM to 6PM">5PM to 6PM</option>
+                                    </select>
+                                    <label for="Pickuptime" >Choose Laundary Pickup time:</label>
+                                </div>
 
-                            {/* choose  */}
-                            <div className="input-field section">
-                                <select value={this.laundarySlot} name='laundarySlot' onChange={this.changeHandler} className="validate">
-                                    <option value="" disabled selected >Choose your option</option>
-                                    <option value="08AM to 09AM">08AM to 09AM</option>
-                                    <option value="09AM to 10AM">09AM to 10AM</option>
-                                    <option value="10AM to 11AM">10AM to 11AM</option>
-                                    <option value="11AM to 12PM">11AM to 12PM</option>
-                                    <option value="12PM to 1PM">12PM to 1PM</option>
-                                    <option value="2PM to 3PM">2PM to 3PM</option>
-                                    <option value="5PM to 6PM">5PM to 6PM</option>
-                                </select>
-                                <label for="Pickuptime" >Choose Laundary Pickup time:</label>
-                            </div>
+                                {/* what to do */}
+                                <div className="input-field section">
+                                    <select multiple value={this.laundaryTask} name='laundaryTask' onChange={this.multipleChoiceChangeHandler} className="validate">
+                                        <option value="" disabled>Choose your options</option>
+                                        <option value="Wash">Wash</option>
+                                        <option value="Iron">Iron</option>
+                                        <option value="DryClean">Dry Clean</option>
+                                    </select>
+                                    <label>What do we do with your Stuff:</label>
+                                </div>
 
-                            {/* what to do */}
-                            <div className="input-field section">
-                                <select multiple value={this.laundaryTask} name='laundaryTask' onChange={this.multipleChoiceChangeHandler} className="validate">
-                                    <option value="" disabled>Choose your options</option>
-                                    <option value="Wash">Wash</option>
-                                    <option value="Iron">Iron</option>
-                                    <option value="DryClean">Dry Clean</option>
-                                </select>
-                                <label>What do we do with your Stuff:</label>
-                            </div>
-
-                            {/* submit */}
-                            <div className="center">
-                                <button className="btn-small">Submit</button>
+                                {/* submit */}
+                                <div className="center">
+                                    <button className="btn-small">Submit</button>
+                                </div>
                             </div>
                         </form>
                     </div>

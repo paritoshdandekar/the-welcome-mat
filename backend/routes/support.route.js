@@ -9,7 +9,6 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
 
-
   const userId= req.body.userId;
   const furtherdetails = req.body.furtherdetails;
   const status=req.body.status;

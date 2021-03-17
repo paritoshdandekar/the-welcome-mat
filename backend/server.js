@@ -20,9 +20,13 @@ mongoose.connect(uri,{useNewUrlParser: true, useCreateIndex: true}
 
     const supportRouter = require('./routes/support.route');
     const laundaryRouter = require('./routes/laundary.route');
-
+    const internetRouter = require('./routes/internet.route');
+    const housekeepingRouter = require('./routes/housekeeping.route')
+    
     app.use('/support', supportRouter);
     app.use('/laundary', laundaryRouter);
+    app.use('/internet', internetRouter);
+    app.use('/housekeeping', housekeepingRouter);
         
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
