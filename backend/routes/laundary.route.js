@@ -3,7 +3,7 @@ let Laundary = require('../models/Laundary.model');
 
 router.route('/').get((req, res) => {
     Laundary.find()
-    .then(Laundary => res.json(Laundary))
+    .then(laundary => res.json(laundary))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -22,3 +22,5 @@ router.route('/add').post((req, res) => {
     .then(() => res.json('Laundry record added'))
     .catch(err => res.status(400).json('Error: ' + err));
   });
+
+  module.exports = router;

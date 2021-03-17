@@ -6,7 +6,7 @@ const internetSchema = new Schema({
     userId:{ type: String, required: true },
     specific: {type: String, required: false},
     status:{type: String, required: true },
-    data:{},
+    data:{type: String, required: false},
 }, {
     timestamps: true,
   });
