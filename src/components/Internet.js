@@ -6,69 +6,55 @@ import axios from 'axios';
 class Internet extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
-            userId:'',
-            status:'',
-            data:'',
+            userId: '',
+            status: '',
+            data: '',
             specific: '',
             isdownload: false,
-            isupload: false,     
+            isupload: false,
             isfluctuate: false,
             isrange: false
-            
+
         }
     }
     onChangeDownload = () => {
         this.setState(initialState => ({
-          isdownload: !initialState.isdownload,
+            isdownload: !initialState.isdownload,
         }));
-      }
+    }
     onChangeUpload = () => {
         this.setState(initialState => ({
-          isupload: !initialState.isupload,
+            isupload: !initialState.isupload,
         }));
-      }
-      
-      onChangeFluctuate = () => {
+    }
+
+    onChangeFluctuate = () => {
         this.setState(initialState => ({
-          isfluctuate: !initialState.isfluctuate,
+            isfluctuate: !initialState.isfluctuate,
         }));
-      }
-      onChangeRange = () => {
+    }
+    onChangeRange = () => {
         this.setState(initialState => ({
-          isrange: !initialState.isrange,
+            isrange: !initialState.isrange,
         }));
-      }
+    }
 
     componentDidMount() {
-        
-            var elems = document.querySelectorAll('.collapsible');
-            M.Collapsible.init(elems, {});
-            var elems1 = document.querySelectorAll('select');
-            M.FormSelect.init(elems1, {});
-            
-       
+
+        var elems = document.querySelectorAll('.collapsible');
+        M.Collapsible.init(elems, {});
+        var elems1 = document.querySelectorAll('select');
+        M.FormSelect.init(elems1, {});
+
+
     }
     changeHandler = e => {
-        this.setState({ [e.target.name]:e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
     }
-    
-    onSubmit(e) {
-        e.preventDefault();
-        {
-            const Internet ={
-                userId:
-                this.state.userId,
-                status:
-                this.state.status,
-                data:
-                this.state.data,
-                specific:
-                this.state.specific,
-                }
-                console.log(Internet);
-        }
+
+
 
     submitHandler = e => {
         let arr = [];
@@ -82,83 +68,93 @@ class Internet extends Component {
         // this.state.data = {
         //     check: arr.toString()
         // };
-        console.log(this.state.data);
-        alert(`${this.state.specific}`+"        Issues registered Successfully")
+        const internet = {
+            userId: "userIn",
+            specific: this.state.specific,
+            status: "Recieved",
+            data: this.state.data
+            
+        }
+        console.log(internet);
+        axios.post('http://localhost:5000/internet/add', internet)
+            .then(res => console.log(res.data));
+        
+        alert(`${this.state.specific}` + "  Issues registered Successfully")
         this.setState = {
-            userId:'',
-            status:'',
-            data:'',
+            userId: '',
+            status: '',
+            data: '',
             specific: '',
             isdownload: false,
-            isupload: false,     
+            isupload: false,
             isfluctuate: false,
             isrange: false
-            
-        }  
+
+        }
     }
     render() {
         return (
             <div className="container section z-depth-5 blue-grey lighten-5" >
                 <div className="row">
-                <div className="col s12 m10 l6 push-l3 push-m1">
-                <h3 className="center-align"> Internet Issues</h3>
-                    <p className="center-align">Enter your issues here:</p>
-                    <form onSubmit={this.submitHandler} >
-                    <div class="valign-wrapper" class="card-panel">
-                        <p>
-                            <label className="form-check-label">
-                                <input type="checkbox" checked={this.state.isdownload}
-                                    onChange={this.onChangeDownload}
-                                   />
-                                <span class="black-text"> Slow wifi 'Download Speed'.</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label className="form-check-label">
-                                <input type="checkbox" checked={this.state.isupload}
-                onChange={this.onChangeUpload}
-                />
-                                <span  class="black-text"> Slow wifi 'Upload Speed'.</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label className="form-check-label">
-                                <input type="checkbox" checked={this.state.isfluctuate}
-                onChange={this.onChangeFluctuate}
-               />
-                                <span  class="black-text"> Fluctuating network speed.</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label className="form-check-label">
-                                <input type="checkbox" checked={this.state.isrange}
-                onChange={this.onChangeRange}
-                />
-                                <span  class="black-text"> No wifi range at all.</span>
-                            </label>
-                        </p>
-                        <br></br>
+                    <div className="col s12 m10 l6 push-l3 push-m1">
+                        <h3 className="center-align"> Internet Issues</h3>
+                        <p className="center-align">Enter your issues here:</p>
+                        <form onSubmit={this.submitHandler} >
+                            <div class="valign-wrapper" class="card-panel">
+                                <p>
+                                    <label className="form-check-label">
+                                        <input type="checkbox" checked={this.state.isdownload}
+                                            onChange={this.onChangeDownload}
+                                        />
+                                        <span class="black-text"> Slow wifi 'Download Speed'.</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label className="form-check-label">
+                                        <input type="checkbox" checked={this.state.isupload}
+                                            onChange={this.onChangeUpload}
+                                        />
+                                        <span class="black-text"> Slow wifi 'Upload Speed'.</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label className="form-check-label">
+                                        <input type="checkbox" checked={this.state.isfluctuate}
+                                            onChange={this.onChangeFluctuate}
+                                        />
+                                        <span class="black-text"> Fluctuating network speed.</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label className="form-check-label">
+                                        <input type="checkbox" checked={this.state.isrange}
+                                            onChange={this.onChangeRange}
+                                        />
+                                        <span class="black-text"> No wifi range at all.</span>
+                                    </label>
+                                </p>
+                                <br></br>
 
-                        <p><h6>Any specific Problem. [Optional]</h6></p>
-                        <div className="row section">
-                            
-                                <div className="row">
-                                    <div className="input-field col s12 section">
-                                    <input id="specific" type="text" value={this.specific} name='specific' onChange={this.changeHandler} className="validate"></input>
-                            
-                                               
-                            <label for="specific">Write your issue here</label>
+                                <p><h6>Any specific Problem. [Optional]</h6></p>
+                                <div className="row section">
+
+                                    <div className="row">
+                                        <div className="input-field col s12 section">
+                                            <input id="specific" type="text" value={this.specific} name='specific' onChange={this.changeHandler} className="validate"></input>
+
+
+                                            <label for="specific">Write your issue here</label>
+                                        </div>
                                     </div>
                                 </div>
-                        </div>
-                        <div className="center">
-                        <button className="btn-small">Submit</button>
+                                <div className="center">
+                                    <button className="btn-small">Submit</button>
+                                </div>
                             </div>
+
+                        </form>
                     </div>
-                    
-                    </form>
-                    </div>
-                    </div>
+                </div>
             </div>
         )
     }
