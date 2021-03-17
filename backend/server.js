@@ -20,15 +20,13 @@ mongoose.connect(uri,{useNewUrlParser: true, useCreateIndex: true}
 
     const supportRouter = require('./routes/support.route');
     const laundaryRouter = require('./routes/laundary.route');
-    // const crimetypeRouter = require('./routes/crimetypes');
-    // const officerRouter = require('./routes/officers');
-    // const complaintRouter = require('./routes/complaints');
-
+    const internetRouter = require('./routes/internet.route');
+    const housekeepingRouter = require('./routes/housekeeping.route')
+    
     app.use('/support', supportRouter);
     app.use('/laundary', laundaryRouter);
-    // app.use('/crimetypes', crimetypeRouter);
-    // app.use('/officers', officerRouter);
-    // app.use('/complaints',complaintRouter)
+    app.use('/internet', internetRouter);
+    app.use('/housekeeping', housekeepingRouter);
         
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

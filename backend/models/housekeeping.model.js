@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 
 const housekeepingSchema = new Schema({
 
-  userId:{type: Number, required: true, unique: true}, 
+  userId:{type: String, required: true}, 
+  data: {type: String, required: false},
+  text: {type: String, required: false},
   status: {type: String, required: true},
   text: {type: String, required: false},  
   data: {type: String, required: false},

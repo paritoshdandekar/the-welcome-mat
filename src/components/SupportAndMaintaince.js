@@ -91,8 +91,8 @@ class SupportandMaintaince extends Component {
         // };
 
         const Support ={
-            userId: this.state.userId,
-            status: this.state.status,
+            userId: "user2",
+            status: "Recieved",
             data: this.state.data,
             furtherdetails: this.state.furtherdetails,
             }
@@ -100,7 +100,7 @@ class SupportandMaintaince extends Component {
         axios.post('http://localhost:5000/support/add', Support)
             .then(res => console.log(res.data));
 
-        console.log(this.state.data);
+        console.log(Support);
         alert(`${this.state.furtherdetails}`)
         this.setState = {
             furtherdetails: '',
@@ -124,7 +124,7 @@ class SupportandMaintaince extends Component {
                     <p className="center-align">Enter the type of Electrical maintenance you need:</p>
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form onSubmit={this.submitHandler} >
-                            <div class="valign-wrapper" class="card-panel" >
+                            <div className="valign-wrapper" className="card-panel" >
                                 <p>
                                     <label className="form-check-label">
                                         <input type="checkbox"
