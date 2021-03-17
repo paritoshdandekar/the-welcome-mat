@@ -76,11 +76,8 @@ class Housekeeping extends Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-  submitHandler = e => {
-  
-
-
-    let arr = [];
+    submitHandler = e => {
+      let arr = [];
     for (var key in this.state) {
       if (this.state[key] === true) {
         arr.push(key);
@@ -95,30 +92,30 @@ class Housekeeping extends Component {
     //console.log(this.state.data);
     alert(`${this.state.text}`)
 
-
-
-
-    e.preventDefault();
-
-    const Housekeeping = {
-      
-      text: this.state.text,
-      status: this.state.status,
+    const HouseKeeping = {
+      userId: "userHK",
       data: this.state.data,
+      text: this.state.text,
+      status: "Recieved"
 
     }
 
-    console.log(Housekeeping);
-    axios.post('http://localhost:5000/housekeeping/add', Housekeeping)
+    console.log(HouseKeeping);
+    axios.post('http://localhost:5000/housekeeping/add', HouseKeeping)
       .then(res => console.log(res.data));
     this.setState({
-
+      userId:null,
       text: '',
       status: '',
       data: '',
-
+      Sweepmop: false,
+      bed: false,
+      linenchange: false,
+      toiletaries: false,
+      other: false,
+      garbage: false,
+      cleaningtoilet: false
     })
-
   }
   render() {
     return (

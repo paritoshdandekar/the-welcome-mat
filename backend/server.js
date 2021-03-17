@@ -18,17 +18,15 @@ mongoose.connect(uri,{useNewUrlParser: true, useCreateIndex: true}
         console.log("MongoDB database connection established successfully");
     })
 
-    // const criminalsRouter = require('./routes/criminals');
-    // const usersRouter = require('./routes/users');
-    // const crimetypeRouter = require('./routes/crimetypes');
-    // const officerRouter = require('./routes/officers');
-    // const complaintRouter = require('./routes/complaints');
-
-    // app.use('/criminals', criminalsRouter);
-    // app.use('/users', usersRouter);
-    // app.use('/crimetypes', crimetypeRouter);
-    // app.use('/officers', officerRouter);
-    // app.use('/complaints',complaintRouter)
+    const supportRouter = require('./routes/support.route');
+    const laundaryRouter = require('./routes/laundary.route');
+    const internetRouter = require('./routes/internet.route');
+    const housekeepingRouter = require('./routes/housekeeping.route')
+    
+    app.use('/support', supportRouter);
+    app.use('/laundary', laundaryRouter);
+    app.use('/internet', internetRouter);
+    app.use('/housekeeping', housekeepingRouter);
         
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

@@ -9,14 +9,15 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
 
-
   const userId= req.body.userId;
   const furtherdetails = req.body.furtherdetails;
   const status=req.body.status;
   const data= req.body.data;
-  const newSupport = new Support({userId,furtherdetails,status,data});
+  const newSupport = new Support({userId,status,data,furtherdetails});
 
   newSupport.save()
     .then(() => res.json('Support query added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+module.exports = router;
