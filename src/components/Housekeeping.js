@@ -76,21 +76,49 @@ class Housekeeping extends Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-    submitHandler = e => {
-      let arr = [];
-      for (var key in this.state) {
-        if (this.state[key] === true) {
-          arr.push(key);
-        }
+  submitHandler = e => {
+  
+
+
+    let arr = [];
+    for (var key in this.state) {
+      if (this.state[key] === true) {
+        arr.push(key);
       }
-    
+    }
+
 
     this.state.data = arr.toString();
     // this.state.data = {
     //     check: arr.toString()
     // };
-    console.log(this.state.data);
+    //console.log(this.state.data);
     alert(`${this.state.text}`)
+
+
+
+
+    e.preventDefault();
+
+    const Housekeeping = {
+      
+      text: this.state.text,
+      status: this.state.status,
+      data: this.state.data,
+
+    }
+
+    console.log(Housekeeping);
+    axios.post('http://localhost:5000/housekeeping/add', Housekeeping)
+      .then(res => console.log(res.data));
+    this.setState({
+
+      text: '',
+      status: '',
+      data: '',
+
+    })
+
   }
   render() {
     return (
