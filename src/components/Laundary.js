@@ -64,12 +64,12 @@ class Laundary extends Component {
 
         return (
             <div className="container section z-depth-5 blue-grey lighten-5" >
-                <h2 className="center-align">Laundary</h2>
-                <div className=" row">
+                <div class="row" >
+                    <h3 className="center-align"> Laundry </h3>
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form onSubmit={this.submitHandler} action="#" >
                             {/* no. of cloths */}
-
+                        <div class="valign-wrapper" class="card-panel " >
                             <div className="input-field section">
                                 <input id="clothCount" type="number" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
                                 <label for="clothCount">Number of cloths</label>
@@ -104,6 +104,7 @@ class Laundary extends Component {
                             {/* submit */}
                             <div className="center">
                                 <button className="btn-small">Submit</button>
+                            </div>
                             </div>
                         </form>
                     </div>
