@@ -76,7 +76,8 @@ class Housekeeping extends Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-    submitHandler = e => {
+    
+  submitHandler = e => {
       let arr = [];
     for (var key in this.state) {
       if (this.state[key] === true) {
@@ -90,19 +91,21 @@ class Housekeeping extends Component {
     //     check: arr.toString()
     // };
     //console.log(this.state.data);
-    alert(`${this.state.text}`)
+    
 
     const HouseKeeping = {
-      userId: "userHK",
+      userId: "userHKK",
       data: this.state.data,
       text: this.state.text,
       status: "Recieved"
 
     }
 
-    console.log(HouseKeeping);
+    
     axios.post('http://localhost:5000/housekeeping/add', HouseKeeping)
       .then(res => console.log(res.data));
+      console.log(HouseKeeping);
+      alert(`${this.state.text}`)
     this.setState({
       userId:null,
       text: '',

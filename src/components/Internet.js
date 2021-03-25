@@ -71,14 +71,14 @@ class Internet extends Component {
         const internet = {
             userId: "userIn",
             specific: this.state.specific,
-            status: this.state.status,
+            status: "Recieved",
             data: this.state.data
             
         }
-
+        console.log(internet);
         axios.post('http://localhost:5000/internet/add', internet)
             .then(res => console.log(res.data));
-        //console.log(this.state.data);
+        
         alert(`${this.state.specific}` + "  Issues registered Successfully")
         this.setState = {
             userId: '',

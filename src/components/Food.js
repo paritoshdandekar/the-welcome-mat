@@ -45,7 +45,8 @@ class Food extends Component {
 
     }
     onAlert() {
-        alert(`${this.state.food_name} ${this.state.food_price}`)
+        // alert(`${this.state.food_name} ${this.state.food_price}`)
+        alert("Your food has been ordered.")
     }
     render() {
         return (
@@ -68,7 +69,7 @@ class Food extends Component {
                                         <i className="material-icons circle">emoji_food_beverage</i>
                                         <span>{menu.name}</span>
                                         <p>{menu.price}</p>
-                                        <a href="#!" className="secondary-content"><button className="btn-small">Order</button></a>
+                                        <button className="btn-small secondary-content" onClick={this.onAlert}>Order</button>
                                     </li>)}
                                 </ul>
                             </div>
