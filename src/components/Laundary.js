@@ -71,7 +71,7 @@ class Laundary extends Component {
                             {/* no. of cloths */}
                             <div class="valign-wrapper" class="card-panel">
                                 <div className="input-field section">
-                                    <input id="clothCount" type="number" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
+                                    <input id="clothCount" type="number" min="0" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
                                     <label for="clothCount">Number of cloths</label>
                                 </div>
 
