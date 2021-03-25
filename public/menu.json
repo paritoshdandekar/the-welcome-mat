@@ -2,26 +2,26 @@
     {
         "id":1,
         "name": "Aloo Paratha",
-        "price": 60
+        "price": "₹ 60"
     },
     {
         "id":2,
-        "name": "Aloo Paratha",
-        "price": 160
+        "name": "Upma",
+        "price": "₹ 50"
     },
     {
         "id":3,
-        "name": "Aloo Paratha",
-        "price": 20
+        "name": "Masala Dosa",
+        "price": "₹ 70"
     },
     {
         "id":4,
-        "name": "Aloo Paratha",
-        "price": 360
+        "name": "Idli",
+        "price": "₹ 40"
     },
     {
         "id":5,
-        "name": "Aloo Paratha",
-        "price": 460
+        "name": "Sambhar vada",
+        "price": "₹ 35"
     }
 ]
