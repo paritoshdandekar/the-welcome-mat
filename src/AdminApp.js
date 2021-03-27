@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Adminpanel from "./components/Adminpanel";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AdminPanel from "./components/Adminpanel";
 
 function AdminApp() {
     return (
@@ -9,6 +11,7 @@ function AdminApp() {
           <header className="App-header">
             <Navbar />
           </header>
+          <AdminPanel />
   
           <Switch>
             {/* <Route exact path="/" component={Home} />
