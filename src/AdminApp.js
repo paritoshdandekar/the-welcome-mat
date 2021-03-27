@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Adduser from "./components/admincomponent/Adduser";
+import Users from "./components/admincomponent/Users";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -9,7 +11,8 @@ function AdminApp() {
           <header className="App-header">
             <Navbar />
           </header>
-  
+         {/* <Users></Users>*/}
+         <Adduser></Adduser>
           <Switch>
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/food" component={Food} />
