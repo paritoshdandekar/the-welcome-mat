@@ -50,7 +50,8 @@ class Food extends Component {
     }
     render() {
         return (
-            <div className="container section z-depth-5 blue-grey lighten-5">
+            <div className="blue-grey lighten-5">
+                <img className="" alt="card" src="../images/veggie.jpg" />
                 <h3 className="center-align">Food Menu</h3>
                 <div className="row">
                     <div className="card col s12 m10 l6 push-l3 push-m1 ">
