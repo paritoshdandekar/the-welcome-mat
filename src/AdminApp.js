@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Adduser from "./components/admincomponent/Adduser";
-import Users from "./components/admincomponent/Users";
+import Adduser from "./components/AdminComponents/Adduser";
+import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
