@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Adminpanel from "./components/Adminpanel";
+import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Sidenav from "./components/Sidenav";
+import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css"
 
 
 import Navbar from "./components/Navbar";
-import AdminPanel from "./components/Adminpanel";
+import AdminPanel from "./components/AdminComponents/Adminpanel";
 
 function AdminApp() {
     return (
