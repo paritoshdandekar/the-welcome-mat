@@ -3,41 +3,33 @@ import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
+import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
+import M from "materialize-css";
 
 
 function AdminApp() {
-    return (
-      <Router>
-        <div className="App">
-          <div>
-          <header className="App-header">
-              <NavbarAdmin/>
-          </header>
-          </div>
-          
-          <div>
-        
-          <Switch>
-            <Route exact path="/" component={Adminpanel} />
-            <Route exact path="/adduser" component={Adduser} />
-            <Route exact path="/users" component={Users} />
-            </Switch>
-         
+  return (
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <NavbarAdmin />
+          <Sidenav/>
+        </header>
 
-          
-          <footer className="App-footer">
-            <Footer />
-          </footer>
-          </div>
-          
-          <div>
-          </div>
-        </div>
-      </Router>
-    );
-  }
-  
-  export default AdminApp;
-  
+        <Switch>
+          <Route exact path="/" component={Adminpanel} />
+          <Route exact path="/adduser" component={Adduser} />
+          <Route exact path="/users" component={Users} />
+        </Switch>
+
+        <footer className="App-footer">
+          <Footer />
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default AdminApp;
