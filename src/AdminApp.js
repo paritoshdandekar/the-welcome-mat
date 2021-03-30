@@ -3,8 +3,10 @@ import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Sidenav from "./components/AdminComponents/Sidenav";
-import "./AdminApp.css"
+import Sidenav from "./components/Sidenav";
+import "./AdminApp.css";
+import NavbarAdmin from "./components/NavbarAdmin";
+//import "./Sidenav.css"
 
 
 import Navbar from "./components/Navbar";
@@ -14,9 +16,11 @@ function AdminApp() {
     return (
       <Router>
         <div className="App">
+          <div>
           <header className="App-header">
-               <Sidenav /> 
+              <NavbarAdmin/>
           </header>
+          </div>
           
           <div>
          {/* <Users></Users>*/}
@@ -33,13 +37,19 @@ function AdminApp() {
             <Route exact path="/Order" component={OrderHistory}/>
             <Route exact path="/Profile" component={Profile}/> */}
           </Switch>
+          <div className="App">  
+          <main className="App-main">
+            <Sidenav /> 
+          </main>
+          </div>
+
           
-          <br></br>
-          
-          <footer>
+          <footer className="App-footer">
             <Footer />
           </footer>
+          </div>
           
+          <div>
           </div>
         </div>
       </Router>
