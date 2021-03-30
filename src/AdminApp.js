@@ -3,10 +3,9 @@ import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
-//import "./Sidenav.css"
+
 
 function AdminApp() {
     return (
@@ -19,25 +18,13 @@ function AdminApp() {
           </div>
           
           <div>
-         {/* <Users></Users>*/}
-         {/* <Adduser></Adduser> */}
+        
           <Switch>
-            {/* <Route exact path="/" component={Home} />
-            <Route exact path="/food" component={Food} />
-            <Route exact path="/internet" component={Internet} />
-            <Route exact path="/housekeeping" component={Housekeeping} />
-            <Route exact path="/laundary" component={Laundary} />
-            <Route exact path="/support" component={SupportandMaintaince} />
-            <Route exact path="/About" component={About}/>
-            <Route exact path="/Home" component={Home}/>
-            <Route exact path="/Order" component={OrderHistory}/>
-            <Route exact path="/Profile" component={Profile}/> */}
-          </Switch>
-          {/* <div className="App">  
-          <main className="App-main">
-            <Sidenav /> 
-          </main>
-          </div> */}
+            <Route exact path="/" component={Adminpanel} />
+            <Route exact path="/adduser" component={Adduser} />
+            <Route exact path="/users" component={Users} />
+            </Switch>
+         
 
           
           <footer className="App-footer">
