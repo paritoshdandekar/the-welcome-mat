@@ -77,10 +77,10 @@ class Food extends Component {
                                             <div className="card-image">
                                                 <img src="../images/food.jpg" />
                                             </div>
-                                            <div className="card-content caption">
+                                            <div className="card-content">
                                                 <p>{item.name}</p>
                                                 <p>{item.price}</p>
-                                                <button class="btn-floating waves-effect waves-light right"><i class="material-icons black ">add_circle_outline</i></button>
+                                                <button className="btn-floating waves-effect waves-light right"><i class="material-icons black ">add_circle_outline</i></button>
                                             </div>
                                         </div>
                                     </div>
