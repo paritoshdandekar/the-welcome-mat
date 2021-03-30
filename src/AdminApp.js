@@ -5,7 +5,7 @@ import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
 import Sidenav from "./components/Sidenav";
 import "./AdminApp.css";
-import NavbarAdmin from "./components/NavbarAdmin";
+import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 //import "./Sidenav.css"
 
 
