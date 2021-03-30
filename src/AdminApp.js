@@ -3,7 +3,7 @@ import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Sidenav from "./components/Sidenav";
+import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 //import "./Sidenav.css"

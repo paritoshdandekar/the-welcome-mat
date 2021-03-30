@@ -10,7 +10,7 @@ import Housekeeping from './components/Housekeeping';
 import About from './components/About';
 import OrderHistory from './components/OrderHistory';
 import Profile from './components/Profile';
-import Admin1 from './components/Admin1';
+
 
 
 function App() {
