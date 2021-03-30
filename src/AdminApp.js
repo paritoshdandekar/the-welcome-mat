@@ -1,15 +1,19 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Sidenav from "./components/Sidenav";
+import "./AdminApp.css"
+
+
 
 function AdminApp() {
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <Navbar />
+               <Sidenav /> 
           </header>
-  
+          
+          <div>
           <Switch>
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/food" component={Food} />
@@ -22,11 +26,14 @@ function AdminApp() {
             <Route exact path="/Order" component={OrderHistory}/>
             <Route exact path="/Profile" component={Profile}/> */}
           </Switch>
-  
-  
+          
+          <br></br>
+          
           <footer>
             <Footer />
           </footer>
+          
+          </div>
         </div>
       </Router>
     );
