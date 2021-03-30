@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import Sidenav from "./components/Sidenav";
-import "./AdminApp.css"
+import "./AdminApp.css";
+import NavbarAdmin from "./components/NavbarAdmin";
+//import "./Sidenav.css"
 
 
 
@@ -9,11 +11,12 @@ function AdminApp() {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-               <Sidenav /> 
-          </header>
-          
           <div>
+          <header className="App-header">
+              <NavbarAdmin/>
+          </header>
+          </div>
+          
           <Switch>
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/food" component={Food} />
@@ -26,13 +29,19 @@ function AdminApp() {
             <Route exact path="/Order" component={OrderHistory}/>
             <Route exact path="/Profile" component={Profile}/> */}
           </Switch>
-          
-          <br></br>
-          
-          <footer>
+          <div className="App">  
+          <main className="App-main">
+            <Sidenav /> 
+          </main>
+          </div>
+
+          <div className="App"> 
+          <footer className="App-footer">
             <Footer />
           </footer>
+          </div>
           
+          <div>
           </div>
         </div>
       </Router>
