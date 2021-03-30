@@ -17,7 +17,7 @@ export class Sidenav extends Component {
                         <li><a href="#!" >Statistics</a></li>
                         <li><a className="#!" >Change Menu</a></li>
                         <li><a className="#!" >Billing of Order History</a></li>
-                        <li><Link to="/Adminpanel">Home</Link></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><Link to="/Adduser">Add User</Link></li>
                         {/* <li><Link to="/ChangeMenu">Change Menu</Link></li> */}
                         <li><Link to="/Users">Show User</Link></li>

@@ -17,13 +17,13 @@ function AdminApp() {
           <NavbarAdmin />
           <Sidenav/>
         </header>
-
+<main>
         <Switch>
           <Route exact path="/" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
           <Route exact path="/users" component={Users} />
         </Switch>
-
+        </main>
         <footer className="App-footer">
           <Footer />
         </footer>
