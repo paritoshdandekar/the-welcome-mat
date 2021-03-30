@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Adminpanel from "./components/Adminpanel";
+import Adduser from "./components/AdminComponents/Adduser";
+import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
 import Sidenav from "./components/Sidenav";
 import "./AdminApp.css"
@@ -17,6 +19,8 @@ function AdminApp() {
           </header>
           
           <div>
+         {/* <Users></Users>*/}
+         <Adduser></Adduser>
           <Switch>
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/food" component={Food} />
