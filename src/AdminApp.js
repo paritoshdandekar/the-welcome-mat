@@ -3,14 +3,10 @@ import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Sidenav from "./components/Sidenav";
+import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 //import "./Sidenav.css"
-
-
-import Navbar from "./components/Navbar";
-import AdminPanel from "./components/AdminComponents/Adminpanel";
 
 function AdminApp() {
     return (
@@ -24,7 +20,7 @@ function AdminApp() {
           
           <div>
          {/* <Users></Users>*/}
-         <Adduser></Adduser>
+         {/* <Adduser></Adduser> */}
           <Switch>
             {/* <Route exact path="/" component={Home} />
             <Route exact path="/food" component={Food} />
@@ -37,11 +33,11 @@ function AdminApp() {
             <Route exact path="/Order" component={OrderHistory}/>
             <Route exact path="/Profile" component={Profile}/> */}
           </Switch>
-          <div className="App">  
+          {/* <div className="App">  
           <main className="App-main">
             <Sidenav /> 
           </main>
-          </div>
+          </div> */}
 
           
           <footer className="App-footer">
