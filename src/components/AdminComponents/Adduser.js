@@ -33,6 +33,10 @@ class Adduser extends Component {
             checkout: this.state.checkout,
             room: this.state.room,
         }
+        axios.post('http://localhost:5000/user/add', User)
+            .then(res => console.log(res.data));
+        console.log(User);
+        
         alert(`${this.state.username}` + `${this.state.checkin}` + `${this.state.checkout}` + `${this.state.room}` + "Added New User")
         this.setState = {
             username: '',

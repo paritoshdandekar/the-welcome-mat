@@ -14,7 +14,7 @@ class Users extends Component {
     componentDidMount() {   
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
-        axios.get('./userdata.json')
+        axios.get('http://localhost:5000/user/')
             .then(resp => {
                 this.setState({
                     users: resp.data
