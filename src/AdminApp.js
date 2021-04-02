@@ -1,39 +1,35 @@
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Adminpanel from "./components/Adminpanel";
+import Adminpanel from "./components/AdminComponents/Adminpanel";
+import Adduser from "./components/AdminComponents/Adduser";
+import Users from "./components/AdminComponents/Users";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import AdminPanel from "./components/Adminpanel";
+import Sidenav from "./components/AdminComponents/Sidenav";
+import "./AdminApp.css";
+import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
+import M from "materialize-css";
+
 
 function AdminApp() {
-    return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <Navbar />
-          </header>
-          <AdminPanel />
-  
-          <Switch>
-            {/* <Route exact path="/" component={Home} />
-            <Route exact path="/food" component={Food} />
-            <Route exact path="/internet" component={Internet} />
-            <Route exact path="/housekeeping" component={Housekeeping} />
-            <Route exact path="/laundary" component={Laundary} />
-            <Route exact path="/support" component={SupportandMaintaince} />
-            <Route exact path="/About" component={About}/>
-            <Route exact path="/Home" component={Home}/>
-            <Route exact path="/Order" component={OrderHistory}/>
-            <Route exact path="/Profile" component={Profile}/> */}
-          </Switch>
-  
-  
-          <footer>
-            <Footer />
-          </footer>
-        </div>
-      </Router>
-    );
-  }
-  
-  export default AdminApp;
-  
+  return (
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <NavbarAdmin />
+          <Sidenav/>
+        </header>
+<main>
+        <Switch>
+          <Route exact path="/" component={Adminpanel} />
+          <Route exact path="/adduser" component={Adduser} />
+          <Route exact path="/users" component={Users} />
+        </Switch>
+        </main>
+        <footer className="App-footer">
+          <Footer />
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default AdminApp;

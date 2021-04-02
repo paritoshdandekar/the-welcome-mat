@@ -130,7 +130,7 @@ class Adminpanel extends Component {
 
             <div className="section">
                 <div className="row">
-                    <div className="col s12 m6 l4">
+                    <div className="col s12 m4 l4">
                         <div className="card light-blue">
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
@@ -155,7 +155,7 @@ class Adminpanel extends Component {
                     </div>
 
 
-                    <div className="col s12 m6 l4">
+                    <div className="col s12 m4 l4">
                         <div className="card  pink accent-2">
                             <div className="card-content white-text">
                                 <span className="card-title">Revenue</span>

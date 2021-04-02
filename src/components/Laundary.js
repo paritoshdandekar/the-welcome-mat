@@ -64,8 +64,8 @@ class Laundary extends Component {
 
         return (
             <div className="container section z-depth-5 blue-grey lighten-5" >
-                <h2 className="center-align">Laundary</h2>
-                <div className=" row">
+                <div class="row" >
+                    <h3 className="center-align"> Laundry </h3>
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form onSubmit={this.submitHandler} action="#" >
                             {/* no. of cloths */}
@@ -106,10 +106,13 @@ class Laundary extends Component {
                                     <button className="btn-small">Submit</button>
                                 </div>
                             </div>
+                            
+                            
                         </form>
-                    </div>
                 </div>
             </div>
+            </div>
+
         )
     }
 }
