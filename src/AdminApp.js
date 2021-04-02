@@ -17,7 +17,7 @@ function AdminApp() {
           <NavbarAdmin />
           <Sidenav/>
         </header>
-<main>
+        <main>
         <Switch>
           <Route exact path="/" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
