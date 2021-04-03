@@ -27,6 +27,8 @@ class Food extends Component {
                     menus: resp.data
                 })
             })
+        var elems1 = document.querySelectorAll('.slider');
+        M.Slider.init(elems1, {});
 
     }
 
@@ -50,27 +52,46 @@ class Food extends Component {
     }
     render() {
         return (
-            <div className="blue-grey lighten-5">
-                <img className="" alt="card" src="../images/veggie.jpg" />
-
-
-
-                <h3 className="center-align">Food Menu</h3>
-
+            <div >
+                <div className="slider">
+                    <ul className="slides">
+                        <li>
+                            <img src="../images/Food1.jpg" />
+                            <div className="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../images/Food3.jpg" />
+                            <div className="caption center-align">
+                                <h3>Left Aligned Caption</h3>
+                                <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="../images/Food2.jpg" />
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <div class="card">
                     <div class="card-content">
 
                     </div>
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
-                            <li class="tab"><a href="#test1">Breakfast</a></li>
-                            <li class="tab"><a class="active" href="#test2">Lunch</a></li>
+                            <li class="tab"><a class="active" href="#test1">Breakfast</a></li>
+                            <li class="tab"><a href="#test2">Lunch</a></li>
                             <li class="tab"><a href="#test3">Dinner</a></li>
                         </ul>
                     </div>
                     <div class="card-content grey lighten-4">
                         <div id="test1">
-                        <div className="row">
+                            <div className="row">
                                 {this.state.menus.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
@@ -78,9 +99,10 @@ class Food extends Component {
                                                 <img src="../images/food.jpg" />
                                             </div>
                                             <div className="card-content">
-                                                <p>{item.name}</p>
+                                                <span>{item.name}
+                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                </span>
                                                 <p>{item.price}</p>
-                                                <button className="btn-floating waves-effect waves-light right"><i class="material-icons black ">add_circle_outline</i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +110,7 @@ class Food extends Component {
                             </div>
                         </div>
                         <div id="test2">
-                        <div className="row">
+                            <div className="row">
                                 {this.state.menus.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
@@ -96,9 +118,10 @@ class Food extends Component {
                                                 <img src="../images/food.jpg" />
                                             </div>
                                             <div className="card-content caption">
-                                                <p>{item.name}</p>
+                                                <span>{item.name}
+                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                </span>
                                                 <p>{item.price}</p>
-                                                <button class="btn-floating waves-effect waves-light right"><i class="material-icons black ">add_circle_outline</i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -114,9 +137,10 @@ class Food extends Component {
                                                 <img src="../images/food.jpg" />
                                             </div>
                                             <div className="card-content caption">
-                                                <p>{item.name}</p>
+                                                <span>{item.name}
+                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                </span>
                                                 <p>{item.price}</p>
-                                                <button class="btn-floating waves-effect waves-light right"><i class="material-icons black ">add_circle_outline</i></button>
                                             </div>
                                         </div>
                                     </div>
