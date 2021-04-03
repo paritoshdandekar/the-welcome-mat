@@ -13,14 +13,14 @@ export class Sidenav extends Component {
     render() {
         return (
             <div> 
-                <ul id="mobile-demo" className="sidenav sidenav-fixed">
+                <ul id="mobile-demo" className="sidenav sidenav-fixed blue-grey darken-4">
                     <nav className="cyan darken-4">
-                        <div className="nav-wrapper container" class="navText" >
-                            <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
+                        <div className="nav-wrapper container" >
+                            <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" , fontSize:"30px"}}>The Welcome Mat</Link>
                         </div>
                     </nav>
                     <div className="side">
-                    <div className="blue-grey darken-4">
+                    
                     <li><Link to="/" className="white-text"><i class="material-icons white-text">home</i>Home</Link></li>
                     <li><a href="#!" className="white-text"> <i class="material-icons white-text">show_chart</i>Statistics</a></li>
                     <li><a className="#!"  className="white-text"><i class="material-icons white-text">restaurant_menu</i>Change Menu</a></li>
@@ -31,7 +31,7 @@ export class Sidenav extends Component {
                         <li><Link to="/Statistics"  className="white-text">Statistics</Link></li> */}
                     {/* <li><Link to="/ChangeMenu"  className="white-text">Change Menu</Link></li> */}
                     </div>
-                    </div>
+                    
                 </ul>
 
             </div >

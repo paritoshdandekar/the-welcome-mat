@@ -13,18 +13,18 @@ function AdminApp() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
+        <header className="adminheader">
           <NavbarAdmin />
           <Sidenav/>
         </header>
-        <main>
+        <main className="adminmain">
         <Switch>
           <Route exact path="/" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
           <Route exact path="/users" component={Users} />
         </Switch>
         </main>
-        <footer className="App-footer">
+        <footer className="adminfooter">
           <Footer />
         </footer>
       </div>
