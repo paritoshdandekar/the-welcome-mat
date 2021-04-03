@@ -3,6 +3,11 @@ import axios from 'axios';
 import M from 'materialize-css';
 
 class Adminpanel extends Component {
+    intervalID;
+
+    state = {
+        data: [],
+    }
     constructor(props) {
         super(props)
 
@@ -12,6 +17,23 @@ class Adminpanel extends Component {
             houseKeepingOrders: [],
             supportOrders: [],
             internetOrders: [],
+            countc: 0,
+            countpr1: 0,
+            countcr1: 0,
+
+            countpr2: 0,
+            countcr2: 0,
+
+            countpr3: 0,
+            countcr3: 0,
+
+            countpr4: 0,
+            countcr4: 0,
+
+            countpr5: 0,
+            countcr5: 0,
+
+            countrev: 0,
 
         }
 
@@ -20,6 +42,8 @@ class Adminpanel extends Component {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
 
+        this.getData();
+        this.intervalID = setInterval(this.getData.bind(this), 1000);
         // axios.get('./menu.json')
         //     .then(resp => {
         //         this.setState({
@@ -28,49 +52,132 @@ class Adminpanel extends Component {
         //     })
 
 
+        // axios.get('http://localhost:5000/laundary/')
+        //     .then(resp => {
+        //         this.setState({
+        //             laundryOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/housekeeping/')
+        //     .then(resp => {
+        //         this.setState({
+        //             houseKeepingOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/support/')
+        //     .then(resp => {
+        //         this.setState({
+        //             supportOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/internet/')
+        //     .then(resp => {
+        //         this.setState({
+        //             internetOrders: resp.data
+        //         })
+        //     });
+
+    }
+
+    getData = () => {
+        // do something to fetch data from a remote API.
         axios.get('http://localhost:5000/laundary/')
             .then(resp => {
+                //const cust = resp.data;
+                const countc = resp.data.length;
+                const cust = resp.data;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr4 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr4 = compreq1.length;
+
                 this.setState({
-                    laundryOrders: resp.data
+                    laundryOrders: resp.data,
+                    cust,
+                    compreq,
+                    countcr4,
+                    compreq1,
+                    countpr4
+
                 })
             });
 
-        axios.get('http://localhost:5000/housekeeping/')
+            axios.get('http://localhost:5000/housekeeping/')
             .then(resp => {
+                const cust = resp.data;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr1 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr1 = compreq1.length;
                 this.setState({
-                    houseKeepingOrders: resp.data
+                    houseKeepingOrders: resp.data,
+                    cust,
+                    compreq,
+                    countcr1,
+                    compreq1,
+                    countpr1
                 })
             });
 
         axios.get('http://localhost:5000/support/')
             .then(resp => {
+                const cust = resp.data;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr2 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr2 = compreq1.length;
                 this.setState({
-                    supportOrders: resp.data
+                    supportOrders: resp.data,
+                    cust,
+                    compreq,
+                    countcr2,
+                    compreq1,
+                    countpr2
+
                 })
             });
 
         axios.get('http://localhost:5000/internet/')
             .then(resp => {
+                const cust = resp.data;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr3 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr3 = compreq1.length;
                 this.setState({
-                    internetOrders: resp.data
+                    internetOrders: resp.data,
+                    cust,
+                    compreq,
+                    countcr3,
+                    compreq1,
+                    countpr3
                 })
             });
-
+        
     }
 
+    componentWillUnmount() {
+        // clearTimeout(this.intervalID);
+        clearInterval(this.intervalID);
+    }
 
+    
 
 
     render() {
         return (
 
-            <div className="section">
+            <div className="section" >
                 <div className="row">
                     <div className="col s12 m4 l4">
                         <div className="card light-blue">
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
-                                <p>Customers served till date:<br></br><br></br><br></br></p>
+                                <p>Customers served till date:<br></br><br></br></p>
+                                <p>{this.state.countc}</p>
                             </div>
                         </div>
                     </div>
@@ -80,8 +187,8 @@ class Adminpanel extends Component {
                                 <span className="card-title">Requests</span>
                                 <p>
                                     <ul>
-                                        <li>Completed requests:</li>
-                                        <li>Pending requests:</li>
+                                        <li>Completed requests:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4}</li>
+                                        <li>Pending requests:{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4}</li>
                                     </ul>
                                 </p>
                             </div>
@@ -166,8 +273,8 @@ class Adminpanel extends Component {
                                             <td></td>
                                             <td >{item.laundaryTask[0]},{item.laundaryTask[1]},{item.laundaryTask[2]}</td>
                                             <td>{item.laundaryclothCount}</td>
-                                            <td>{item.createdAt.substring(11,19)}</td>
-                                            <td>{item.createdAt.substring(0,10)}</td>
+                                            <td>{item.createdAt.substring(11, 19)}</td>
+                                            <td>{item.createdAt.substring(0, 10)}</td>
                                             <td>{item.status}</td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
@@ -195,8 +302,8 @@ class Adminpanel extends Component {
                                             <td></td>
                                             <td></td>
                                             <td >{item.data}</td>
-                                            <td>{item.createdAt.substring(11,19)}</td>
-                                            <td>{item.createdAt.substring(0,10)}</td>
+                                            <td>{item.createdAt.substring(11, 19)}</td>
+                                            <td>{item.createdAt.substring(0, 10)}</td>
                                             <td>{item.status}</td>
                                             {/* <td>{item.time}</td> */}
 
@@ -225,8 +332,8 @@ class Adminpanel extends Component {
                                             <td></td>
                                             <td></td>
                                             <td >{item.data}</td>
-                                            <td>{item.createdAt.substring(11,19)}</td>
-                                            <td>{item.createdAt.substring(0,10)}</td>
+                                            <td>{item.createdAt.substring(11, 19)}</td>
+                                            <td>{item.createdAt.substring(0, 10)}</td>
                                             <td>{item.status}</td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
@@ -254,8 +361,8 @@ class Adminpanel extends Component {
                                             <td>laundary</td>
                                             <td>asasa</td>
                                             <td >{item.data}</td>
-                                            <td>{item.createdAt.substring(11,19)}</td>
-                                            <td>{item.createdAt.substring(0,10)}</td>
+                                            <td>{item.createdAt.substring(11, 19)}</td>
+                                            <td>{item.createdAt.substring(0, 10)}</td>
                                             <td>{item.status}</td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
