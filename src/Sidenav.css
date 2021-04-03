@@ -1,7 +1,12 @@
 .menu-bars {
-    background: rgb(102, 176, 201);
+    color: cadetblue;
+    height: 100px;
   }
 
-  .sidenav {
-    background-color: #060b26;
+  .side {
+    display: flex;
+    height: 10vh;
   }
+
+
+  

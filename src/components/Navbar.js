@@ -13,7 +13,7 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <div className="row">
+                
                     <div>
                         <div className="navbar">
                             <nav className="cyan darken-4">
@@ -39,7 +39,7 @@ class Navbar extends Component {
                 </div>
 
 
-            </div>
+            
         )
     }
 }

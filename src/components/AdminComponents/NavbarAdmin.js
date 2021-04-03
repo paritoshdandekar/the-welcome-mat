@@ -9,7 +9,6 @@ export class NavbarAdmin extends Component {
                 <div className="navbar navbar-fixed">
                     <nav className="cyan darken-4">
                         <div className="nav-wrapper container" >
-                            <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
                             <a href="#" data-target="mobile-demo" className="sidenav-trigger "><i className="material-icons">menu</i></a>
                         </div>
                     </nav>  
