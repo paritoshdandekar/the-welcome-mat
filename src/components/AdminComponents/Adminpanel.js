@@ -3,6 +3,11 @@ import axios from 'axios';
 import M from 'materialize-css';
 
 class Adminpanel extends Component {
+    intervalID;
+
+    state = {
+        data: [],
+    }
     constructor(props) {
         super(props)
 
@@ -30,7 +35,6 @@ class Adminpanel extends Component {
 
             countrev: 0,
 
-
         }
 
     }
@@ -38,6 +42,8 @@ class Adminpanel extends Component {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
 
+        this.getData();
+        this.intervalID = setInterval(this.getData.bind(this), 1000);
         // axios.get('./menu.json')
         //     .then(resp => {
         //         this.setState({
@@ -46,15 +52,47 @@ class Adminpanel extends Component {
         //     })
 
 
+        // axios.get('http://localhost:5000/laundary/')
+        //     .then(resp => {
+        //         this.setState({
+        //             laundryOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/housekeeping/')
+        //     .then(resp => {
+        //         this.setState({
+        //             houseKeepingOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/support/')
+        //     .then(resp => {
+        //         this.setState({
+        //             supportOrders: resp.data
+        //         })
+        //     });
+
+        // axios.get('http://localhost:5000/internet/')
+        //     .then(resp => {
+        //         this.setState({
+        //             internetOrders: resp.data
+        //         })
+        //     });
+
+    }
+
+    getData = () => {
+        // do something to fetch data from a remote API.
         axios.get('http://localhost:5000/laundary/')
             .then(resp => {
                 //const cust = resp.data;
                 const countc = resp.data.length;
                 const cust = resp.data;
-                const compreq = cust.filter(resp=>resp.status==='Recieved');
-                const countcr4=compreq.length;
-                const compreq1 = cust.filter(resp=>resp.status==='Pending');
-                const countpr4=compreq1.length;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr4 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr4 = compreq1.length;
 
                 this.setState({
                     laundryOrders: resp.data,
@@ -67,13 +105,13 @@ class Adminpanel extends Component {
                 })
             });
 
-        axios.get('http://localhost:5000/housekeeping/')
+            axios.get('http://localhost:5000/housekeeping/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp=>resp.status==='Recieved');
-                const countcr1=compreq.length;
-                const compreq1 = cust.filter(resp=>resp.status==='Pending');
-                const countpr1=compreq1.length;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr1 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr1 = compreq1.length;
                 this.setState({
                     houseKeepingOrders: resp.data,
                     cust,
@@ -87,10 +125,10 @@ class Adminpanel extends Component {
         axios.get('http://localhost:5000/support/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp=>resp.status==='Recieved');
-                const countcr2=compreq.length;
-                const compreq1 = cust.filter(resp=>resp.status==='Pending');
-                const countpr2=compreq1.length;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr2 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr2 = compreq1.length;
                 this.setState({
                     supportOrders: resp.data,
                     cust,
@@ -98,17 +136,16 @@ class Adminpanel extends Component {
                     countcr2,
                     compreq1,
                     countpr2
-                    
                 })
             });
 
         axios.get('http://localhost:5000/internet/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp=>resp.status==='Recieved');
-                const countcr3=compreq.length;
-                const compreq1 = cust.filter(resp=>resp.status==='Pending');
-                const countpr3=compreq1.length;
+                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const countcr3 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr3 = compreq1.length;
                 this.setState({
                     internetOrders: resp.data,
                     cust,
@@ -118,17 +155,21 @@ class Adminpanel extends Component {
                     countpr3
                 })
             });
-
-       
+        
     }
 
+    componentWillUnmount() {
+        // clearTimeout(this.intervalID);
+        clearInterval(this.intervalID);
+    }
 
+    
 
 
     render() {
         return (
 
-            <div className="section">
+            <div className="section" >
                 <div className="row">
                     <div className="col s12 m4 l4">
                         <div className="card light-blue">
@@ -145,8 +186,8 @@ class Adminpanel extends Component {
                                 <span className="card-title">Requests</span>
                                 <p>
                                     <ul>
-                                        <li>Completed requests:{this.state.countcr1+this.state.countcr2+this.state.countcr3+this.state.countcr4}</li>
-                                        <li>Pending requests:{this.state.countpr1+this.state.countpr2+this.state.countpr3+this.state.countpr4}</li>
+                                        <li>Completed requests:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4}</li>
+                                        <li>Pending requests:{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4}</li>
                                     </ul>
                                 </p>
                             </div>
