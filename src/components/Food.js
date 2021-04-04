@@ -23,6 +23,8 @@ class Food extends Component {
         M.Collapsible.init(elems, {});
         axios.get('./menu.json')
             .then(resp => {
+                const a=resp.data;
+                const lena=resp.data.length;
                 this.setState({
                     menus: resp.data
                 })
@@ -172,6 +174,7 @@ class Food extends Component {
                                 </ul>
                             </div>
                             <div id="test5">
+                            <p> { this.state.longeur}</p>
                                 <ul className="collection">
                                     <li className="collection-item avatar">
                                         <i className="material-icons circle">fastfood</i>
