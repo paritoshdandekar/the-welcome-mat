@@ -11,7 +11,8 @@ class Food extends Component {
             menu_name:null ,
             menu_type: null,
             menu_price:0,
-            menu_img_link: null
+            menu_img_link: null,
+            menus: []
         }
     }
 
@@ -40,6 +41,15 @@ class Food extends Component {
             type1: null
         }
     }
+
+    deleteExercise = id => {
+        axios.delete('http://localhost:5000/menu/'+id)
+          .then(response => { console.log(response.data)});
+    
+        this.setState({
+          menus: this.state.menus.filter(el => el._id !== id)
+        })
+      }
 
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
@@ -145,7 +155,7 @@ class Food extends Component {
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">delete</i></button>
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={this.deleteExercise(item._id)}><i class="material-icons black right ">delete</i></button>
                                                 </span>
                                                 <p>{item.price}</p>
                                             </div>
