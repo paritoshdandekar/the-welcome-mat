@@ -3,11 +3,8 @@ import axios from 'axios';
 import M from 'materialize-css';
 
 class Adminpanel extends Component {
-    intervalID;
 
-    state = {
-        data: [],
-    }
+
     constructor(props) {
         super(props)
 
@@ -35,135 +32,127 @@ class Adminpanel extends Component {
 
             countrev: 0,
 
+
         }
 
+
+    }
+    intervalID;
+
+    state = {
+        data: [],
     }
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
-
         this.getData();
-        this.intervalID = setInterval(this.getData.bind(this), 1000);
-        // axios.get('./menu.json')
-        //     .then(resp => {
-        //         this.setState({
-        //             menus: resp.data
-        //         })
-        //     })
+        //this.intervalID = setInterval(this.getData.bind(this), 1000);
+        // setInterval(() => { }, 1000);
+
+        // this.interval = setInterval(() => {this.getData}, 1000);
+
+        
 
 
-        // axios.get('http://localhost:5000/laundary/')
-        //     .then(resp => {
-        //         this.setState({
-        //             laundryOrders: resp.data
-        //         })
-        //     });
+
 
         // axios.get('http://localhost:5000/housekeeping/')
         //     .then(resp => {
+        //         const cust = resp.data;
+        //         const compreq = cust.filter(resp => resp.status === 'Recieved');
+        //         const countcr1 = compreq.length;
+        //         const compreq1 = cust.filter(resp => resp.status === 'Pending');
+        //         const countpr1 = compreq1.length;
         //         this.setState({
-        //             houseKeepingOrders: resp.data
+        //             houseKeepingOrders: resp.data,
+        //             cust,
+        //             compreq,
+        //             countcr1,
+        //             compreq1,
+        //             countpr1
         //         })
         //     });
 
         // axios.get('http://localhost:5000/support/')
         //     .then(resp => {
+        //         const cust = resp.data;
+        //         const compreq = cust.filter(resp => resp.status === 'Recieved');
+        //         const countcr2 = compreq.length;
+        //         const compreq1 = cust.filter(resp => resp.status === 'Pending');
+        //         const countpr2 = compreq1.length;
         //         this.setState({
-        //             supportOrders: resp.data
+        //             supportOrders: resp.data,
+        //             cust,
+        //             compreq,
+        //             countcr2,
+        //             compreq1,
+        //             countpr2
+
         //         })
         //     });
 
         // axios.get('http://localhost:5000/internet/')
         //     .then(resp => {
+        //         const cust = resp.data;
+        //         const compreq = cust.filter(resp => resp.status === 'Recieved');
+        //         const countcr3 = compreq.length;
+        //         const compreq1 = cust.filter(resp => resp.status === 'Pending');
+        //         const countpr3 = compreq1.length;
         //         this.setState({
-        //             internetOrders: resp.data
+        //             internetOrders: resp.data,
+        //             cust,
+        //             compreq,
+        //             countcr3,
+        //             compreq1,
+        //             countpr3
         //         })
         //     });
 
-    }
 
+    }
     getData = () => {
         // do something to fetch data from a remote API.
-        axios.get('http://localhost:5000/laundary/')
-            .then(resp => {
-                //const cust = resp.data;
-                const countc = resp.data.length;
-                const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
-                const countcr4 = compreq.length;
-                const compreq1 = cust.filter(resp => resp.status === 'Pending');
-                const countpr4 = compreq1.length;
+        // axios.get('http://localhost:5000/laundary/')
+        //     .then(resp => {
+        //         //const cust = resp.data;
+        //         const countc = resp.data.length;
+        //         const cust = resp.data;
+        //         const compreq = cust.filter(resp => resp.status === 'Recieved');
+        //         const countcr4 = compreq.length;
+        //         const compreq1 = cust.filter(resp => resp.status === 'Pending');
+        //         const countpr4 = compreq1.length;
 
-                this.setState({
-                    laundryOrders: resp.data,
-                    cust,
-                    compreq,
-                    countcr4,
-                    compreq1,
-                    countpr4
+        //         this.setState({
+        //             laundryOrders: resp.data,
+        //             cust,
+        //             compreq,
+        //             countcr4,
+        //             compreq1,
+        //             countpr4
 
-                })
-            });
+        //         })
+        //     })
 
-            axios.get('http://localhost:5000/housekeeping/')
-            .then(resp => {
-                const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
-                const countcr1 = compreq.length;
-                const compreq1 = cust.filter(resp => resp.status === 'Pending');
-                const countpr1 = compreq1.length;
-                this.setState({
-                    houseKeepingOrders: resp.data,
-                    cust,
-                    compreq,
-                    countcr1,
-                    compreq1,
-                    countpr1
-                })
-            });
-
-        axios.get('http://localhost:5000/support/')
-            .then(resp => {
-                const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
-                const countcr2 = compreq.length;
-                const compreq1 = cust.filter(resp => resp.status === 'Pending');
-                const countpr2 = compreq1.length;
-                this.setState({
-                    supportOrders: resp.data,
-                    cust,
-                    compreq,
-                    countcr2,
-                    compreq1,
-                    countpr2
-                })
-            });
-
-        axios.get('http://localhost:5000/internet/')
-            .then(resp => {
-                const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
-                const countcr3 = compreq.length;
-                const compreq1 = cust.filter(resp => resp.status === 'Pending');
-                const countpr3 = compreq1.length;
-                this.setState({
-                    internetOrders: resp.data,
-                    cust,
-                    compreq,
-                    countcr3,
-                    compreq1,
-                    countpr3
-                })
-            });
+        //     .then(data => {
+        //         this.setState({ data: [...data] });
+        //         // call getData() again in 5 seconds
+        //         this.intervalID = setTimeout(this.getData.bind(this), 1000);
+        //       });
         
     }
 
     componentWillUnmount() {
-        // clearTimeout(this.intervalID);
-        clearInterval(this.intervalID);
+        clearTimeout(this.intervalID);
     }
 
-    
+    // stateChange = (f) => {
+    //     const {name, value} = f.target;
+    //     this.setState({
+    //       [name]: value,
+    //     });
+    //   }
+
+
 
 
     render() {
@@ -171,7 +160,7 @@ class Adminpanel extends Component {
 
             <div className="section" >
                 <div className="row">
-                    <div className="col s12 m4 l4">
+                    <div className="col s12 m6 l4">
                         <div className="card light-blue">
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
@@ -196,7 +185,7 @@ class Adminpanel extends Component {
                     </div>
 
 
-                    <div className="col s12 m4 l4">
+                    <div className="col s12 m6 l4">
                         <div className="card  pink accent-2">
                             <div className="card-content white-text">
                                 <span className="card-title">Revenue</span>
