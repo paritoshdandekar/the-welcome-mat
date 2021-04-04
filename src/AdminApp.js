@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Adminpanel from "./components/AdminComponents/Adminpanel";
 import Adduser from "./components/AdminComponents/Adduser";
 import Users from "./components/AdminComponents/Users";
+import ChangeMenu from "./components/AdminComponents/ChangeMenu";
 import Footer from "./components/Footer";
 import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
@@ -22,6 +23,7 @@ function AdminApp() {
           <Route exact path="/" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
           <Route exact path="/users" component={Users} />
+          <Route exact path="/menu" component={ChangeMenu}/>
         </Switch>
         </main>
         <footer className="adminfooter">
