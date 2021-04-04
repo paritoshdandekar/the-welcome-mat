@@ -3,7 +3,7 @@ import M from 'materialize-css';
 import axios from 'axios';
 // import './ChangeMenu.css';
 
-class Food extends Component {
+class ChangeMenu extends Component {
     constructor(props) {
         super(props)
 
@@ -209,4 +209,4 @@ class Food extends Component {
     }
 }
 
-export default Food
+export default ChangeMenu

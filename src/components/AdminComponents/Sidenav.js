@@ -19,7 +19,7 @@ export class Sidenav extends Component {
                             <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" , fontSize:"30px"}}>The Welcome Mat</Link>
                         </div>
                     </nav>
-                    <div className="side">
+                    
                     
                     <li><Link to="/" className="white-text"><i class="material-icons white-text">home</i>Home</Link></li>
                     <li><a href="#!" className="white-text"> <i class="material-icons white-text">show_chart</i>Statistics</a></li>
@@ -30,7 +30,7 @@ export class Sidenav extends Component {
                     {/* <li><Link to="/Billing"  className="white-text">Billing of Order History</Link></li>
                         <li><Link to="/Statistics"  className="white-text">Statistics</Link></li> */}
                     {/* <li><Link to="/ChangeMenu"  className="white-text">Change Menu</Link></li> */}
-                    </div>
+                    
                     
                 </ul>
 
