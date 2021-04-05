@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
 import axios from 'axios';
-// import './ChangeMenu.css';
+
 
 class ChangeMenu extends Component {
     constructor(props) {
@@ -24,13 +24,11 @@ class ChangeMenu extends Component {
             menu_type: this.state.menu_type,
             menu_price: this.state.menu_price,
             menu_imglink: this.state.menu_imglink
-
-
         }
 
 
-        alert(`${this.state.menu_name}` + `${this.state.menu_price}` + `${this.state.menu_imglink}` + `${this.state.menu_type}` + "  Added New Item")
-
+        // alert(`${this.state.menu_name}` +""+ `${this.state.menu_price}` + `${this.state.menu_imglink}` + `${this.state.menu_type}` + "  Added New Item")
+        alert("Added New Item")
 
         axios.post('http://localhost:5000/menu/add', varMenu)
             .then(res => console.log(res.data));
@@ -44,7 +42,7 @@ class ChangeMenu extends Component {
         }
     }
 
-    deleteExercise = id => {
+    deleteMenuItem = id => {
         axios.delete('http://localhost:5000/menu/' + id)
             .then(response => { console.log(response.data) });
 
@@ -64,19 +62,19 @@ class ChangeMenu extends Component {
         M.Collapsible.init(elems, {});
         var elems1 = document.querySelectorAll('select');
         M.FormSelect.init(elems1, {});
-        axios.get('http://localhost:5000/menu/')
+        axios.get('http://localhost:5000/menu/breakfast')
             .then(resp => {
                 this.setState({
                     breakfast: resp.data
                 })
             })
-        axios.get('http://localhost:5000/menu/')
+        axios.get('http://localhost:5000/menu/lunch')
             .then(resp => {
                 this.setState({
                     lunch: resp.data
                 })
             })
-        axios.get('http://localhost:5000/menu/')
+        axios.get('http://localhost:5000/menu/dinner')
             .then(resp => {
                 this.setState({
                     dinner: resp.data
@@ -142,17 +140,19 @@ class ChangeMenu extends Component {
 
                     <div className="card-tabs">
                         <ul className="tabs tabs-fixed-width">
-                            <li className="tab"><a className="active" href="#test1">Breakfast</a></li>
-                            <li className="tab"><a href="#test2">Lunch</a></li>
+                            <li className="tab"><a  href="#test1">Breakfast</a></li>
+                            <li className="tab"><a className="active" href="#test2">Lunch</a></li>
                             <li className="tab"><a href="#test3">Dinner</a></li>
                         </ul>
                     </div>
                     <div className="card-content grey lighten-4">
+                        
                         <div id="test1">
                             <div className="row">
                                 {this.state.breakfast.map((item) =>
                                     <div className="col s12 m4">
                                         <div className="card small ">
+                                            
                                             <div className="card-image">
                                                 <img src="../images/food.jpg" />
                                             </div>
@@ -162,22 +162,24 @@ class ChangeMenu extends Component {
                                                 </span>
                                                 <p>{item.menu_price}</p>
                                             </div>
+
                                         </div>
                                     </div>
                                 )}
                             </div>
                         </div>
+
                         <div id="test2">
                             <div className="row">
                                 {this.state.lunch.map((item) =>
-                                    <div className="col s12 m3">
+                                    <div className="col s12 m4">
                                         <div className="card small ">
                                             <div className="card-image">
                                                 <img src="../images/food.jpg" />
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i className="material-icons black right ">delete</i></button>
+                                                    <button className="btn-floating waves-effect waves-light right " ><i className="material-icons black right " onClick={()=>{this.deleteMenuItem(item._id)}}>delete</i></button>
                                                 </span>
                                                 <p>{item.menu_price}</p>
                                             </div>
@@ -189,7 +191,7 @@ class ChangeMenu extends Component {
                         <div id="test3">
                             <div className="row">
                                 {this.state.dinner.map((item) =>
-                                    <div className="col s12 m3">
+                                    <div className="col s12 m4">
                                         <div className="card small ">
                                             <div className="card-image">
                                                 <img src="../images/food.jpg" />

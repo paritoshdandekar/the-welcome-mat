@@ -7,20 +7,20 @@ router.route('/:id').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/breakfast').post((req, res) => {
-  menu_type.find({ menu_type: 'breakfast' })
+router.route('/breakfast').get((req, res) => {
+  Menu.find({ menu_type: 'Breakfast' })
     .then((menus) => res.json(menus))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/lunch').post((req,res)=>{
-  menu_type.find({ menu_type: 'lunch' })
+router.route('/lunch').get((req,res)=>{
+  Menu.find({ menu_type: 'Lunch' })
     .then((menus) => res.json(menus))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/dinner').post((req,res)=>{
-  menu_type.find({ menu_type: 'dinner' })
+router.route('/dinner').get((req,res)=>{
+  Menu.find({ menu_type: 'Dinner' })
     .then((menus) => res.json(menus))
     .catch(err => res.status(400).json('Error: ' + err));
 });
