@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
+import axios from 'axios';
 
 
 export class Profile extends Component {
@@ -11,6 +12,16 @@ export class Profile extends Component {
         M.FormSelect.init(elems1, {});
         var elems2 = document.querySelectorAll('.modal');
         M.Modal.init(elems2, {});
+        
+
+
+
+        axios.get('http://localhost:5000/user/')
+            .then(resp => {
+                this.setState({
+                    users: resp.data
+                })
+            })
 
     }
     render() {
@@ -25,7 +36,7 @@ export class Profile extends Component {
                 
                     <div class="">
                         <p><span>  
-                        <h3><b>Shweta Chopra</b><br></br></h3></span></p>
+                        <h3><b>ABC</b><br></br></h3></span></p>
                     </div>
                     <div>
                          <p><span><i class="material-icons left small">email</i><h5>choprass@rknec.edu
