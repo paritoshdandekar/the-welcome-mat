@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  FoodOrder.findById(req.params.id)
+    .then(() => res.json('Food row found'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
   const userId = req.body.userId;
   const food_name = req.body.food_name;

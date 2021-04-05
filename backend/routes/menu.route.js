@@ -25,12 +25,17 @@ router.route('/dinner').post((req,res)=>{
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  Menu.findById(req.params.id)
+    .then(() => res.json('Menu item found'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) => {
   const menu_name = req.body.menu_name;
   const menu_type = req.body.menu_type;
   const menu_price = req.body.menu_price;
-  const menu_imglink = req.body.imglink;
+  const menu_imglink = req.body.menu_imglink;
 
   const newMenu = new Menu({ menu_name, menu_type, menu_price, menu_imglink });
 
