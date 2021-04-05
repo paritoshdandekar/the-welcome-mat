@@ -8,7 +8,7 @@ import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 import M from "materialize-css";
-import ChangeMenu from "./components/AdminComponents/ChangeMenu";
+
 
 
 function AdminApp() {
@@ -18,7 +18,7 @@ function AdminApp() {
         <header className="adminheader">
           <NavbarAdmin />
           <Sidenav/>
-          <ChangeMenu/>
+          
         </header>
         <main className="adminmain">
          <Switch>
