@@ -30,6 +30,11 @@ router.route('/dinner').get((req,res)=>{
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  Menu.findById(req.params.id)
+    .then(() => res.json('Menu item found'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) => {
   const menu_name = req.body.menu_name;

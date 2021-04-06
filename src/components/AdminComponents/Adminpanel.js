@@ -74,6 +74,7 @@ class Adminpanel extends Component {
         //     });
 
         // axios.get('http://localhost:5000/internet/')
+        
         //     .then(resp => {
         //         this.setState({
         //             internetOrders: resp.data
