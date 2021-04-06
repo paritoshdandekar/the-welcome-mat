@@ -8,14 +8,14 @@ class Food extends Component {
 
         this.state = {
             menus: [],
-            userId: '',
+            userId: 'aa11',
             food_type: '',
             food_name: '',
             food_price: '',
             status: '',
-            breakfast:[],
-            lunch:[],
-            dinner:[]
+            breakfast: [],
+            lunch: [],
+            dinner: []
         }
     }
 
@@ -53,7 +53,40 @@ class Food extends Component {
                     dinner: resp.data
                 })
             })
+    }
+
+    addOrder = id => {
+        axios.post('http://localhost:5000/menu/' + id)
+            .then(resp => {
+                this.setState({
+                    food_name: resp.data.menu_name,
+                    food_type: resp.data.menu_type,
+                    food_price: resp.data.menu_price
+                })
+            })
+      
+            const varOrder = {
+
+                userId: "aa",
+                food_name: this.state.food_name,
+                food_type: this.state.food_type,
+                food_price: this.state.food_price,
+                status: "Recieve"
+            }
+    
+        axios.post('http://localhost:5000/foodorder/', varOrder)
+            .then(res => console.log(res.data));
+        console.log(varOrder);
+        this.setState = {
+            userId: 'aa11',
+            food_name: null,
+            food_type: null,
+            food_price: 0,
+            status: null
+
         }
+
+    }
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
@@ -118,13 +151,13 @@ class Food extends Component {
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src="../images/Food1.jpg" /> {/*../images/Food1.jpg */}
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -137,13 +170,13 @@ class Food extends Component {
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src={item.menu_imglink} />
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,13 +189,13 @@ class Food extends Component {
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src={item.menu_imglink} />
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -266,6 +299,9 @@ class Food extends Component {
                         </div>
                     </div>
                 </div> */}
+
+
+
             </div>
         )
     }

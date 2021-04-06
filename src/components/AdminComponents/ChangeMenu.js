@@ -163,7 +163,7 @@ class ChangeMenu extends Component {
                                         <div className="card small ">
 
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                 <img src={item.menu_imglink}/>  {/*../images/food.jpg */}
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
@@ -184,7 +184,7 @@ class ChangeMenu extends Component {
                                     <div className="col s12 m4">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                            <img src={item.menu_imglink}/>
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
@@ -203,7 +203,7 @@ class ChangeMenu extends Component {
                                     <div className="col s12 m4">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                            <img src={item.menu_imglink}/>
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
