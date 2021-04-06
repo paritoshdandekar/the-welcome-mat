@@ -12,7 +12,10 @@ class Food extends Component {
             food_type: '',
             food_name: '',
             food_price: '',
-            status: ''
+            status: '',
+            breakfast:[],
+            lunch:[],
+            dinner:[]
         }
     }
 
@@ -21,18 +24,36 @@ class Food extends Component {
         M.Tabs.init(el, {});
         var elems = document.querySelectorAll('.collapsible');
         M.Collapsible.init(elems, {});
-        axios.get('./menu.json')
-            .then(resp => {
-                const a=resp.data;
-                const lena=resp.data.length;
-                this.setState({
-                    menus: resp.data
-                })
-            })
         var elems1 = document.querySelectorAll('.slider');
         M.Slider.init(elems1, {});
+        // axios.get('./menu.json')
+        //     .then(resp => {
+        //         const a=resp.data;
+        //         const lena=resp.data.length;
+        //         this.setState({
+        //             menus: resp.data
+        //         })
+        //     })
 
-    }
+        axios.get('http://localhost:5000/menu/breakfast')
+            .then(resp => {
+                this.setState({
+                    breakfast: resp.data
+                })
+            })
+        axios.get('http://localhost:5000/menu/lunch')
+            .then(resp => {
+                this.setState({
+                    lunch: resp.data
+                })
+            })
+        axios.get('http://localhost:5000/menu/dinner')
+            .then(resp => {
+                this.setState({
+                    dinner: resp.data
+                })
+            })
+        }
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
@@ -80,9 +101,9 @@ class Food extends Component {
                         </li>
                     </ul>
                 </div>
-                
-                <div class="card" style={{ marginBottom:"0px" }}>
-                    
+
+                <div class="card" style={{ marginBottom: "0px" }}>
+
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
                             <li class="tab"><a class="active" href="#test1">Breakfast</a></li>
@@ -93,7 +114,7 @@ class Food extends Component {
                     <div class="card-content grey lighten-4">
                         <div id="test1">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.breakfast.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
@@ -112,7 +133,7 @@ class Food extends Component {
                         </div>
                         <div id="test2">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.lunch.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
@@ -131,7 +152,7 @@ class Food extends Component {
                         </div>
                         <div id="test3">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.dinner.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
@@ -150,7 +171,7 @@ class Food extends Component {
                         </div>
                     </div>
                 </div>
-                
+
 
                 {/* <div className="row">
                     <div className="card col s12 m10 l6 push-l3 push-m1 ">
