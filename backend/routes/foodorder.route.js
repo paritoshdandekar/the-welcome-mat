@@ -13,6 +13,24 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/breakfast').get((req, res) => {
+  Menu.find({ food_type: 'Breakfast' })
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/lunch').get((req,res)=>{
+  Menu.find({ food_type: 'Lunch' })
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/dinner').get((req,res)=>{
+  Menu.find({ food_type: 'Dinner' })
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
   const userId = req.body.userId;
   const food_name = req.body.food_name;
