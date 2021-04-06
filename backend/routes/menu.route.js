@@ -6,6 +6,11 @@ router.route('/:id').delete((req, res) => {
     .then(() => res.json('Menu item deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+router.route('/').get((req, res) => {
+  Menu.find()
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/breakfast').get((req, res) => {
   Menu.find({ menu_type: 'Breakfast' })

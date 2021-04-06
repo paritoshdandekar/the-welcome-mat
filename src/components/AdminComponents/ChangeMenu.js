@@ -14,7 +14,8 @@ class ChangeMenu extends Component {
             menu_imglink: null,
             breakfast: [],
             dinner: [],
-            lunch: []
+            lunch: [],
+            menu: []
         }
     }
 
@@ -47,9 +48,16 @@ class ChangeMenu extends Component {
             .then(response => { console.log(response.data) });
 
         this.setState({
-            menus: this.state.menus.filter(el => el._id !== id)
+            breakfast: this.state.breakfast.filter(i => i._id !== id)
         })
-    }
+        this.setState({
+            lunch: this.state.lunch.filter(i => i._id !== id)
+        })
+        this.setState({
+            dinner: this.state.dinner.filter(i => i._id !== id)
+        })
+
+     }
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
@@ -80,6 +88,7 @@ class ChangeMenu extends Component {
                     dinner: resp.data
                 })
             })
+ 
         var elems = document.querySelectorAll('select');
         M.FormSelect.init(elems, {});
 
@@ -99,19 +108,19 @@ class ChangeMenu extends Component {
 
                             <div className="input-field col s12 section">
 
-                                <input id="itemname" type="text" value={this.menu_name} name='menu_name'  onChange={this.changeHandler} className="validate"></input>
+                                <input id="itemname" type="text" value={this.menu_name} name='menu_name' onChange={this.changeHandler} className="validate"></input>
                                 <label for="itemname">Item Name</label>
                             </div>
 
                             <div className="input-field col s12 section">
 
-                                <input id="price" type="text" value={this.menu_price} name='menu_price'  onChange={this.changeHandler} className="validate"></input>
+                                <input id="price" type="text" value={this.menu_price} name='menu_price' onChange={this.changeHandler} className="validate"></input>
                                 <label for="price">Price of Item</label>
                             </div>
 
                             <div className="input-field col s12 section">
 
-                                <input id="img" type="text" value={this.menu_imglink} name='menu_imglink'  onChange={this.changeHandler} className="validate"></input>
+                                <input id="img" type="text" value={this.menu_imglink} name='menu_imglink' onChange={this.changeHandler} className="validate"></input>
                                 <label for="img">Image Link:</label>
                             </div>
 
@@ -140,25 +149,25 @@ class ChangeMenu extends Component {
 
                     <div className="card-tabs">
                         <ul className="tabs tabs-fixed-width">
-                            <li className="tab"><a  href="#test1">Breakfast</a></li>
-                            <li className="tab"><a className="active" href="#test2">Lunch</a></li>
+                            <li className="tab"><a className="active" href="#test1">Breakfast</a></li>
+                            <li className="tab"><a href="#test2">Lunch</a></li>
                             <li className="tab"><a href="#test3">Dinner</a></li>
                         </ul>
                     </div>
                     <div className="card-content grey lighten-4">
-                        
+
                         <div id="test1">
                             <div className="row">
                                 {this.state.breakfast.map((item) =>
                                     <div className="col s12 m4">
                                         <div className="card small ">
-                                            
+
                                             <div className="card-image">
                                                 <img src="../images/food.jpg" />
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
-                                                    <button className="btn-floating waves-effect waves-light right " ><i className="material-icons black right ">delete</i></button>
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.deleteMenuItem(item._id) }} ><i className="material-icons black right " >delete</i></button>
                                                 </span>
                                                 <p>{item.menu_price}</p>
                                             </div>
@@ -179,7 +188,7 @@ class ChangeMenu extends Component {
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
-                                                    <button className="btn-floating waves-effect waves-light right " ><i className="material-icons black right " onClick={()=>{this.deleteMenuItem(item._id)}}>delete</i></button>
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.deleteMenuItem(item._id) }}><i className="material-icons black right " >delete</i></button>
                                                 </span>
                                                 <p>{item.menu_price}</p>
                                             </div>
@@ -198,7 +207,7 @@ class ChangeMenu extends Component {
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i className="material-icons black right ">delete</i></button>
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.deleteMenuItem(item._id) }}><i className="material-icons black right ">delete</i></button>
                                                 </span>
                                                 <p>{item.menu_price}</p>
                                             </div>
