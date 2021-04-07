@@ -11,6 +11,12 @@ router.route('/').get((req, res) => {
       .then(user => res.json(user))
       .catch(err => res.status(400).json('Error: ' + err));
   });
+  router.route('/find').post((req, res) => {
+     User.find({$and:[{email: req.body.username},{mobile: req.body.password}]})
+      .then((users) => res.json(users))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
   router.route('/add').post((req, res) => {
 
     const username=req.body.username;
