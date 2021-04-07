@@ -44,4 +44,18 @@ router.route('/add').post((req, res) => {
     .then(() => res.json('Order added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route('/update/:id').post((req, res) => {
+  FoodOrder.findById(req.params.id)
+    .then(foodo => {
+
+      foodo.status = "Completed";
+
+
+      foodo.save()
+        .then(() => res.json('Status updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 module.exports = router;
