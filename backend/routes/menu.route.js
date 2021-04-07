@@ -33,7 +33,7 @@ router.route('/dinner').get((req,res)=>{
 
 router.route('/:id').get((req, res) => {
   Menu.findById(req.params.id)
-    .then(() => res.json('Menu item found'))
+    .then((menus) => res.json(menus))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

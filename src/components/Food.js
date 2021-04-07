@@ -56,25 +56,33 @@ class Food extends Component {
     }
 
     addOrder = id => {
-        axios.post('http://localhost:5000/menu/' + id)
+        axios.get('http://localhost:5000/menu/' + id)
             .then(resp => {
-                this.setState({
-                    food_name: resp.data.menu_name,
-                    food_type: resp.data.menu_type,
-                    food_price: resp.data.menu_price
-                })
+                this.state.food_name = resp.data.menu_name;
+                this.state.food_type = resp.data.menu_type;
+                this.state.food_price = resp.data.menu_price;
+                console.log(resp.data.menu_name)
+                this.onSubmit();
             })
-      
-            const varOrder = {
+            
+    }
 
-                userId: "aa",
-                food_name: this.state.food_name,
-                food_type: this.state.food_type,
-                food_price: this.state.food_price,
-                status: "Recieve"
-            }
-    
-        axios.post('http://localhost:5000/foodorder/', varOrder)
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    onSubmit = e => {
+        //e.preventDefault();
+        const varOrder = {
+
+            userId: "aa",
+            food_name: this.state.food_name,
+            food_type: this.state.food_type,
+            food_price: this.state.food_price,
+            status: "Recieved"
+        }
+
+        axios.post('http://localhost:5000/foodorder/add/', varOrder)
             .then(res => console.log(res.data));
         console.log(varOrder);
         this.setState = {
@@ -85,21 +93,6 @@ class Food extends Component {
             status: null
 
         }
-
-    }
-
-    changeHandler = e => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-
-    onSubmit = e => {
-        e.preventDefault();
-        const FoodOrder = {
-            food_type: this.state.food_type,
-            food_name: this.state.food_name
-        }
-
-        console.log(FoodOrder);
 
     }
     onAlert() {
