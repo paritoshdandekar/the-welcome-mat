@@ -8,6 +8,7 @@ import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 import M from "materialize-css";
+import Addprice from "./components/Addprice";
 
 
 
@@ -15,7 +16,8 @@ function AdminApp() {
   return (
     <Router>
       <div className="App">
-        <header className="adminheader">
+        <Addprice></Addprice>
+        {/* <header className="adminheader">
           <NavbarAdmin />
           <Sidenav/>
           
@@ -30,7 +32,7 @@ function AdminApp() {
         </main>
         <footer className="adminfooter">
           <Footer />
-        </footer>
+        </footer> */}
       </div>
     </Router>
   );
