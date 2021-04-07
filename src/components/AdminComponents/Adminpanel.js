@@ -46,6 +46,8 @@ class Adminpanel extends Component {
 
             countrev: 0,
 
+            reci: 0,
+
             laundarySlot: null,
 
         }
@@ -62,7 +64,7 @@ class Adminpanel extends Component {
         M.Dropdown.init(elems1, {});
 
         this.getData();
-        this.intervalID = setInterval(this.getData.bind(this), 5000);
+        this.intervalID = setInterval(this.getData.bind(this), 1000);
         // axios.get('./menu.json')
         //     .then(resp => {
         //         this.setState({
@@ -109,7 +111,7 @@ class Adminpanel extends Component {
                 //const cust = resp.data;
                 const countc = resp.data.length;
                 const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const compreq = cust.filter(resp => resp.status === 'Completed');
                 const countcr4 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr4 = compreq1.length;
@@ -128,10 +130,11 @@ class Adminpanel extends Component {
         axios.get('http://localhost:5000/housekeeping/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const compreq = cust.filter(resp => resp.status === 'Completed');
                 const countcr1 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr1 = compreq1.length;
+                ///const reci=countcr3+countpr3;
                 this.setState({
                     houseKeepingOrders: resp.data,
                     cust,
@@ -142,13 +145,32 @@ class Adminpanel extends Component {
                 })
             });
 
+            axios.get('http://localhost:5000/foodorder/')
+            .then(resp => {
+                const cust = resp.data;
+                const compreq = cust.filter(resp => resp.status === 'Completed');
+                const countcr5 = compreq.length;
+                const compreq1 = cust.filter(resp => resp.status === 'Pending');
+                const countpr5 = compreq1.length;
+               // const recf=countcr5+countpr5;
+                this.setState({
+                    foodOrders: resp.data,
+                    cust,
+                    compreq,
+                    countcr5,
+                    compreq1,
+                    countpr5
+                })
+            });
+
         axios.get('http://localhost:5000/support/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const compreq = cust.filter(resp => resp.status === 'Completed');
                 const countcr2 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr2 = compreq1.length;
+               // const recs=countcr2+countpr2;
                 this.setState({
                     supportOrders: resp.data,
                     cust,
@@ -162,10 +184,11 @@ class Adminpanel extends Component {
         axios.get('http://localhost:5000/internet/')
             .then(resp => {
                 const cust = resp.data;
-                const compreq = cust.filter(resp => resp.status === 'Recieved');
+                const compreq = cust.filter(resp => resp.status === 'Completed');
                 const countcr3 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr3 = compreq1.length;
+                const reci=countcr3+countpr3;
                 this.setState({
                     internetOrders: resp.data,
                     cust,
@@ -189,6 +212,7 @@ class Adminpanel extends Component {
 
                 })
             });
+            //const reci=this.state.countcr1+this.state.countcr2+this.state.countcr3+this.state.countcr4+this.state.countcr5+this.state.countpr1+this.state.countpr2+this.state.countpr3+this.state.countpr4+this.state.countpr5;
 
     }
 
@@ -200,6 +224,15 @@ class Adminpanel extends Component {
         // clearTimeout(this.intervalID);
         clearInterval(this.intervalID);
     }
+
+    updatecomplaintFood(id) {
+        axios.post('http://localhost:5000/foodorder/update/'+id)
+          .then(response => { console.log(response.data)});
+    
+        this.setState({
+          foodOrders: this.state.foodOrders
+        })
+      }
 
     updatecomplaintInternet(id) {
         axios.post('http://localhost:5000/internet/update/'+id)
@@ -262,7 +295,9 @@ class Adminpanel extends Component {
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
                                 <p>Customers served till date:<br></br><br></br></p>
-                                <p>{this.state.custcnt}</p>
+                                <br></br>
+                                <p >{this.state.custcnt}</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -272,8 +307,9 @@ class Adminpanel extends Component {
                                 <span className="card-title">Requests</span>
                                 <p>
                                     <ul>
-                                        <li>Completed requests:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4}</li>
-                                        <li>Pending requests:{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4}</li>
+                                        <li>Completed requests:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5}</li>
+                                        <li>Pending requests:{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
+                                        <li>Received requests till now:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5+this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
                                     </ul>
                                 </p>
                             </div>
@@ -287,6 +323,7 @@ class Adminpanel extends Component {
                             <div className="card-content white-text">
                                 <span className="card-title">Revenue</span>
                                 <p>Total Revenue earned : Rs<br></br><br></br><br></br></p>
+                                <br></br>
                             </div>
 
                         </div>
@@ -324,15 +361,23 @@ class Adminpanel extends Component {
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>ahdsau</td>
-                                        <td>asdsa</td>
-                                        <td>    </td>
-                                        <td>11</td>
-                                    </tr>
+                                {this.state.foodOrders.map((item) => {
+                                        return <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td >{item.food_name}</td>
+                                            <td>1</td>
+                                            <td>{item.food_price}</td>
+                                            <td>{item.createdAt.substring(11, 19)}</td>
+                                            <td>{item.createdAt.substring(0, 10)}</td>
+                                            
+                                            <td>
+                                            <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintFood(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
+                                            </td>
+                                            {/* <td>{item.time}</td> */}
+
+                                        </tr>;
+                                    })}
 
                                 </tbody>
                             </table>
