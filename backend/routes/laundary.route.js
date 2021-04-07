@@ -23,4 +23,17 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
   });
 
+  router.route('/update/:id').post((req, res) => {
+    Laundary.findById(req.params.id)
+      .then(laundarys => {
+  
+        laundarys.status = "Completed";
+  
+  
+        laundarys.save()
+          .then(() => res.json('Status updated!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
   module.exports = router;

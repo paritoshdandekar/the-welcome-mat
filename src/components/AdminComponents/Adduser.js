@@ -12,6 +12,7 @@ class Adduser extends Component {
             username: '',
             checkin: new Date(),
             checkout: new Date(),
+            email:'',
             room: ''
         }
     }
@@ -64,6 +65,18 @@ class Adduser extends Component {
                                         <h6>User Name</h6>
                                         <input id="username" type="text" value={this.username} name='username' onChange={this.changeHandler} className="validate"></input>
                                     </div>
+
+                                    <div className="input-field col s12 section">
+                                        <h6>User E-mail</h6>
+                                        <input id="email" type="text" value={this.username} name='username' onChange={this.changeHandler} className="validate"></input>
+                                    </div>
+
+                                    <div className="input-field col s12 section">
+                                        <h6>Mobile Number</h6>
+                                        <input id="mobileno" type="text" value={this.username} name='username' onChange={this.changeHandler} className="validate"></input>
+                                    </div>
+
+                                    
 
                                     <div className="input-field col s6 section">
                                         <h6>Check-in Date</h6>

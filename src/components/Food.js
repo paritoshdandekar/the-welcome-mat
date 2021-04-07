@@ -102,6 +102,7 @@ class Food extends Component {
     render() {
         return (
             <div >
+                
                 <div className="slider">
                     <ul className="slides">
                         <li>

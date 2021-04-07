@@ -263,7 +263,12 @@ class Adminpanel extends Component {
                                             <td>{item.laundaryclothCount}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
-                                            <td>{item.status}</td>
+                                            <td>
+                                                <select>
+                                                    <option value={item.status}>{item.status}</option>
+                                                    <option ></option>
+                                                </select>
+                                            </td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}

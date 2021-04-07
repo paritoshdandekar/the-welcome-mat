@@ -105,12 +105,13 @@ class Laundary extends Component {
                                 <div className="center">
                                     <button className="btn-small">Submit</button>
                                 </div>
+                        
                             </div>
-                            
-                            
+
+
                         </form>
+                    </div>
                 </div>
-            </div>
             </div>
 
         )
