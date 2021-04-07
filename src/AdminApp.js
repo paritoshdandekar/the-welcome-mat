@@ -10,6 +10,7 @@ import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 import M from "materialize-css";
 
 
+
 function AdminApp() {
   return (
     <Router>
@@ -17,9 +18,10 @@ function AdminApp() {
         <header className="adminheader">
           <NavbarAdmin />
           <Sidenav/>
+          
         </header>
         <main className="adminmain">
-        <Switch>
+         <Switch>
           <Route exact path="/" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
           <Route exact path="/users" component={Users} />
