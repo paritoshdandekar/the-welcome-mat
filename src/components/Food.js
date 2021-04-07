@@ -21,10 +21,12 @@ class Food extends Component {
         M.Tabs.init(el, {});
         var elems = document.querySelectorAll('.collapsible');
         M.Collapsible.init(elems, {});
+        var elems1 = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elems1, {});
         axios.get('./menu.json')
             .then(resp => {
-                const a=resp.data;
-                const lena=resp.data.length;
+                const a = resp.data;
+                const lena = resp.data.length;
                 this.setState({
                     menus: resp.data
                 })
@@ -55,6 +57,7 @@ class Food extends Component {
     render() {
         return (
             <div >
+                
                 <div className="slider">
                     <ul className="slides">
                         <li>
@@ -80,9 +83,9 @@ class Food extends Component {
                         </li>
                     </ul>
                 </div>
-                
-                <div class="card" style={{ marginBottom:"0px" }}>
-                    
+
+                <div class="card" style={{ marginBottom: "0px" }}>
+
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
                             <li class="tab"><a class="active" href="#test1">Breakfast</a></li>
@@ -150,7 +153,7 @@ class Food extends Component {
                         </div>
                     </div>
                 </div>
-                
+
 
                 {/* <div className="row">
                     <div className="card col s12 m10 l6 push-l3 push-m1 ">

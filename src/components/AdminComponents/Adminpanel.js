@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import M from 'materialize-css';
+const h2 = {
+    backgroundColor:"green",
+}
+
+const h3 = {
+    backgroundColor:"red",
+}
+
 
 class Adminpanel extends Component {
+
     intervalID;
 
     state = {
@@ -17,7 +26,9 @@ class Adminpanel extends Component {
             houseKeepingOrders: [],
             supportOrders: [],
             internetOrders: [],
-            countc: 0,
+            //countc: 0,
+            custcnt: 0,
+
             countpr1: 0,
             countcr1: 0,
 
@@ -35,6 +46,8 @@ class Adminpanel extends Component {
 
             countrev: 0,
 
+            laundarySlot: null,
+
         }
 
     }
@@ -42,8 +55,14 @@ class Adminpanel extends Component {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
 
+        var elems = document.querySelectorAll('select');
+        M.FormSelect.init(elems, {});
+
+        var elems1 = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elems1, {});
+
         this.getData();
-        this.intervalID = setInterval(this.getData.bind(this), 1000);
+        this.intervalID = setInterval(this.getData.bind(this), 5000);
         // axios.get('./menu.json')
         //     .then(resp => {
         //         this.setState({
@@ -74,7 +93,7 @@ class Adminpanel extends Component {
         //     });
 
         // axios.get('http://localhost:5000/internet/')
-        
+
         //     .then(resp => {
         //         this.setState({
         //             internetOrders: resp.data
@@ -106,7 +125,7 @@ class Adminpanel extends Component {
                 })
             });
 
-            axios.get('http://localhost:5000/housekeeping/')
+        axios.get('http://localhost:5000/housekeeping/')
             .then(resp => {
                 const cust = resp.data;
                 const compreq = cust.filter(resp => resp.status === 'Recieved');
@@ -156,7 +175,25 @@ class Adminpanel extends Component {
                     countpr3
                 })
             });
-        
+
+        axios.get('http://localhost:5000/user/')
+            .then(resp => {
+                const cust = resp.data;
+                //const compreq = cust.filter(resp => resp.status === 'Recieved');
+                //const countcr3 = compreq.length;
+                const custcnt = cust.length;
+                //const countpr3 = compreq1.length;
+                this.setState({
+                    cust,
+                    custcnt
+
+                })
+            });
+
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     componentWillUnmount() {
@@ -164,20 +201,68 @@ class Adminpanel extends Component {
         clearInterval(this.intervalID);
     }
 
+    updatecomplaintInternet(id) {
+        axios.post('http://localhost:5000/internet/update/'+id)
+          .then(response => { console.log(response.data)});
     
+        this.setState({
+          internetOrders: this.state.internetOrders
+        })
+      }
+
+      updatecomplaintLaundary(id) {
+        axios.post('http://localhost:5000/laundary/update/'+id)
+          .then(response => { console.log(response.data)});
+    
+        this.setState({
+          laundaryOrders: this.state.laundaryOrders
+        })
+      }
+
+      updatecomplaintSupport(id) {
+        axios.post('http://localhost:5000/support/update/'+id)
+          .then(response => { console.log(response.data)});
+    
+        this.setState({
+          supportOrders: this.state.supportOrders
+        })
+      }
+
+      updatecomplaintHousekeeping(id) {
+        axios.post('http://localhost:5000/housekeeping/update/'+id)
+          .then(response => { console.log(response.data)});
+    
+        this.setState({
+          houseKeepingOrders: this.state.houseKeepingOrders
+        })
+      }
+    
+
+
 
 
     render() {
         return (
 
             <div className="section" >
+
+
+
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!">one</a></li>
+                    <li><a href="#!">two</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="#!">three</a></li>
+                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                </ul>
                 <div className="row">
                     <div className="col s12 m4 l4">
                         <div className="card light-blue">
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
                                 <p>Customers served till date:<br></br><br></br></p>
-                                <p>{this.state.countc}</p>
+                                <p>{this.state.custcnt}</p>
                             </div>
                         </div>
                     </div>
@@ -275,7 +360,9 @@ class Adminpanel extends Component {
                                             <td>{item.laundaryclothCount}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
-                                            <td>{item.status}</td>
+                                            <td>
+                                            <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintLaundary(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
+                                            </td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
@@ -304,7 +391,9 @@ class Adminpanel extends Component {
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
-                                            <td>{item.status}</td>
+                                            <td>
+                                            <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintHousekeeping(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
+                                            </td>
                                             {/* <td>{item.time}</td> */}
 
                                         </tr>;
@@ -334,7 +423,7 @@ class Adminpanel extends Component {
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
-                                            <td>{item.status}</td>
+                                            <td><button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintSupport(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button></td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
@@ -358,12 +447,13 @@ class Adminpanel extends Component {
                                 <tbody>
                                     {this.state.internetOrders.map((item) => {
                                         return <tr>
-                                            <td>laundary</td>
-                                            <td>asasa</td>
+                                            <td></td>
+                                            <td></td>
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
-                                            <td>{item.status}</td>
+                                            <td><button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintInternet(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
+                                                </td>
                                             {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
