@@ -7,6 +7,12 @@ router.route('/:id').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/').get((req, res) => {
+  Menu.find()
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/breakfast').get((req, res) => {
   Menu.find({ menu_type: 'Breakfast' })
     .then((menus) => res.json(menus))
@@ -25,6 +31,11 @@ router.route('/dinner').get((req,res)=>{
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  Menu.findById(req.params.id)
+    .then((menus) => res.json(menus))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) => {
   const menu_name = req.body.menu_name;

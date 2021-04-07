@@ -24,6 +24,7 @@ mongoose.connect(uri,{useNewUrlParser: true, useCreateIndex: true}
     const housekeepingRouter = require('./routes/housekeeping.route');
     const userRouter = require('./routes/user.route');
     const menuRouter = require('./routes/menu.route');
+    const foodRouter = require('./routes/foodorder.route');
     
     app.use('/support', supportRouter);
     app.use('/laundary', laundaryRouter);
@@ -31,6 +32,7 @@ mongoose.connect(uri,{useNewUrlParser: true, useCreateIndex: true}
     app.use('/housekeeping', housekeepingRouter);
     app.use('/user', userRouter);
     app.use('/menu', menuRouter);
+    app.use('/foodorder',foodRouter);
         
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

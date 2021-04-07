@@ -8,11 +8,14 @@ class Food extends Component {
 
         this.state = {
             menus: [],
-            userId: '',
+            userId: 'aa11',
             food_type: '',
             food_name: '',
             food_price: '',
-            status: ''
+            status: '',
+            breakfast: [],
+            lunch: [],
+            dinner: []
         }
     }
 
@@ -21,17 +24,47 @@ class Food extends Component {
         M.Tabs.init(el, {});
         var elems = document.querySelectorAll('.collapsible');
         M.Collapsible.init(elems, {});
-        axios.get('./menu.json')
-            .then(resp => {
-                const a=resp.data;
-                const lena=resp.data.length;
-                this.setState({
-                    menus: resp.data
-                })
-            })
         var elems1 = document.querySelectorAll('.slider');
         M.Slider.init(elems1, {});
+        // axios.get('./menu.json')
+        //     .then(resp => {
+        //         const a=resp.data;
+        //         const lena=resp.data.length;
+        //         this.setState({
+        //             menus: resp.data
+        //         })
+        //     })
 
+        axios.get('http://localhost:5000/menu/breakfast')
+            .then(resp => {
+                this.setState({
+                    breakfast: resp.data
+                })
+            })
+        axios.get('http://localhost:5000/menu/lunch')
+            .then(resp => {
+                this.setState({
+                    lunch: resp.data
+                })
+            })
+        axios.get('http://localhost:5000/menu/dinner')
+            .then(resp => {
+                this.setState({
+                    dinner: resp.data
+                })
+            })
+    }
+
+    addOrder = id => {
+        axios.get('http://localhost:5000/menu/' + id)
+            .then(resp => {
+                this.state.food_name = resp.data.menu_name;
+                this.state.food_type = resp.data.menu_type;
+                this.state.food_price = resp.data.menu_price;
+                console.log(resp.data.menu_name)
+                this.onSubmit();
+            })
+            
     }
 
     changeHandler = e => {
@@ -39,13 +72,27 @@ class Food extends Component {
     }
 
     onSubmit = e => {
-        e.preventDefault();
-        const FoodOrder = {
+        //e.preventDefault();
+        const varOrder = {
+
+            userId: "aa",
+            food_name: this.state.food_name,
             food_type: this.state.food_type,
-            food_name: this.state.food_name
+            food_price: this.state.food_price,
+            status: "Recieved"
         }
 
-        console.log(FoodOrder);
+        axios.post('http://localhost:5000/foodorder/add/', varOrder)
+            .then(res => console.log(res.data));
+        console.log(varOrder);
+        this.setState = {
+            userId: 'aa11',
+            food_name: null,
+            food_type: null,
+            food_price: 0,
+            status: null
+
+        }
 
     }
     onAlert() {
@@ -80,9 +127,9 @@ class Food extends Component {
                         </li>
                     </ul>
                 </div>
-                
-                <div class="card" style={{ marginBottom:"0px" }}>
-                    
+
+                <div class="card" style={{ marginBottom: "0px" }}>
+
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
                             <li class="tab"><a class="active" href="#test1">Breakfast</a></li>
@@ -93,17 +140,17 @@ class Food extends Component {
                     <div class="card-content grey lighten-4">
                         <div id="test1">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.breakfast.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src="../images/Food1.jpg" /> {/*../images/Food1.jpg */}
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -112,17 +159,17 @@ class Food extends Component {
                         </div>
                         <div id="test2">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.lunch.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src={item.menu_imglink} />
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -131,17 +178,17 @@ class Food extends Component {
                         </div>
                         <div id="test3">
                             <div className="row">
-                                {this.state.menus.map((item) =>
+                                {this.state.dinner.map((item) =>
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/food.jpg" />
+                                                <img src={item.menu_imglink} />
                                             </div>
                                             <div className="card-content">
-                                                <span>{item.name}
-                                                    <button className="btn-floating waves-effect waves-light right "><i class="material-icons black right ">add</i></button>
+                                                <span>{item.menu_name}
+                                                    <button className="btn-floating waves-effect waves-light right " onClick={() => { this.addOrder(item._id) }}><i class="material-icons black right ">add</i></button>
                                                 </span>
-                                                <p>{item.price}</p>
+                                                <p>{item.menu_price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +197,7 @@ class Food extends Component {
                         </div>
                     </div>
                 </div>
-                
+
 
                 {/* <div className="row">
                     <div className="card col s12 m10 l6 push-l3 push-m1 ">
@@ -245,6 +292,9 @@ class Food extends Component {
                         </div>
                     </div>
                 </div> */}
+
+
+
             </div>
         )
     }
