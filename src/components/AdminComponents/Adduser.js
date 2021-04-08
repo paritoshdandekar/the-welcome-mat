@@ -12,6 +12,8 @@ class Adduser extends Component {
             username: '',
             checkin: new Date(),
             checkout: new Date(),
+            email:'',
+            mobile:'',
             room: ''
         }
     }
@@ -29,6 +31,8 @@ class Adduser extends Component {
     submitHandler = e => {
         const User = {
             username: this.state.username,
+            email:this.state.email,
+            mobile:this.state.mobile,
             checkin: this.state.checkin,
             checkout: this.state.checkout,
             room: this.state.room,
@@ -37,9 +41,11 @@ class Adduser extends Component {
             .then(res => console.log(res.data));
         console.log(User);
         
-        alert(`${this.state.username}` + `${this.state.checkin}` + `${this.state.checkout}` + `${this.state.room}` + "Added New User")
+        alert(`${this.state.username}` + `${this.state.email}` + `${this.state.mobile}` + `${this.state.checkin}` + `${this.state.checkout}` + `${this.state.room}` + "Added New User")
         this.setState = {
             username: '',
+            email:'',
+            mobile:'',
             checkin: new Date(),
             checkout: new Date(),
             room: ''
@@ -64,6 +70,18 @@ class Adduser extends Component {
                                         <h6>User Name</h6>
                                         <input id="username" type="text" value={this.username} name='username' onChange={this.changeHandler} className="validate"></input>
                                     </div>
+
+                                    <div className="input-field col s12 section">
+                                        <h6>User E-mail</h6>
+                                        <input id="email" type="text" value={this.email} name='email' onChange={this.changeHandler} className="validate"></input>
+                                    </div>
+
+                                    <div className="input-field col s12 section">
+                                        <h6>Mobile Number</h6>
+                                        <input id="mobileno" type="text" value={this.mobile} name='mobile' onChange={this.changeHandler} className="validate"></input>
+                                    </div>
+
+                                    
 
                                     <div className="input-field col s6 section">
                                         <h6>Check-in Date</h6>

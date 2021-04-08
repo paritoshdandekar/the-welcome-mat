@@ -24,7 +24,7 @@ function AdminApp() {
         </header>
         <main className="adminmain">
          <Switch>
-          <Route exact path="/" component={Adminpanel} />
+          <Route exact path="/admin" component={Adminpanel} />
           <Route exact path="/adduser" component={Adduser} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/menu" component={ChangeMenu}/>

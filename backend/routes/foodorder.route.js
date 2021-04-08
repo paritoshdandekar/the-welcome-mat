@@ -2,7 +2,7 @@ const router = require('express').Router();
 let FoodOrder = require('../models/foodorder.model');
 
 router.route('/').get((req, res) => {
-  FoodOrder.find()
+  FoodOrder.find().sort({createdAt:-1})
     .then(foodorders => res.json(foodorders))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -42,6 +42,20 @@ router.route('/add').post((req, res) => {
 
   newOrder.save()
     .then(() => res.json('Order added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+  FoodOrder.findById(req.params.id)
+    .then(foodo => {
+
+      foodo.status = "Completed";
+
+
+      foodo.save()
+        .then(() => res.json('Status updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 module.exports = router;

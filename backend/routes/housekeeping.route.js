@@ -21,4 +21,18 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+  Housekeeping.findById(req.params.id)
+    .then(hskeep => {
+
+      hskeep.status = "Completed";
+
+
+      hskeep.save()
+        .then(() => res.json('Status updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
