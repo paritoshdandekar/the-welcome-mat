@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import axios from 'axios';
 
 export class Login extends Component {
     constructor(props) {
@@ -8,7 +9,8 @@ export class Login extends Component {
         
                 this.state = {
                     username: '',
-                    password: ''
+                    password: '',
+                    users:[]
                 }
         }
 
@@ -20,11 +22,21 @@ export class Login extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     submitHandler = e => {
-        const Login = {
+        const login = {
             username: this.state.username,
             password: this.state.password,
         }
-        alert(`${this.state.username}` + " " +`${this.state.password}` + "  User Welcome")
+        axios.post('http://localhost:5000/user/find',login)
+            .then(resp => {
+                this.setState({
+                    users: resp.data
+                })
+                // {this.state.users.map((item) => {
+                //     console.log(item.username)
+                // })}
+                console.log(this.state.users[0])
+            });
+        alert(`${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)
         this.setState = {
             username: '',
             password: ''
