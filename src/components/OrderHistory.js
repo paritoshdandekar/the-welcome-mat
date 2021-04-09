@@ -20,38 +20,38 @@ class OrderHistory extends Component {
         M.Tabs.init(el, {});
         var i = 0;
 
-        // axios.get('http://localhost:5000/food/')
-        //     .then(resp => {
-        //         //console.log(resp);
-        //         // ab upr ki state me jo orders hai 
-        //         // usme apan json wala data daalre
-        //         this.setState({
-        //             LaundryOrders: resp.data
-        //         })
-        //     });
+        axios.get('http://localhost:5000/food/'+this.props.match.params.id)
+            .then(resp => {
+                //console.log(resp);
+                // ab upr ki state me jo orders hai 
+                // usme apan json wala data daalre
+                this.setState({
+                    foodOrders: resp.data
+                })
+            });
 
-        axios.get('http://localhost:5000/laundary/')
+        axios.get('http://localhost:5000/laundary/'+this.props.match.params.id)
             .then(resp => {
                 this.setState({
                     laundryOrders: resp.data
                 })
             });
 
-        axios.get('http://localhost:5000/housekeeping/')
+        axios.get('http://localhost:5000/housekeeping/'+this.props.match.params.id)
             .then(resp => {
                 this.setState({
                     houseKeepingOrders: resp.data
                 })
             });
 
-        axios.get('http://localhost:5000/support/')
+        axios.get('http://localhost:5000/support/'+this.props.match.params.id)
             .then(resp => {
                 this.setState({
                     supportOrders: resp.data
                 })
             });
 
-        axios.get('http://localhost:5000/internet/')
+        axios.get('http://localhost:5000/internet/'+this.props.match.params.id)
             .then(resp => {
                 this.setState({
                     internetOrders: resp.data
@@ -83,26 +83,26 @@ class OrderHistory extends Component {
                                     <tr>
 
                                         <th>Order Name</th>
+                                        <th>Type</th>
                                         <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
+                                        
                                         <th>Time</th>
                                         <th>Date</th>
                                     </tr>
                                 </thead>
 
-                                {/* <tbody>
+                                <tbody>
                                     {this.state.orders.map((item) => {
                                         return <tr>
-                                            <td className="center">{item.}</td>
+                                            <td className="center">{item.food_name}</td>
 
-                                            <td>{item.itemprice}</td>
-                                            <td>{item.quantity}</td>
-                                            <td>{item.total}</td>
-                                            <td>{item.time}</td>
+                                            <td>{item.food_type}</td>
+                                            <td>{item.food_price}</td>
+                                            <td>{item.createdAt.substring(11,19)}</td>
+                                            <td>{item.createdAt.substring(0,10)}</td>
                                         </tr>;
                                     })}
-                                </tbody> */}
+                                </tbody>
                             </table>
                         </div>
 

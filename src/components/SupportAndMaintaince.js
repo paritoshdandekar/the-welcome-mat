@@ -91,7 +91,7 @@ class SupportandMaintaince extends Component {
         // };
 
         const Support ={
-            userId: "user2",
+            userId: this.props.match.params.id,
             status: "Recieved",
             data: this.state.data,
             furtherdetails: this.state.furtherdetails,
