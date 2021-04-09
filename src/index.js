@@ -7,6 +7,7 @@ import Login from './components/Login';
 import reportWebVitals from './reportWebVitals';
 import materialize from 'materialize-css';
 import App from './App';
+import Profile from './components/Profile';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
     {/* <AdminApp/> */}
     {/* <Login/> */}
     <App></App>
+    {/* <Profile></Profile> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

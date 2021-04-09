@@ -1,42 +1,40 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
 import axios from 'axios';
-const var2='6063f72e97e05959b477b63c'
+
 
 
 export class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            myuser: [],
-
-            var1: '6063f72e97e05959b477b63c'
-
+            username:''
         }
     }
 
-    
+
 
     componentDidMount() {
-var el = document.querySelectorAll('.tabs');
+        var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
 
-       
-        axios.get('http://localhost:5000/user/'+this.var1.toString())
+
+        axios.get('http://localhost:5000/user/606de71265b1cd23ec3aeb87')
             .then(resp => {
-               
-                this.setState({
-                    myuser: resp.data
-                    
-                })
-                console.log(this.myuser);
+
+                
+                    this.state.username = resp.data.username;
+                //this.state.food_type = resp.data.menu_type;
+                //this.state.food_price = resp.data.menu_price;
+
+                console.log(resp.data.username);
 
             })
 
     }
     render() {
         return (
-            
+
             <div class="container section row">
 
                 <div>
@@ -45,7 +43,7 @@ var el = document.querySelectorAll('.tabs');
                 </div>
 
                 {this.state.myuser.map((user) =>
-                
+
 
                     <div class="col s8" >
 

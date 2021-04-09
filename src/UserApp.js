@@ -22,15 +22,14 @@ function UserApp() {
 
         <Switch>
           <Route exact path="/user" component={Home} />
-          <Route exact path="/food" component={Food} />
-          <Route exact path="/internet" component={Internet} />
-          <Route exact path="/housekeeping" component={Housekeeping} />
-          <Route exact path="/laundary" component={Laundary} />
-          <Route exact path="/support" component={SupportandMaintaince} />
-          <Route exact path="/About" component={About}/>
-          <Route exact path="/Home" component={Home}/>
-          <Route exact path="/Order" component={OrderHistory}/>
-          <Route exact path="/Profile" component={Profile}/>
+          <Route path="/user/food" component={Food} />
+          <Route path="/user/internet" component={Internet} />
+          <Route path="/user/housekeeping" component={Housekeeping} />
+          <Route path="/user/laundary" component={Laundary} />
+          <Route path="/user/support" component={SupportandMaintaince} />
+          <Route path="/user/About" component={About}/>
+          <Route path="/user/Order" component={OrderHistory}/>
+          <Route path="/user/Profile" component={Profile}/>
         </Switch>
 
         <footer>
