@@ -1,23 +1,25 @@
-   .banner-img{
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    -webkit-background-size: cover ;
-    max-height: 600px;
-    width:100%;
+ .imggg{
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  width: 100%;
+  height: 10%;
+    
    }
 
   .banner-text{
       position: absolute;
       top: 50%;
-      left: 45%;
+      left: 53%;
       transform: translate(-50%,-50%);
       z-index: 5;
       width: 90%;
-      height: 90%;
+      height: 50%;
       padding: 0px 0; 
       text-align: center;
-      margin:0px ;
+      margin-top:50px ;
       /* border-top-left-radius: 70px;
       border-bottom-right-radius: 70px ; */
       background-color: rgba(0, 0, 0, 0) 
@@ -28,6 +30,7 @@
          font: size 10px;
          text-decoration-color: black ;
          color: black;
+         
      }
 
      .input-field input[type=text]:focus + label {
@@ -38,10 +41,22 @@
         border-bottom: 1px solid #000;
         box-shadow: 0 1px 0 0 #000;
       }
+
     .loginform{
-      /* margin: 5%; */
+       /* margin-left: 10px;  */
       font-weight: bold;
       color:white;
        /* opacity: 0.6;  */
        width: 20%;
+       height: 80%;
+       
+    }  
+
+
+    .vl {
+      border-left: 1px solid black;
+      height: 300px;
+    }
+    .logg{
+      margin-top:30px ;
     }

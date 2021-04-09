@@ -58,42 +58,40 @@ export class Login extends Component {
     render() {
         return (
             <div >
-                <img src="../images/login1.jpg" className="banner-img"/>
-                
-                <div className="row ">
-                    <div class="banner-text">
-                    <div className="col s6 ">
-                            <a className="brand-logo" style={{ fontFamily: "Lobster",color:"black", fontSize: "50px" }}>The Welcome Mat</a>
-                            <h5>Come in as guests, leave as a family...</h5>
-                    </div>
-                    
-                    {/* <div className="col s6 m4 l8 push-l3 push-m1"> */}
-                    <div className="col s6 z-depth-5 loginform" >
+                <img src="../images/login1.jpg" className="responsive-img imggg"></img>
+                <div className="row banner-text center">
+                    <span>
+                        <div className="col s6 logg ">
+                            <a className="brand-logo" style={{ fontFamily: "Lobster", color: "black", fontSize: "70px" }}>The Welcome Mat</a>
+                            <h5>Come in as guests,<br></br>leave as a family...</h5>
+                            <h5></h5>
+                        </div>
 
-                        {/* <div class="container section z-depth-4 blue-grey lighten-5"> */}
-                        <form  onSubmit={this.submitHandler}>
-                            {/* <div class="input-field"> */}
+
+                        <div class="vl col s1 left"></div>
+
+                        <div className="col s3 z-depth-5 loginform container" >
+                            <form onSubmit={this.submitHandler}>
+
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="username" type="email" class="validate" value={this.username} name='username' onChange={this.changeHandler}></input>
                                         <label for="username" class="texta" class="black-text bold">Email</label>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate" value={this.password} name='password' onChange={this.changeHandler}></input>
+                                        <input placeholder="   " id="password" type="password" class="validate" value={this.password} name='password' onChange={this.changeHandler}></input>
                                         <label for="password" class="texta" class="black-text">Password</label>
                                     </div>
                                 </div>
                                 <div className="center section">
                                     <button className="btn-small">Login</button>
                                 </div>
-                            {/* </div> */}
 
-                        </form>
+                            </form>
                         </div>
-                    </div>
+                    </span>
                 </div>
             </div>
         )
