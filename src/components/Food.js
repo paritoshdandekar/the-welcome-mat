@@ -75,7 +75,7 @@ class Food extends Component {
         //e.preventDefault();
         const varOrder = {
 
-            userId: "aa",
+            userId: JSON.stringify(this.props.history.location.state.userId),
             food_name: this.state.food_name,
             food_type: this.state.food_type,
             food_price: this.state.food_price,
@@ -102,6 +102,7 @@ class Food extends Component {
     render() {
         return (
             <div >
+                
                 <div className="slider">
                     <ul className="slides">
                         <li>
