@@ -10,7 +10,8 @@ export class Login extends Component {
                 this.state = {
                     username: '',
                     password: '',
-                    users:[]
+                    users:[],
+                    final:''
                 }
         }
 
@@ -22,21 +23,27 @@ export class Login extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     submitHandler = e => {
+        e.preventDefault();
         const login = {
             username: this.state.username,
-            password: this.state.password,
+            password: this.state.password
         }
         axios.post('http://localhost:5000/user/find',login)
             .then(resp => {
-                this.setState({
-                    users: resp.data
-                })
+                this.state.final = resp.data[0]._id;
+                // this.setState({
+                //     users: resp.data
+                // })
                 // {this.state.users.map((item) => {
                 //     console.log(item.username)
                 // })}
-                console.log(this.state.users[0])
+                // const last = this.state.users[0].slice();
+
+                console.log(this.state.final)
+                this.props.history.push("/food/",{userId: this.state.final})
             });
-        alert(`${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)
+        // alert(`${this.state.users[0].username}`+ `${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)
+        // alert("  okay "+ this.state.users[0].username)
         this.setState = {
             username: '',
             password: ''
