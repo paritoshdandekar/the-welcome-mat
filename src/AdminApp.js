@@ -16,8 +16,8 @@ function AdminApp() {
   return (
     <Router>
       <div className="App">
-        <Addprice></Addprice>
-        {/* <header className="adminheader">
+        {/* <Addprice></Addprice> */}
+        <header className="adminheader">
           <NavbarAdmin />
           <Sidenav/>
           
@@ -32,7 +32,7 @@ function AdminApp() {
         </main>
         <footer className="adminfooter">
           <Footer />
-        </footer> */}
+        </footer>
       </div>
     </Router>
   );
