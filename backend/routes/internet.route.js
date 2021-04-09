@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Internet = require('../models/internet.model');
 
 router.route('/').get((req, res) => {
-  Internet.find()
+  Internet.find().sort({createdAt:-1})
     .then(internet => res.json(internet))
     .catch(err => res.status(400).json('Error: ' + err));
 });

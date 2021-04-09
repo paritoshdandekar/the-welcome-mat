@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Housekeeping = require('../models/housekeeping.model');
 
 router.route('/').get((req, res) => {
-  Housekeeping.find()
+  Housekeeping.find().sort({createdAt:-1})
     .then(housekeeping => res.json(housekeeping))
     .catch(err => res.status(400).json('Error: ' + err));
 });

@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Laundary = require('../models/Laundary.model');
 
 router.route('/').get((req, res) => {
-    Laundary.find()
+    Laundary.find().sort({createdAt:-1})
     .then(laundary => res.json(laundary))
     .catch(err => res.status(400).json('Error: ' + err));
 });
