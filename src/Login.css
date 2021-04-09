@@ -1,0 +1,47 @@
+   .banner-img{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-background-size: cover ;
+    max-height: 600px;
+    width:100%;
+   }
+
+  .banner-text{
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%,-50%);
+      z-index: 5;
+      width: 90%;
+      height: 90%;
+      padding: 0px 0; 
+      text-align: center;
+      margin:0px ;
+      /* border-top-left-radius: 70px;
+      border-bottom-right-radius: 70px ; */
+      background-color: rgba(0, 0, 0, 0) 
+     }
+
+     .texta{
+         font-weight: bold;
+         font: size 10px;
+         text-decoration-color: black ;
+         color: black;
+     }
+
+     .input-field input[type=text]:focus + label {
+        color: #000;
+     }
+
+      .input-field input[type=text]:focus {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+      }
+    .loginform{
+      /* margin: 5%; */
+      font-weight: bold;
+      color:white;
+       /* opacity: 0.6;  */
+       width: 20%;
+    }
