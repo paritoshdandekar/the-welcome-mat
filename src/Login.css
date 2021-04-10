@@ -1,12 +1,7 @@
  .imggg{
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  width: 100%;
-  height: 10%;
-    
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
    }
 
   .banner-text{
@@ -20,35 +15,33 @@
       padding: 0px 0; 
       text-align: center;
       margin-top:50px ;
-      /* border-top-left-radius: 70px;
-      border-bottom-right-radius: 70px ; */
       background-color: rgba(0, 0, 0, 0) 
      }
 
      .texta{
-         font-weight: bold;
-         font: size 10px;
-         text-decoration-color: black ;
-         color: black;
+         
+         font-size: 21px;
+         padding: 5px;
          
      }
 
      .input-field input[type=text]:focus + label {
-        color: #000;
+        color: rgb(131, 130, 130);
      }
 
       .input-field input[type=text]:focus {
         border-bottom: 1px solid #000;
-        box-shadow: 0 1px 0 0 #000;
+        box-shadow: 10px 10px 10px 10px  #000;
       }
 
     .loginform{
-       /* margin-left: 10px;  */
+
       font-weight: bold;
       color:white;
-       /* opacity: 0.6;  */
        width: 20%;
        height: 80%;
+       border-radius: 15px 15px 15px 15px;
+       background: rgba(0, 0, 0, 0.7)
        
     }  
 
