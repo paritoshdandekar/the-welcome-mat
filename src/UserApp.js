@@ -16,20 +16,22 @@ function UserApp() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
+      <header className="App-header">
           <Navbar />
         </header>
+      <Switch>
+        
 
-        <Switch>
-          <Route exact path="/user" component={Home} />
-          <Route path="/user/food" component={Food} />
-          <Route path="/user/internet" component={Internet} />
-          <Route path="/user/housekeeping" component={Housekeeping} />
-          <Route path="/user/laundary" component={Laundary} />
-          <Route path="/user/support" component={SupportandMaintaince} />
-          <Route path="/user/About" component={About}/>
-          <Route path="/user/Order" component={OrderHistory}/>
-          <Route path="/user/Profile" component={Profile}/>
+       
+          <Route exact path="/user/:id" component={Home} />
+          <Route path="/user/:id/food" component={Food} />
+          <Route path="/user/:id/internet" component={Internet} />
+          <Route path="/user/:id/housekeeping" component={Housekeeping} />
+          <Route path="/user/:id/laundary" component={Laundary} />
+          <Route path="/user/:id/support" component={SupportandMaintaince} />
+          <Route path="/user/:id/About" component={About}/>
+          <Route path="/user/:id/Order" component={OrderHistory}/>
+          <Route path="/user/:id/Profile" component={Profile}/>
         </Switch>
 
         <footer>

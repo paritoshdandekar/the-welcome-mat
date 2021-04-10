@@ -94,7 +94,7 @@ class Housekeeping extends Component {
     
 
     const HouseKeeping = {
-      userId: "userHKK",
+      userId: this.props.match.params.id,
       data: this.state.data,
       text: this.state.text,
       status: "Recieved"
