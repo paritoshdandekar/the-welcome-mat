@@ -69,7 +69,7 @@ class Internet extends Component {
         //     check: arr.toString()
         // };
         const internet = {
-            userId: "userIn",
+            userId: this.props.match.params.id,
             specific: this.state.specific,
             status: "Recieved",
             data: this.state.data

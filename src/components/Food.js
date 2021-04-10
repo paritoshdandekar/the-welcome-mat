@@ -75,7 +75,7 @@ class Food extends Component {
         //e.preventDefault();
         const varOrder = {
 
-            userId: JSON.stringify(this.props.history.location.state.userId),
+            userId: this.props.match.params.id,
             food_name: this.state.food_name,
             food_type: this.state.food_type,
             food_price: this.state.food_price,
