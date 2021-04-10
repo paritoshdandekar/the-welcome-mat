@@ -8,7 +8,7 @@ router.route('/:id').delete((req, res) => {
 });
 
 router.route('/').get((req, res) => {
-  Menu.find()
+  Menu.find().sort({createdAt:-1})
     .then((menus) => res.json(menus))
     .catch(err => res.status(400).json('Error: ' + err));
 });

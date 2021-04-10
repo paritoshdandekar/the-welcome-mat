@@ -2,7 +2,7 @@ const router = require('express').Router();
 let FoodOrder = require('../models/foodorder.model');
 
 router.route('/').get((req, res) => {
-  FoodOrder.find()
+  FoodOrder.find().sort({createdAt:-1})
     .then(foodorders => res.json(foodorders))
     .catch(err => res.status(400).json('Error: ' + err));
 });

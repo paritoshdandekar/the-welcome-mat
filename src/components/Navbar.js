@@ -18,21 +18,21 @@ class Navbar extends Component {
                         <div className="navbar">
                             <nav className="cyan darken-4">
                                 <div className="nav-wrapper container" >
-                                    <Link to="/" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
+                                    <Link to="/user" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
                                     <a href="#" data-target="mobile-demo" class=" sidenav-trigger" ><i class="material-icons">menu</i></a>
                                     <ul className="right hide-on-med-and-down"> 
-                                        <li><Link to="/Home">Home</Link></li>
-                                        <li><Link to="/About">About</Link></li>
-                                        <li><Link to="/Order">Orders</Link></li>
-                                        <li><Link to="/Profile">Profile</Link></li>
+                                        <li><Link to="/user">Home</Link></li>
+                                        <li><Link to="/user/About">About</Link></li>
+                                        <li><Link to="/user/Order">Orders</Link></li>
+                                        <li><Link to="/user/Profile">Profile</Link></li>
                                     </ul>
                                 </div>
                             </nav>
                             <ul class=" sidenav " id="mobile-demo" >
-                                <li><Link to="/Home">Home</Link></li>
-                                <li><Link to="/About">About</Link></li>
-                                <li><Link to="/Order">Orders</Link></li>
-                                <li><Link to="/Profile">Profile</Link></li>
+                                <li><Link to="/user/Home">Home</Link></li>
+                                <li><Link to="/user/About">About</Link></li>
+                                <li><Link to="/user/Order">Orders</Link></li>
+                                <li><Link to="/user/Profile">Profile</Link></li>
                             </ul>
                         </div>
                     </div>

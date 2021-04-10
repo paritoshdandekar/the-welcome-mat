@@ -2,7 +2,7 @@ const router = require('express').Router();
 let User = require('../models/user.model');
 
 router.route('/').get((req, res) => {
-    User.find()
+    User.find().sort({createdAt:-1})
       .then(user => res.json(user))
       .catch(err => res.status(400).json('Error: ' + err));
   });
@@ -11,6 +11,12 @@ router.route('/').get((req, res) => {
       .then(user => res.json(user))
       .catch(err => res.status(400).json('Error: ' + err));
   });
+  router.route('/find').post((req, res) => {
+     User.find({$and:[{email: req.body.username},{mobile: req.body.password}]})
+      .then((users) => res.json(users))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
   router.route('/add').post((req, res) => {
 
     const username=req.body.username;

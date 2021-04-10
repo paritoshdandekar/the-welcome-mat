@@ -22,10 +22,10 @@ function AdminApp() {
         </header>
         <main className="adminmain">
          <Switch>
-          <Route exact path="/" component={Adminpanel} />
-          <Route exact path="/adduser" component={Adduser} />
-          <Route exact path="/users" component={Users} />
-          <Route exact path="/menu" component={ChangeMenu}/>
+          <Route exact path="/admin" component={Adminpanel} />
+          <Route path="/admin/adduser" component={Adduser} />
+          <Route path="/admin/users" component={Users} />
+          <Route path="/admin/menu" component={ChangeMenu}/>
         </Switch>
         </main>
         <footer className="adminfooter">
