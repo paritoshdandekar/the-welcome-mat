@@ -78,13 +78,13 @@ export class Login extends Component {
                                 <div className="row">
                                     <div className="input-field col s12">
                                         <input placeholder="   " id="username" type="email" className="validate" value={this.username} name='username' onChange={this.changeHandler}></input>
-                                        <label for="username" className="texta" className="white-text ">Email</label>
+                                        <label for="username" className="texta" className="white-text section">Email</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col s12">
                                         <input placeholder="   " id="password" type="password" className="validate" value={this.password} name='password' onChange={this.changeHandler}></input>
-                                        <label for="password" className="texta" className="white-text">Password</label>
+                                        <label for="password" className="texta" className="white-text section">Password</label>
                                     </div>
                                 </div>
                                 <div className="center section">
