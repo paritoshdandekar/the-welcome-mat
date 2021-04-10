@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Support = require('../models/support.model');
 
 router.route('/').get((req, res) => {
-  Support.find()
+  Support.find().sort({createdAt:-1})
     .then(support => res.json(support))
     .catch(err => res.status(400).json('Error: ' + err));
 });
