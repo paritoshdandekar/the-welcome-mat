@@ -36,6 +36,7 @@ class Laundary extends Component {
 
 
     submitHandler = e => {
+        e.preventDefault();
         const varLaundary = {
             userId: this.props.match.params.id,
             laundaryclothCount: this.state.laundaryclothCount,

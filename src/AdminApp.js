@@ -8,8 +8,7 @@ import Sidenav from "./components/AdminComponents/Sidenav";
 import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 import M from "materialize-css";
-import Addprice from "./components/Addprice";
-
+import Login from "./components/Login";
 
 
 function AdminApp() {
@@ -28,6 +27,7 @@ function AdminApp() {
           <Route path="/admin/adduser" component={Adduser} />
           <Route path="/admin/users" component={Users} />
           <Route path="/admin/menu" component={ChangeMenu}/>
+          <Route exact path="/" component={Login} />
         </Switch>
         </main>
         <footer className="adminfooter">
