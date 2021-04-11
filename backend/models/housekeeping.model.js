@@ -8,6 +8,8 @@ const housekeepingSchema = new Schema({
   data: {type: String, required: false},
   text: {type: String, required: false},
   status: {type: String, required: true},
+  text: {type: String, required: false},  
+  data: {type: String, required: false},
   
 }, {
   timestamps: true,

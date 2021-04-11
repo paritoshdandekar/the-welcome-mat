@@ -14,7 +14,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Order Food<i className="material-icons blue-text right">info</i></span>
-                                    <Link to="/food" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <Link to={"/user/"+this.props.match.params.id+"/food"} class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Order Food<i className="material-icons right">close</i></span>
@@ -30,7 +30,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Laundry<i className="material-icons blue-text right">info</i></span>
-                                    <Link to="/laundary" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <Link to={"/user/"+this.props.match.params.id+"/laundary"} class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Laundry<i className="material-icons right">close</i></span>
@@ -46,7 +46,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Housekeeping<i className="material-icons blue-text right">info</i></span>
-                                    <Link to="/housekeeping" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <Link to={"/user/"+this.props.match.params.id+"/housekeeping"} class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Housekeeping<i className="material-icons right">close</i></span>
@@ -62,7 +62,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Support & Maintenance<i className="material-icons blue-text right">info</i></span>
-                                    <Link to="/support" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <Link to={"/user/"+this.props.match.params.id+"/support"} class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Support & Maintenance<i className="material-icons right">close</i></span>
@@ -78,7 +78,7 @@ class Home extends Component {
                                 </div>
                                 <div className="card-content">
                                     <span className="card-title activator grey-text text-darken-4">Internet<i className="material-icons blue-text right">info</i></span>
-                                    <Link to="/internet" class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
+                                    <Link to={"/user/"+this.props.match.params.id+"/internet"} class="btn-floating waves-effect waves-light right"><i class="material-icons">arrow_right_alt</i></Link>
                                 </div>
                                 <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">Internet<i className="material-icons right">close</i></span>

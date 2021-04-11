@@ -2,7 +2,7 @@ const router = require('express').Router();
 let Housekeeping = require('../models/housekeeping.model');
 
 router.route('/').get((req, res) => {
-  Housekeeping.find()
+  Housekeeping.find().sort({createdAt:-1})
     .then(housekeeping => res.json(housekeeping))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -18,6 +18,20 @@ router.route('/add').post((req, res) => {
 
   newHousekeeping.save()
     .then(() => res.json('Housekeeping query added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+  Housekeeping.findById(req.params.id)
+    .then(hskeep => {
+
+      hskeep.status = "Completed";
+
+
+      hskeep.save()
+        .then(() => res.json('Status updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
