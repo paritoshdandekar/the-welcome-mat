@@ -79,7 +79,7 @@ class Food extends Component {
             food_name: this.state.food_name,
             food_type: this.state.food_type,
             food_price: this.state.food_price,
-            status: "Recieved"
+            status: "Pending"
         }
 
         axios.post('http://localhost:5000/foodorder/add/', varOrder)
@@ -106,21 +106,21 @@ class Food extends Component {
                 <div className="slider">
                     <ul className="slides">
                         <li>
-                            <img src="../images/Food1.jpg" />
+                            <img src="../../images/Food1.jpg" />
                             <div className="caption center-align">
                                 <h3>What can we get you?</h3>
                                 <h5 className="light grey-text text-lighten-3">We’ve got something for everyone.</h5>
                             </div>
                         </li>
                         <li>
-                            <img src="../images/Food3.jpg" />
+                            <img src="../../images/Food3.jpg" />
                             <div className="caption center-align">
                                 <h3>Left Aligned Caption</h3>
                                 <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
                             </div>
                         </li>
                         <li>
-                            <img src="../images/Food2.jpg" />
+                            <img src="../../images/Food2.jpg" />
                             <div class="caption center-align">
                                 <h3>This is our big Tagline!</h3>
                                 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
@@ -145,7 +145,7 @@ class Food extends Component {
                                     <div className="col s12 m3">
                                         <div className="card small ">
                                             <div className="card-image">
-                                                <img src="../images/Food1.jpg" /> {/*../images/Food1.jpg */}
+                                                <img src= {item.menu_imglink}/> {/*../images/Food1.jpg */}
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}
