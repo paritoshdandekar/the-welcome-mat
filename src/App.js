@@ -14,9 +14,9 @@ function App() {
           <Route path="/user" component={UserApp} />
           <Route path="/admin" component={AdminApp} />
         </Switch>
-        <footer>
+        {/* <footer>
           <Footer />
-        </footer>
+        </footer> */}
       </div>
     </Router>
   );

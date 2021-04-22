@@ -30,6 +30,11 @@ export class Profile extends Component {
             });
     }
     render() {
+        console.log(this.state.u);
+        console.log(this.state.ci);
+        console.log(this.state.co);
+        console.log(this.state.r);
+
         return (
             <div class="container section row">
                 <div>
