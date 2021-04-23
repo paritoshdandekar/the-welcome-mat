@@ -15,7 +15,8 @@ class Food extends Component {
             status: '',
             breakfast: [],
             lunch: [],
-            dinner: []
+            dinner: [],
+            amount:0
         }
     }
 
@@ -85,6 +86,25 @@ class Food extends Component {
         axios.post('http://localhost:5000/foodorder/add/', varOrder)
             .then(res => console.log(res.data));
         console.log(varOrder);
+
+        axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
+            .then(resp => {
+                
+                    this.state.amount=resp.data[0].amount;
+                
+                console.log(this.state.amount);
+
+                const inv = {
+                    userId: this.props.match.params.id,
+                    
+                    amount: this.state.amount+Number(this.state.food_price)
+                }
+                axios.put('http://localhost:5000/invoice/add', inv)
+                .then(res => console.log(res.data));
+                    console.log(inv);
+            });
+
+
         this.setState = {
             userId: 'aa11',
             food_name: null,

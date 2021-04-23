@@ -13,6 +13,7 @@ class Laundary extends Component {
             laundarySlot: null,
             laundaryTask: [],
             status: null,
+            amount:0,
         }
     }
 
@@ -52,6 +53,31 @@ class Laundary extends Component {
         axios.post('http://localhost:5000/laundary/add', varLaundary)
             .then(res => console.log(res.data));
         console.log(varLaundary);
+
+
+         
+axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
+            .then(resp => {
+                
+                    this.state.amount=resp.data[0].amount;
+                
+                console.log(this.state.amount);
+
+                const invo = {
+                    userId: this.props.match.params.id,
+                    
+                    amount: this.state.amount+(this.state.laundaryclothCount*10)
+                }
+                axios.post('http://localhost:5000/invoice/add', invo)
+                .then(res => console.log(res.data));
+                    console.log(invo);
+            });
+            
+            
+
+
+
+
         this.setState = {
             userId: null,
             status: null,
