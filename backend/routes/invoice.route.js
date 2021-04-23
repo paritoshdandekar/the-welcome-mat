@@ -13,10 +13,9 @@ router.route('/').get((req, res) => {
   });
 
   router.route('/add').put((req, res) => {
-
     const userId=req.body.userId;
     const amount=req.body.amount;
-    const newInvoice = new User({userId,amount});
+    const newInvoice = new Invoice({userId,amount});
 
   newInvoice.save()
     .then(() => res.json('New User added!'))

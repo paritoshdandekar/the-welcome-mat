@@ -13,14 +13,17 @@ import Profile from './components/UserComponents/Profile';
 import Login from './components/Login';
 
 
-function UserApp() {
+function UserApp(props) {
+  // const id = props.history.location.state.id;
   return (
     <Router>
       <div className="App">
+      <Switch> 
       <header className="App-header">
-          <Navbar />
+          <Navbar userId={props.history.location.state.id}/>
         </header>
-      <Switch>      
+        
+           
           <Route exact path="/user/:id" component={Home} />
           <Route path="/user/:id/food" component={Food} />
           <Route path="/user/:id/internet" component={Internet} />
@@ -38,6 +41,7 @@ function UserApp() {
         </footer>
       </div>
     </Router>
+    
   );
 }
 

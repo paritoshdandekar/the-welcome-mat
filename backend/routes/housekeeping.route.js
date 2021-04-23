@@ -7,6 +7,12 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  Housekeeping.find({userId: req.params.id}).sort({createdAt:-1})
+    .then(housekeeping => res.json(housekeeping))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
   const userId= req.body.userId;
   const data= req.body.data;

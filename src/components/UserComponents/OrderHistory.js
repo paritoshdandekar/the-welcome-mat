@@ -20,7 +20,7 @@ class OrderHistory extends Component {
         M.Tabs.init(el, {});
         var i = 0;
 
-        axios.get('http://localhost:5000/food/'+this.props.match.params.id)
+        axios.get('http://localhost:5000/foodorder/'+this.props.match.params.id)
             .then(resp => {
                 //console.log(resp);
                 // ab upr ki state me jo orders hai 
@@ -92,7 +92,7 @@ class OrderHistory extends Component {
                                 </thead>
 
                                 <tbody>
-                                    {this.state.orders.map((item) => {
+                                    {this.state.foodOrders.map((item) => {
                                         return <tr>
                                             <td className="center">{item.food_name}</td>
 
