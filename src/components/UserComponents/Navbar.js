@@ -18,11 +18,10 @@ class Navbar extends Component {
                         <div className="navbar">
                             <nav className="cyan darken-4">
                                 <div className="nav-wrapper container" >
-                                    <Link to="/user" className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
+                                    <Link to={"/user/"+this.props.userId} className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
                                     <a href="#" data-target="mobile-demo" class=" sidenav-trigger" ><i class="material-icons">menu</i></a>
-                                    <ul className="right hide-on-med-and-down"> 
-                                        {/* <li><Link to="/user">Home</Link></li> */}
-                                        <li><Link to={"/user/"+this.props.userId} >Home</Link></li>
+                                    <ul className="right hide-on-med-and-down">                                       
+                                        <li><Link to={"/user/"+this.props.userId}>Home</Link></li>
                                         <li><Link to={"/user/"+this.props.userId+"/About"}>About</Link></li>
                                         <li><Link to={"/user/"+this.props.userId+"/Order"}>Orders</Link></li>
                                         <li><Link to={"/user/"+this.props.userId+"/Profile"}>Profile</Link></li>

@@ -133,17 +133,17 @@ class Food extends Component {
                             </div>
                         </li>
                         <li>
-                            <img src="../../images/Food3.jpg" />
+                            <img src="../../images/Food2.jpg" />
                             <div className="caption center-align">
-                                <h3>Left Aligned Caption</h3>
-                                <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 className="black-text "><b>Laughter is the Brightest, where Food is the Best!</b></h3>
+                                <h5 className="light grey-text text-lighten-3"></h5>
                             </div>
                         </li>
                         <li>
-                            <img src="../../images/Food2.jpg" />
+                            <img src="../../images/Food3.jpg" />
                             <div class="caption center-align">
-                                <h3>This is our big Tagline!</h3>
-                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 className="black-text "><b>Love at first Bite!</b></h3>
+                                <h5 class="light grey-text text-lighten-3"></h5>
                             </div>
                         </li>
                     </ul>
