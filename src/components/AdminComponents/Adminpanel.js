@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import M from 'materialize-css';
+import TableScrollbar from 'react-table-scrollbar';
 const h2 = {
     backgroundColor:"green",
 }
@@ -26,6 +27,7 @@ class Adminpanel extends Component {
             houseKeepingOrders: [],
             supportOrders: [],
             internetOrders: [],
+            userO:[],
             //countc: 0,
             custcnt: 0,
 
@@ -207,11 +209,13 @@ class Adminpanel extends Component {
                 const custcnt = cust.length;
                 //const countpr3 = compreq1.length;
                 this.setState({
+                    userO:resp.data,
                     cust,
                     custcnt
 
                 })
             });
+            
             //const reci=this.state.countcr1+this.state.countcr2+this.state.countcr3+this.state.countcr4+this.state.countcr5+this.state.countpr1+this.state.countpr2+this.state.countpr3+this.state.countpr4+this.state.countpr5;
 
     }
@@ -294,9 +298,9 @@ class Adminpanel extends Component {
                         <div className="card light-blue">
                             <div className="card-content white-text">
                                 <span className="card-title">Total Customers</span>
-                                <p>Customers served till date:<br></br><br></br></p>
+                                <p>Customers served till date:</p>
                                 <br></br>
-                                <p >{this.state.custcnt}</p>
+                                <p style={{fontSize:30 }}>{this.state.custcnt}</p>
                                 
                             </div>
                         </div>
@@ -346,9 +350,10 @@ class Adminpanel extends Component {
                     </div>
                     <div class="card-content grey lighten-4">
                         <div id="food">
+                            <TableScrollbar rows={5}>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr className="white">
                                         <th>Customer Name</th>
                                         <th>Room Number</th>
                                         <th>Order Name</th>
@@ -363,8 +368,26 @@ class Adminpanel extends Component {
                                 <tbody>
                                 {this.state.foodOrders.map((item) => {
                                         return <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.username)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.room)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
                                             <td >{item.food_name}</td>
                                             <td>1</td>
                                             <td>{item.food_price}</td>
@@ -381,11 +404,13 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
+                            </TableScrollbar>
                         </div>
                         <div id="laundary">
+                        <TableScrollbar rows={5}>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr className="white">
                                         <th>Customer Name</th>
                                         <th>Room Number</th>
                                         <th>Task</th>
@@ -399,8 +424,26 @@ class Adminpanel extends Component {
                                 <tbody>
                                     {this.state.laundryOrders.map((item) => {
                                         return <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.username)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.room)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
                                             <td >{item.laundaryTask[0]},{item.laundaryTask[1]},{item.laundaryTask[2]}</td>
                                             <td>{item.laundaryclothCount}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
@@ -414,11 +457,13 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
+                            </TableScrollbar>
                         </div>
                         <div id="housekeep">
+                        <TableScrollbar rows={5}>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr className="white">
                                         <th>Customer Name</th>
                                         <th>Room Number</th>
                                         <th>Task</th>
@@ -431,8 +476,26 @@ class Adminpanel extends Component {
                                 <tbody>
                                     {this.state.houseKeepingOrders.map((item) => {
                                         return <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.username)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.room)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
@@ -446,11 +509,13 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
+                            </TableScrollbar>
                         </div>
                         <div id="support">
+                        <TableScrollbar rows={5}>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr className="white">
                                         <th>Customer Name</th>
                                         <th>Room Number</th>
                                         <th>Task</th>
@@ -463,8 +528,26 @@ class Adminpanel extends Component {
                                 <tbody>
                                     {this.state.supportOrders.map((item) => {
                                         return <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.username)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.room)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
@@ -475,11 +558,13 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
+                            </TableScrollbar>
                         </div>
                         <div id="internet">
+                        <TableScrollbar rows={5}>
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr className="white">
                                         <th>Customer Name</th>
                                         <th>Room Number</th>
                                         <th>Task</th>
@@ -492,8 +577,26 @@ class Adminpanel extends Component {
                                 <tbody>
                                     {this.state.internetOrders.map((item) => {
                                         return <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.username)
+
+                                               }
+                                            
+                                                
+                                                 })}
+                                            </td>
+                                            <td>
+                                            {this.state.userO.map((item1) => {
+                                               if(item.userId==item1._id){
+                                                   return(item1.room)
+
+                                               }
+                                            
+                                                
+                                                 })}    
+                                            </td>
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
@@ -505,6 +608,7 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
+                            </TableScrollbar>
                         </div>
                     </div>
                 </div>
