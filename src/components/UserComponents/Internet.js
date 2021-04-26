@@ -63,7 +63,8 @@ class Internet extends Component {
                 arr.push(key);
             }
         }
-
+        e.preventDefault();
+        e.target.reset();
         this.state.data = arr.toString();
         // this.state.data = {
         //     check: arr.toString()
@@ -71,7 +72,7 @@ class Internet extends Component {
         const internet = {
             userId: this.props.match.params.id,
             specific: this.state.specific,
-            status: "Recieved",
+            status: "Pending",
             data: this.state.data
             
         }
