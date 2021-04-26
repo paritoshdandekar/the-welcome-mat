@@ -43,23 +43,21 @@ class Laundary extends Component {
             laundaryclothCount: this.state.laundaryclothCount,
             laundarySlot: this.state.laundarySlot,
             laundaryTask: this.state.laundaryTask,
-            status: "Recieved"
+            status: "Pending"
         }
-
+        this.setState = {
+            userId: '',
+            status: '',
+            laundaryclothCount: 0,
+            laundarySlot: '',
+            laundaryTask: []
+        }
         alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
 
 
 
         axios.post('http://localhost:5000/laundary/add', varLaundary)
-            .then(res => console.log(res.data),
-            this.setState = {
-                userId: null,
-                status: null,
-                laundaryclothCount: 0,
-                laundarySlot: null,
-                laundaryTask: []
-            }
-            );
+            .then(res => console.log(res.data));
         console.log(varLaundary);
 
 
@@ -76,17 +74,12 @@ axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
                     
                     amount: this.state.amount+(this.state.laundaryclothCount*10)
                 }
-                axios.post('http://localhost:5000/invoice/add', invo)
+                axios.put('http://localhost:5000/invoice/update/'+this.props.match.params.id, invo)
                 .then(res => console.log(res.data));
                     console.log(invo);
             });
-            
-            
-
-
-
-
-        
+             
+       // e.target.reset();
     }
 
     render() {
@@ -134,10 +127,7 @@ axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
                                 <div className="center">
                                     <button className="btn-small">Submit</button>
                                 </div>
-                        
                             </div>
-
-
                         </form>
                     </div>
                 </div>
