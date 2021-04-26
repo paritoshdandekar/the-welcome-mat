@@ -13,36 +13,31 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                
-                    <div>
-                        <div className="navbar">
-                            <nav className="cyan darken-4">
-                                <div className="nav-wrapper container" >
-                                    <Link to={"/user/"+this.props.userId} className="brand-logo" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
-                                    <a href="#" data-target="mobile-demo" class=" sidenav-trigger" ><i class="material-icons">menu</i></a>
-                                    <ul className="right hide-on-med-and-down">                                       
-                                        <li><Link to={"/user/"+this.props.userId}>Home</Link></li>
-                                        <li><Link to={"/user/"+this.props.userId+"/About"}>About</Link></li>
-                                        <li><Link to={"/user/"+this.props.userId+"/Order"}>Orders</Link></li>
-                                        <li><Link to={"/user/"+this.props.userId+"/Profile"}>Profile</Link></li>
-                                        <li><Link to="/">Logout</Link></li>
-                                    </ul>
-                                </div>
-                            </nav>
-                            <ul class=" sidenav " id="mobile-demo" >
-                                <li><Link to="/user/Home">Home</Link></li>
-                                <li><Link to="/About">About</Link></li>
-                                <li><Link to="/user/Order">Orders</Link></li>
-                                <li><Link to="/user/Profile">Profile</Link></li>
-                                <li><Link to="/">Logout</Link></li>
-                            </ul>
-                        </div>
+                <div>
+                    <div className="navbar">
+                        <nav className="cyan darken-4">
+                            <div className="nav-wrapper container" >
+                                <Link to={"/user/" + this.props.userId} className="brand-logo flow-text" style={{ fontFamily: "Lobster" }}>The Welcome Mat</Link>
+                                <a href="#" data-target="mobile-demo" className=" sidenav-trigger" ><i className="material-icons">menu</i></a>
+                                <ul className="right hide-on-med-and-down">
+                                    <li><Link to={"/user/" + this.props.userId}>Home</Link></li>
+                                    <li><Link to={"/user/" + this.props.userId + "/About"}>About</Link></li>
+                                    <li><Link to={"/user/" + this.props.userId + "/Order"}>Orders</Link></li>
+                                    <li><Link to={"/user/" + this.props.userId + "/Profile"}>Profile</Link></li>
+                                    <li><Link to="/">Logout</Link></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <ul className="sidenav" id="mobile-demo" >
+                            <li><Link to={"/user/" + this.props.userId}>Home</Link></li>
+                            <li><Link to={"/user/" + this.props.userId + "/About"}>About</Link></li>
+                            <li><Link to={"/user/" + this.props.userId + "/Order"}>Orders</Link></li>
+                            <li><Link to={"/user/" + this.props.userId + "/Profile"}>Profile</Link></li>
+                            <li><Link to="/">Logout</Link></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
-
         )
     }
 }
