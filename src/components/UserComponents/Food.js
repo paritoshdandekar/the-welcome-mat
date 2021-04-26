@@ -99,7 +99,7 @@ class Food extends Component {
                     
                     amount: this.state.amount+Number(this.state.food_price)
                 }
-                axios.put('http://localhost:5000/invoice/add', inv)
+                axios.put('http://localhost:5000/invoice/update/'+this.props.match.params.id, inv)
                 .then(res => console.log(res.data));
                     console.log(inv);
             });

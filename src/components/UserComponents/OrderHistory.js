@@ -12,13 +12,23 @@ class OrderHistory extends Component {
             houseKeepingOrders: [],
             supportOrders: [],
             internetOrders: [],
-
+            total:0
         }
     }
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
-        var i = 0;
+        
+        axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
+            .then(resp => {
+                //console.log(resp);
+                // ab upr ki state me jo orders hai 
+                // usme apan json wala data daalre
+                this.setState({
+                    total: resp.data[0].amount
+                })
+                console.log(this.state.total)
+            });
 
         axios.get('http://localhost:5000/foodorder/'+this.props.match.params.id)
             .then(resp => {
@@ -132,7 +142,7 @@ class OrderHistory extends Component {
                                     })}
                                 </tbody>
                             </table>
-                            <p>laundary total: </p>
+                            
                         </div>
 
 
@@ -218,7 +228,7 @@ class OrderHistory extends Component {
 
                     </div>
                     <div class="card-content ">
-                        <p>Total=200/-</p>
+                        <p>Total={this.state.total}/-</p>
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ import "./AdminApp.css";
 import NavbarAdmin from "./components/AdminComponents/NavbarAdmin";
 import M from "materialize-css";
 import Login from "./components/Login";
+import Invoice from "./components/AdminComponents/Invoice";
 
 
 function AdminApp() {
@@ -27,6 +28,7 @@ function AdminApp() {
           <Route path="/admin/adduser" component={Adduser} />
           <Route path="/admin/users" component={Users} />
           <Route path="/admin/menu" component={ChangeMenu}/>
+          <Route path="/admin/invoice" component={Invoice}/>          
           <Route exact path="/" component={Login} />
         </Switch>
         </main>

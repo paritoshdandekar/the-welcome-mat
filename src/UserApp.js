@@ -18,12 +18,12 @@ function UserApp(props) {
   return (
     <Router>
       <div className="App">
-      <Switch> 
+      
       <header className="App-header">
           <Navbar userId={props.history.location.state.id}/>
         </header>
         
-           
+        <Switch>    
           <Route exact path="/user/:id" component={Home} />
           <Route path="/user/:id/food" component={Food} />
           <Route path="/user/:id/internet" component={Internet} />
