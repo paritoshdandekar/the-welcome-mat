@@ -81,6 +81,7 @@ class Food extends Component {
             food_price: this.state.food_price,
             status: "Pending"
         }
+        alert("Thank you for ordering. Delicious food is on the way." )
 
         axios.post('http://localhost:5000/foodorder/add/', varOrder)
             .then(res => console.log(res.data));

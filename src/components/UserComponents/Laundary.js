@@ -45,7 +45,7 @@ class Laundary extends Component {
             status: "Recieved"
         }
 
-        alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
+        alert("Thank you. Your request is being processing." )
 
 
 

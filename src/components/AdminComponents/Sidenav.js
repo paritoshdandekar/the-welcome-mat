@@ -15,7 +15,7 @@ export class Sidenav extends Component {
             <div> 
                 <ul id="mobile-demo" className="sidenav sidenav-fixed blue-grey darken-4">
                     <nav className="cyan darken-4">
-                        <div className="nav-wrapper container" >
+                        <div className="nav-wrapper container " >
                             <Link to="/admin" className="brand-logo" style={{ fontFamily: "Lobster" , fontSize:"30px"}}>The Welcome Mat</Link>
                         </div>
                     </nav>

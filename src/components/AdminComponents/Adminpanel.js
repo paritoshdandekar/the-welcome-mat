@@ -561,7 +561,7 @@ class Adminpanel extends Component {
                             </TableScrollbar>
                         </div>
                         <div id="internet">
-                        <TableScrollbar rows={5}>
+                        <TableScrollbar rows={5 }>
                             <table>
                                 <thead>
                                     <tr className="white">
