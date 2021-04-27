@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import M from 'materialize-css';
-import TableScrollbar from 'react-table-scrollbar';
 const h2 = {
     backgroundColor:"green",
 }
@@ -350,7 +349,7 @@ class Adminpanel extends Component {
                     </div>
                     <div class="card-content grey lighten-4">
                         <div id="food">
-                            <TableScrollbar rows={5}>
+                            
                             <table>
                                 <thead>
                                     <tr className="white">
@@ -404,10 +403,10 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
-                            </TableScrollbar>
+                            
                         </div>
                         <div id="laundary">
-                        <TableScrollbar rows={5}>
+                        
                             <table>
                                 <thead>
                                     <tr className="white">
@@ -457,10 +456,10 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
-                            </TableScrollbar>
+                           
                         </div>
                         <div id="housekeep">
-                        <TableScrollbar rows={5}>
+                        
                             <table>
                                 <thead>
                                     <tr className="white">
@@ -509,10 +508,10 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
-                            </TableScrollbar>
+                           
                         </div>
                         <div id="support">
-                        <TableScrollbar rows={5}>
+                       
                             <table>
                                 <thead>
                                     <tr className="white">
@@ -558,10 +557,10 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
-                            </TableScrollbar>
+                            
                         </div>
                         <div id="internet">
-                        <TableScrollbar rows={5 }>
+                        
                             <table>
                                 <thead>
                                     <tr className="white">
@@ -608,7 +607,7 @@ class Adminpanel extends Component {
 
                                 </tbody>
                             </table>
-                            </TableScrollbar>
+                           
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,8 @@ export class Login extends Component {
                     // const last = this.state.users[0].slice();
 
                     console.log(this.state.final)
-                    this.props.history.push("/user/"+this.state.final )
+                    // this.props.history.push("/user/"+this.state.final )
+                    this.props.history.push("/user/"+this.state.final,{id:this.state.final} )
                 });
         }
         // alert(`${this.state.users[0].username}`+ `${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)

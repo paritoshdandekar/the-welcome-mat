@@ -35,7 +35,7 @@ export class Invoice extends Component {
                 })
             });
 
-        axios.get('http://localhost:5000/billing/')
+        axios.get('http://localhost:5000/invoice/')
             .then(resp => {
                 const cust = resp.data;
                 this.setState({
@@ -46,7 +46,7 @@ export class Invoice extends Component {
     }
     render() {
         return (
-            <div className="section">
+            <div className="container section">
                 <table>
                     <thead>
                         <tr>
@@ -61,8 +61,8 @@ export class Invoice extends Component {
                             return <tr>
                                 <td >{item.username}</td>
                                 <td>{item.room}</td>
-                                <td>
-                                    {this.state.userO.map((item) => {
+                                <td>₹&nbsp;
+                                    {this.state.billingO.map((item1) => {
 
                                         if (item._id == item1.userId) {
                                             return (item1.amount)

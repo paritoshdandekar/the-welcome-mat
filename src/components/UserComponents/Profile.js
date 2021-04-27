@@ -17,7 +17,7 @@ export class Profile extends Component {
     componentDidMount() {
         var el = document.querySelectorAll('.tabs');
         M.Tabs.init(el, {});
-        axios.get('http://localhost:5000/user/606fd232e52a224278cd1ffe')
+        axios.get('http://localhost:5000/user/'+this.props.match.params.id)
             .then(resp => {
                 this.setState({
                     username: resp.data.username,
@@ -30,15 +30,10 @@ export class Profile extends Component {
             });
     }
     render() {
-        console.log(this.state.u);
-        console.log(this.state.ci);
-        console.log(this.state.co);
-        console.log(this.state.r);
-
         return (
             <div class="container section row">
                 <div>
-                    <img src="./images/user.png" alt="user" class="circle col s4"></img>
+                    <img src="../../images/user.png" alt="user" class="circle col s4"></img>
                 </div>
                 <div class="col s12 l8 push-l2" >
                     <div>

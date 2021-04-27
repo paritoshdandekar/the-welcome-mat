@@ -8,8 +8,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/:id').get((req, res) => {
-  FoodOrder.findById(req.params.id)
-    .then(() => res.json('Food row found'))
+  FoodOrder.find({userId: req.params.id}).sort({createdAt:-1})
+    .then((foodorders) => res.json(foodorders))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

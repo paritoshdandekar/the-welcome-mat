@@ -15,7 +15,8 @@ class Food extends Component {
             status: '',
             breakfast: [],
             lunch: [],
-            dinner: []
+            dinner: [],
+            amount:0
         }
     }
 
@@ -86,6 +87,25 @@ class Food extends Component {
         axios.post('http://localhost:5000/foodorder/add/', varOrder)
             .then(res => console.log(res.data));
         console.log(varOrder);
+
+        axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
+            .then(resp => {
+                
+                    this.state.amount=resp.data[0].amount;
+                
+                console.log(this.state.amount);
+
+                const inv = {
+                    userId: this.props.match.params.id,
+                    
+                    amount: this.state.amount+Number(this.state.food_price)
+                }
+                axios.put('http://localhost:5000/invoice/update/'+this.props.match.params.id, inv)
+                .then(res => console.log(res.data));
+                    console.log(inv);
+            });
+
+
         this.setState = {
             userId: 'aa11',
             food_name: null,
@@ -114,17 +134,17 @@ class Food extends Component {
                             </div>
                         </li>
                         <li>
-                            <img src="../../images/Food3.jpg" />
+                            <img src="../../images/Food2.jpg" />
                             <div className="caption center-align">
-                                <h3>Left Aligned Caption</h3>
-                                <h5 className="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 className="black-text "><b>Laughter is the Brightest, where Food is the Best!</b></h3>
+                                <h5 className="light grey-text text-lighten-3"></h5>
                             </div>
                         </li>
                         <li>
-                            <img src="../../images/Food2.jpg" />
+                            <img src="../../images/Food3.jpg" />
                             <div class="caption center-align">
-                                <h3>This is our big Tagline!</h3>
-                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 className="black-text "><b>Love at first Bite!</b></h3>
+                                <h5 class="light grey-text text-lighten-3"></h5>
                             </div>
                         </li>
                     </ul>

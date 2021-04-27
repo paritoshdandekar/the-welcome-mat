@@ -84,7 +84,8 @@ class Housekeeping extends Component {
         arr.push(key);
       }
     }
-
+ e.preventDefault();
+ e.target.reset();
 
     this.state.data = arr.toString();
     // this.state.data = {
@@ -97,7 +98,7 @@ class Housekeeping extends Component {
       userId: this.props.match.params.id,
       data: this.state.data,
       text: this.state.text,
-      status: "Recieved"
+      status: "Pending"
 
     }
     alert("Thank you. The attendee will be at your door in some time." )
