@@ -52,8 +52,8 @@ class Laundary extends Component {
             laundarySlot: '',
             laundaryTask: []
         }
-        alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
-
+        //alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
+        alert("Thank you. The attendee will be at your door on time." )
 
 
         axios.post('http://localhost:5000/laundary/add', varLaundary)

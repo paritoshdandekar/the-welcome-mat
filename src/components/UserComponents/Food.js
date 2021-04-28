@@ -85,7 +85,8 @@ class Food extends Component {
         alert("Thank you for ordering. Delicious food is on the way." )
 
         axios.post('http://localhost:5000/foodorder/add/', varOrder)
-            .then(res => console.log(res.data));
+            .then(res => {console.log(res.data)
+            alert("Thank you for ordering. Delicious food is on the way." )});
         console.log(varOrder);
 
         axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)

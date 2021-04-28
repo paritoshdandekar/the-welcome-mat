@@ -22,6 +22,9 @@ class Adminpanel extends Component {
 
         this.state = {
             foodOrders: [],
+            price: [],
+            s:0,
+            y:0,
             laundryOrders: [],
             houseKeepingOrders: [],
             supportOrders: [],
@@ -102,6 +105,8 @@ class Adminpanel extends Component {
         //             internetOrders: resp.data
         //         })
         //     });
+       
+        
 
     }
 
@@ -214,7 +219,27 @@ class Adminpanel extends Component {
 
                 })
             });
-            
+            axios.get('http://localhost:5000/invoice/')
+            .then(resp => {
+                this.state.s=0;
+                this.setState({
+                    price: resp.data
+                    
+                })
+                {this.state.price.map((pr) =>
+                    // <h2>{pr.price}{pr.id}</h2>
+                     //  this.count = this.count + pr.price
+                     {
+                         (this.state.s)=Number(this.state.s)+Number(pr.amount)}
+                     
+                     
+                     )}
+                console.log(this.state.price[0]);
+                console.log(this.state.s)
+                this.state.y=this.state.s
+    
+            })
+           
             //const reci=this.state.countcr1+this.state.countcr2+this.state.countcr3+this.state.countcr4+this.state.countcr5+this.state.countpr1+this.state.countpr2+this.state.countpr3+this.state.countpr4+this.state.countpr5;
 
     }
@@ -325,7 +350,7 @@ class Adminpanel extends Component {
                         <div className="card  pink accent-2">
                             <div className="card-content white-text">
                                 <span className="card-title">Revenue</span>
-                                <p>Total Revenue earned : Rs<br></br><br></br><br></br></p>
+                                <p>Total Revenue earned : Rs  {this.state.y}<br></br><br></br><br></br></p>
                                 <br></br>
                             </div>
 

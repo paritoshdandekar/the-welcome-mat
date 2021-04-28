@@ -35,6 +35,7 @@ export class Login extends Component {
 
             axios.post('http://localhost:5000/user/find', login)
                 .then(resp => {
+                    if (resp.data.length > 0) {
                     this.state.final = resp.data[0]._id;
                     // this.setState({
                     //     users: resp.data
@@ -46,7 +47,12 @@ export class Login extends Component {
 
                     console.log(this.state.final)
                     // this.props.history.push("/user/"+this.state.final )
-                    this.props.history.push("/user/"+this.state.final,{id:this.state.final} )
+                    this.props.history.push("/user/"+this.state.final,{id:this.state.final})}
+                    else{
+                        alert("You have entered wrong username or password.");
+                        //this.props.history.push("/")
+                        this.forceUpdate();
+                    }
                 });
         }
         // alert(`${this.state.users[0].username}`+ `${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)
@@ -78,13 +84,13 @@ export class Login extends Component {
 
                                 <div className="row">
                                     <div className="input-field col s12">
-                                        <input placeholder="   " id="username" type="email" className="validate" value={this.username} name='username' onChange={this.changeHandler}></input>
+                                        <input placeholder="   " id="username" type="email" className="validate white-text" value={this.username} name='username' onChange={this.changeHandler} ></input>
                                         <label for="username" className="white-text section texta">Email</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col s12">
-                                        <input placeholder="   " id="password" type="password" className="validate" value={this.password} name='password' onChange={this.changeHandler}></input>
+                                        <input placeholder="   " id="password" type="password" className="validate white-text" value={this.password} name='password' onChange={this.changeHandler}></input>
                                         <label for="password" className="white-text section texta">Password</label>
                                     </div>
                                 </div>

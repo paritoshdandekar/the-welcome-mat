@@ -83,6 +83,7 @@ class Internet extends Component {
         
         
         //alert(`${this.state.specific}` + "  Issues registered Successfully")
+        alert("Your request is recieved. We will contact you shortly" )
         this.setState = {
             userId: '',
             status: '',
