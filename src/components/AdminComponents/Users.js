@@ -28,8 +28,8 @@ class Users extends Component {
                     <h2 className="center-align ">All Users Details</h2>
                     <table className="highlight">
                         <thead>
-                            <tr>
-                                <th>Sr No.</th>
+                            <tr className="section">
+                                {/* <th>Sr No.</th> */}
                                 <th>Username</th>
                                 <th>Checkin Date</th>
                                 <th>Checkout Date</th>
@@ -39,10 +39,10 @@ class Users extends Component {
                         <tbody>
                             {this.state.users.map((user) => {
                                 return <tr>
-                                    <td className="center">{user.number}</td>
+                                    {/* <td className="center">{user.number}</td> */}
                                     <td>{user.username}</td>
-                                    <td>{user.checkin}</td>
-                                    <td>{user.checkout}</td>
+                                    <td>{user.checkin.substring(0, 10)}</td>
+                                    <td>{user.checkout.substring(0, 10)}</td>
                                     <td>{user.room}</td>
                                     
                                 </tr>;

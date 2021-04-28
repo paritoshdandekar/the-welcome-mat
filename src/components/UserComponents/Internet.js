@@ -76,11 +76,14 @@ class Internet extends Component {
             data: this.state.data
             
         }
-        console.log(internet);
         axios.post('http://localhost:5000/internet/add', internet)
             .then(res => console.log(res.data));
+        alert("Thank you. Your request is being processing." )
+        console.log(internet);
         
-        alert(`${this.state.specific}` + "  Issues registered Successfully")
+        
+        //alert(`${this.state.specific}` + "  Issues registered Successfully")
+        alert("Your request is recieved. We will contact you shortly" )
         this.setState = {
             userId: '',
             status: '',
