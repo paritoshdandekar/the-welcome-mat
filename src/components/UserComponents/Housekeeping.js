@@ -105,8 +105,7 @@ class Housekeeping extends Component {
 
     
     axios.post('http://localhost:5000/housekeeping/add', HouseKeeping)
-      .then(res => {console.log(res.data)
-        alert("Thank you. The attendee will be at your door in some time." )});
+      .then(res => console.log(res.data));
       console.log(HouseKeeping);
       //alert(`${this.state.text}`)
     this.setState({

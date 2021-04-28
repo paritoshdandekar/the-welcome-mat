@@ -102,7 +102,7 @@ class SupportandMaintaince extends Component {
 
         axios.post('http://localhost:5000/support/add', Support)
             .then(res => {console.log(res.data)
-                alert("Thank you. Your request is in process." )
+                
             });
 
         console.log(Support);
