@@ -12,6 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/user" component={UserApp} />
+          {/* <Route path="/user/" render={(props)=>(<UserApp {...props} id={props.history.location.state.id}/>)} /> */}
           <Route path="/admin" component={AdminApp} />
         </Switch>
         {/* <footer>

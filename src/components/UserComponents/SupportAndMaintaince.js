@@ -84,7 +84,8 @@ class SupportandMaintaince extends Component {
                 arr.push(key);
             }
         }
-
+        e.preventDefault();
+        e.target.reset();
         this.state.data = arr.toString();
         // this.state.data = {
         //     check: arr.toString()
@@ -92,7 +93,7 @@ class SupportandMaintaince extends Component {
 
         const Support ={
             userId: this.props.match.params.id,
-            status: "Recieved",
+            status: "Pending",
             data: this.state.data,
             furtherdetails: this.state.furtherdetails,
             }

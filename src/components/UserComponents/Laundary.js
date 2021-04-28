@@ -13,6 +13,7 @@ class Laundary extends Component {
             laundarySlot: null,
             laundaryTask: [],
             status: null,
+            amount:0,
         }
     }
 
@@ -42,9 +43,15 @@ class Laundary extends Component {
             laundaryclothCount: this.state.laundaryclothCount,
             laundarySlot: this.state.laundarySlot,
             laundaryTask: this.state.laundaryTask,
-            status: "Recieved"
+            status: "Pending"
         }
-
+        this.setState = {
+            userId: '',
+            status: '',
+            laundaryclothCount: 0,
+            laundarySlot: '',
+            laundaryTask: []
+        }
         alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
 
 
@@ -52,13 +59,27 @@ class Laundary extends Component {
         axios.post('http://localhost:5000/laundary/add', varLaundary)
             .then(res => console.log(res.data));
         console.log(varLaundary);
-        this.setState = {
-            userId: null,
-            status: null,
-            laundaryclothCount: 0,
-            laundarySlot: null,
-            laundaryTask: []
-        }
+
+
+         
+axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
+            .then(resp => {
+                
+                    this.state.amount=resp.data[0].amount;
+                
+                console.log(this.state.amount);
+
+                const invo = {
+                    userId: this.props.match.params.id,
+                    
+                    amount: this.state.amount+(this.state.laundaryclothCount*10)
+                }
+                axios.put('http://localhost:5000/invoice/update/'+this.props.match.params.id, invo)
+                .then(res => console.log(res.data));
+                    console.log(invo);
+            });
+             
+       // e.target.reset();
     }
 
     render() {
@@ -106,10 +127,7 @@ class Laundary extends Component {
                                 <div className="center">
                                     <button className="btn-small">Submit</button>
                                 </div>
-                        
                             </div>
-
-
                         </form>
                     </div>
                 </div>
