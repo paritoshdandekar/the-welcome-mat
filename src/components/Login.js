@@ -24,7 +24,7 @@ export class Login extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     submitHandler = e => {
-        
+        e.preventDefault();
         const login = {
             username: this.state.username,
             password: this.state.password
@@ -47,10 +47,11 @@ export class Login extends Component {
 
                     console.log(this.state.final)
                     // this.props.history.push("/user/"+this.state.final )
-                    this.props.history.push("/user/"+this.state.final,{id:this.state.final} )}
+                    this.props.history.push("/user/"+this.state.final,{id:this.state.final})}
                     else{
                         alert("You have entered wrong username or password.");
-                        
+                        //this.props.history.push("/")
+                        this.forceUpdate();
                     }
                 });
         }

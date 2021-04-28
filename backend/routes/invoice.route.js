@@ -12,16 +12,16 @@ router.route('/').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-//   router.route('/add').put((req, res) => {
+  router.route('/add').post((req, res) => {
 
-//     const userId=req.body.userId;
-//     const amount=req.body.amount;
-//     const newInvoice = new Invoice({userId,amount});
+    const userId=req.body.userId;
+    const amount=req.body.amount;
+    const newInvoice = new Invoice({userId,amount});
 
-//   newInvoice.save()
-//     .then(() => res.json('New User added!'))
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
+  newInvoice.save()
+    .then(() => res.json('New User added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 router.route('/update/:id').put((req, res) => {
   //var bill = new Invoice(req.body)
   Invoice.updateOne({userId: req.params.id},{amount:req.body.amount},function(
