@@ -10,7 +10,7 @@ export class AboutUs extends Component {
         return (
             <div>
                 <div className="parallax-container">
-                    <div className="parallax"><img src="../images/title.png"></img></div>
+                    <div className="parallax"><img src="../../images/title.png"></img></div>
                 </div>
 
                 <div className="section">
@@ -62,7 +62,7 @@ export class AboutUs extends Component {
                     </div>
                 </div>
                 <div className="parallax-container">
-                    <div className="parallax"><img src="../images/title.png"></img>
+                    <div className="parallax"><img src="../../images/title.png"></img>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import M from 'materialize-css';
-
 const h2 = {
     backgroundColor:"green",
 }
@@ -322,23 +321,28 @@ class Adminpanel extends Component {
                     <div className="col s12 m4 l4">
                         <div className="card light-blue">
                             <div className="card-content white-text">
+                                <b>
                                 <span className="card-title">Total Customers</span>
                                 <p>Customers served till date:</p>
+                                <p style={{fontSize:30}} className="text-bold">{this.state.custcnt}</p>
+                                </b>
                                 <br></br>
-                                <p style={{fontSize:30 }}>{this.state.custcnt}</p>
                                 
                             </div>
                         </div>
                     </div>
                     <div className="col s12 m4 l4">
-                        <div className="card orange lighten-2">
+                        <div className="card green darken-1">
                             <div className="card-content white-text">
-                                <span className="card-title">Requests</span>
+                                <b>
+                                <span className="card-title">Requests</span></b>
                                 <p>
                                     <ul>
-                                        <li>Completed requests:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5}</li>
-                                        <li>Pending requests:{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
-                                        <li>Received requests till now:{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5+this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
+                                        <b>
+                                        <li>Completed requests:&nbsp;&nbsp;&nbsp;{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5}</li>
+                                        <li>Pending requests:&nbsp;&nbsp;&nbsp;{this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
+                                        <li>Received requests till now:&nbsp;&nbsp;&nbsp;{this.state.countcr1 + this.state.countcr2 + this.state.countcr3 + this.state.countcr4+ this.state.countcr5+this.state.countpr1 + this.state.countpr2 + this.state.countpr3 + this.state.countpr4+this.state.countpr5}</li>
+                                        </b>
                                     </ul>
                                 </p>
                             </div>
@@ -350,9 +354,11 @@ class Adminpanel extends Component {
                     <div className="col s12 m4 l4">
                         <div className="card  pink accent-2">
                             <div className="card-content white-text">
+                                <b>
                                 <span className="card-title">Revenue</span>
-                                <p>Total Revenue earned : Rs  {this.state.y}<br></br><br></br><br></br></p>
+                                <p>Total Revenue earned :</p> <p style={{fontSize:30}}>Rs  {this.state.y}</p>
                                 <br></br>
+                                </b>
                             </div>
 
                         </div>

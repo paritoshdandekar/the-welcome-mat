@@ -52,6 +52,7 @@ export class Login extends Component {
                         alert("You have entered wrong username or password.");
                         //this.props.history.push("/")
                         this.forceUpdate();
+                        e.target.reset();
                     }
                 });
         }

@@ -98,13 +98,15 @@ class SupportandMaintaince extends Component {
             furtherdetails: this.state.furtherdetails,
             }
 
+            
+
         axios.post('http://localhost:5000/support/add', Support)
             .then(res => {console.log(res.data)
-                alert("Thank you. Your request is in process." )
+                
             });
 
         console.log(Support);
-        alert(`${this.state.furtherdetails}`)
+        alert("Thank you for your patience. The sevice incharge will be at your doorstep in some time." )
         this.setState = {
             furtherdetails: '',
             userId: '',
