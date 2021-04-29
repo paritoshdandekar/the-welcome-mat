@@ -15,10 +15,6 @@ export class Invoice extends Component {
         }
     }
 
-
-
-
-
     componentDidMount() {
         this.getData();
 

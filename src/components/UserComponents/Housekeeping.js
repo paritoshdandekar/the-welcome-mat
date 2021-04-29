@@ -6,10 +6,8 @@ import axios from 'axios';
 class Housekeeping extends Component {
   constructor(props) {
     super(props)
-    //this.multipleChoiceChangeHandler = this.multipleChoiceChangeHandler.bind(this);
     this.state = {
       userId: null,
-      //housekeepingTask: [ ],
       text: "",
       status: "",
       Sweepmop: false,
@@ -88,11 +86,7 @@ class Housekeeping extends Component {
  e.target.reset();
 
     this.state.data = arr.toString();
-    // this.state.data = {
-    //     check: arr.toString()
-    // };
-    //console.log(this.state.data);
-    
+   
 
     const HouseKeeping = {
       userId: this.props.match.params.id,
@@ -107,7 +101,6 @@ class Housekeeping extends Component {
     axios.post('http://localhost:5000/housekeeping/add', HouseKeeping)
       .then(res => console.log(res.data));
       console.log(HouseKeeping);
-      //alert(`${this.state.text}`)
     this.setState({
       userId:null,
       text: '',

@@ -29,8 +29,7 @@ class Users extends Component {
                     <table className="highlight">
                         <thead>
                             <tr className="section">
-                                {/* <th>Sr No.</th> */}
-                                <th>Username</th>
+                               <th>Username</th>
                                 <th>Checkin Date</th>
                                 <th>Checkout Date</th>
                                 <th>Room Number</th>   
@@ -39,7 +38,6 @@ class Users extends Component {
                         <tbody>
                             {this.state.users.map((user) => {
                                 return <tr>
-                                    {/* <td className="center">{user.number}</td> */}
                                     <td>{user.username}</td>
                                     <td>{user.checkin.substring(0, 10)}</td>
                                     <td>{user.checkout.substring(0, 10)}</td>

@@ -30,7 +30,7 @@ class Adminpanel extends Component {
             supportOrders: [],
             internetOrders: [],
             userO:[],
-            //countc: 0,
+            
             custcnt: 0,
 
             countpr1: 0,
@@ -68,53 +68,14 @@ class Adminpanel extends Component {
         M.Dropdown.init(elems1, {});
 
         this.getData();
-        this.intervalID = setInterval(this.getData.bind(this), 1000);
-        // axios.get('./menu.json')
-        //     .then(resp => {
-        //         this.setState({
-        //             menus: resp.data
-        //         })
-        //     })
-
-
-        // axios.get('http://localhost:5000/laundary/')
-        //     .then(resp => {
-        //         this.setState({
-        //             laundryOrders: resp.data
-        //         })
-        //     });
-
-        // axios.get('http://localhost:5000/housekeeping/')
-        //     .then(resp => {
-        //         this.setState({
-        //             houseKeepingOrders: resp.data
-        //         })
-        //     });
-
-        // axios.get('http://localhost:5000/support/')
-        //     .then(resp => {
-        //         this.setState({
-        //             supportOrders: resp.data
-        //         })
-        //     });
-
-        // axios.get('http://localhost:5000/internet/')
-
-        //     .then(resp => {
-        //         this.setState({
-        //             internetOrders: resp.data
-        //         })
-        //     });
-       
-        
+        this.intervalID = setInterval(this.getData.bind(this), 1000);     
 
     }
 
     getData = () => {
-        // do something to fetch data from a remote API.
+        
         axios.get('http://localhost:5000/laundary/')
             .then(resp => {
-                //const cust = resp.data;
                 const countc = resp.data.length;
                 const cust = resp.data;
                 const compreq = cust.filter(resp => resp.status === 'Completed');
@@ -140,7 +101,6 @@ class Adminpanel extends Component {
                 const countcr1 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr1 = compreq1.length;
-                ///const reci=countcr3+countpr3;
                 this.setState({
                     houseKeepingOrders: resp.data,
                     cust,
@@ -158,7 +118,6 @@ class Adminpanel extends Component {
                 const countcr5 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr5 = compreq1.length;
-               // const recf=countcr5+countpr5;
                 this.setState({
                     foodOrders: resp.data,
                     cust,
@@ -176,7 +135,6 @@ class Adminpanel extends Component {
                 const countcr2 = compreq.length;
                 const compreq1 = cust.filter(resp => resp.status === 'Pending');
                 const countpr2 = compreq1.length;
-               // const recs=countcr2+countpr2;
                 this.setState({
                     supportOrders: resp.data,
                     cust,
@@ -208,11 +166,8 @@ class Adminpanel extends Component {
         axios.get('http://localhost:5000/user/')
             .then(resp => {
                 const cust = resp.data;
-                //const compreq = cust.filter(resp => resp.status === 'Recieved');
-                //const countcr3 = compreq.length;
                 const custcnt = cust.length;
-                //const countpr3 = compreq1.length;
-                this.setState({
+               this.setState({
                     userO:resp.data,
                     cust,
                     custcnt
@@ -227,9 +182,7 @@ class Adminpanel extends Component {
                     
                 })
                 {this.state.price.map((pr) =>
-                    // <h2>{pr.price}{pr.id}</h2>
-                     //  this.count = this.count + pr.price
-                     {
+                    {
                          (this.state.s)=Number(this.state.s)+Number(pr.amount)}
                      
                      
@@ -240,7 +193,6 @@ class Adminpanel extends Component {
     
             })
            
-            //const reci=this.state.countcr1+this.state.countcr2+this.state.countcr3+this.state.countcr4+this.state.countcr5+this.state.countpr1+this.state.countpr2+this.state.countpr3+this.state.countpr4+this.state.countpr5;
 
     }
 
@@ -249,7 +201,6 @@ class Adminpanel extends Component {
     }
 
     componentWillUnmount() {
-        // clearTimeout(this.intervalID);
         clearInterval(this.intervalID);
     }
 
@@ -428,8 +379,7 @@ class Adminpanel extends Component {
                                             <td>
                                             <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintFood(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
                                             </td>
-                                            {/* <td>{item.time}</td> */}
-
+ 
                                         </tr>;
                                     })}
 
@@ -482,7 +432,6 @@ class Adminpanel extends Component {
                                             <td>
                                             <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintLaundary(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
                                             </td>
-                                            {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
 
@@ -533,7 +482,6 @@ class Adminpanel extends Component {
                                             <td>
                                             <button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintHousekeeping(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
                                             </td>
-                                            {/* <td>{item.time}</td> */}
 
                                         </tr>;
                                     })}
@@ -583,7 +531,6 @@ class Adminpanel extends Component {
                                             <td>{item.createdAt.substring(11, 19)}</td>
                                             <td>{item.createdAt.substring(0, 10)}</td>
                                             <td><button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintSupport(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button></td>
-                                            {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
 
@@ -633,7 +580,6 @@ class Adminpanel extends Component {
                                             <td>{item.createdAt.substring(0, 10)}</td>
                                             <td><button className="waves-effect waves-light btn" onClick={() => { this.updatecomplaintInternet(item._id) }} style={item.status=="Completed" ? h2 : h3}>{item.status}</button>
                                                 </td>
-                                            {/* <td>{item.time}</td> */}
                                         </tr>;
                                     })}
 

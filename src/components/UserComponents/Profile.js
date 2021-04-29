@@ -57,10 +57,7 @@ export class Profile extends Component {
                         <p><span><i class="material-icons left small">access_time</i><h5>Checkin Details:</h5>
                             <h6>&emsp;&emsp;&emsp;&emsp;Check-in date&emsp;:<b>&emsp;{this.state.checkin.substring(0, 10)}</b><br></br>&emsp;&emsp;&emsp;&emsp;Check-in time&emsp;:<b>&emsp;22:10:55 IST </b></h6></span></p>
                     </div>
-                    {/* <div>
-    <p><span><i class="material-icons left small">assignment</i><h5>Billing Details:</h5>
-    <h6>&emsp;&emsp;&emsp;&emsp;Total Amount &emsp;:<b> &emsp;₹ 10000</b><br></br></h6></span></p>
-</div> */}
+                    
                     <div>
                         <p><span><i class="material-icons left small">access_time</i><h5>Check-out Details:</h5>
                             <h6>&emsp;&emsp;&emsp;&emsp;Check-out date&emsp;:<b>&emsp;{/*24/02/2021*/}{this.state.checkout.substring(0, 10)}</b><br></br>&emsp;&emsp;&emsp;&emsp;&emsp;</h6></span></p>

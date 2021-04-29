@@ -16,7 +16,7 @@ class Footer extends Component {
 
                             {/* CONTACT */}
                             <div className="col l2 s12 ">
-                                {/* <h6 className="material-icons text-lighten-3" >local_phone</h6> */}
+                               
                                 <h6><i className="tiny material-icons text-lighten-3">local_phone</i><span> Contact Us</span></h6>
                                 <ul>
                                     <li><a className="grey-text text-lighten-3" >1111111111</a></li>

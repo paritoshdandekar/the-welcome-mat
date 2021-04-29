@@ -6,11 +6,9 @@ import axios from 'axios';
 class SupportandMaintaince extends Component {
     constructor(props) {
         super(props);
-        //this.multipleChoiceChangeHandler = this.multipleChoiceChangeHandler.bind(this);
-        this.state = {
+             this.state = {
             furtherdetails: '',
             userId: '',
-            //suportTask: [ ]
             isswitch: false,
             isfan: false,
             islight: false,
@@ -60,23 +58,14 @@ class SupportandMaintaince extends Component {
         }));
     }
 
-    //   onSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(this.state);
-    //   }
-
+   
 
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    // multipleChoiceChangeHandler = e => {
-    //     this.setState({
-    //         supportTask: Array.from(e.target.selectedOptions, (item) => item.value)
-    //     })
-    // }
-
+   
     submitHandler = e => {
         let arr = [];
         for (var key in this.state) {
@@ -87,10 +76,7 @@ class SupportandMaintaince extends Component {
         e.preventDefault();
         e.target.reset();
         this.state.data = arr.toString();
-        // this.state.data = {
-        //     check: arr.toString()
-        // };
-
+ 
         const Support ={
             userId: this.props.match.params.id,
             status: "Pending",
@@ -110,7 +96,7 @@ class SupportandMaintaince extends Component {
         this.setState = {
             furtherdetails: '',
             userId: '',
-            //suportTask: [ ]
+            
             isswitch: false,
             isfan: false,
             islight: false,

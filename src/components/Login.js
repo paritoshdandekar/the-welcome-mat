@@ -37,28 +37,17 @@ export class Login extends Component {
                 .then(resp => {
                     if (resp.data.length > 0) {
                     this.state.final = resp.data[0]._id;
-                    // this.setState({
-                    //     users: resp.data
-                    // })
-                    // {this.state.users.map((item) => {
-                    //     console.log(item.username)
-                    // })}
-                    // const last = this.state.users[0].slice();
-
+                    
                     console.log(this.state.final)
-                    // this.props.history.push("/user/"+this.state.final )
                     this.props.history.push("/user/"+this.state.final,{id:this.state.final})}
                     else{
                         alert("You have entered wrong username or password.");
-                        //this.props.history.push("/")
                         this.forceUpdate();
                         e.target.reset();
                     }
                 });
         }
-        // alert(`${this.state.users[0].username}`+ `${this.state.username}` + " " +`${this.state.password}` + "  User Welcome" +`${this.state.userId}`)
-        // alert("  okay "+ this.state.users[0].username)
-        this.setState = {
+       this.setState = {
             username: '',
             password: ''
         }

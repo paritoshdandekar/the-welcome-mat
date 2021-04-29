@@ -21,9 +21,7 @@ class OrderHistory extends Component {
         
         axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
             .then(resp => {
-                //console.log(resp);
-                // ab upr ki state me jo orders hai 
-                // usme apan json wala data daalre
+                
                 this.setState({
                     total: resp.data[0].amount
                 })
@@ -32,9 +30,7 @@ class OrderHistory extends Component {
 
         axios.get('http://localhost:5000/foodorder/'+this.props.match.params.id)
             .then(resp => {
-                //console.log(resp);
-                // ab upr ki state me jo orders hai 
-                // usme apan json wala data daalre
+                
                 this.setState({
                     foodOrders: resp.data
                 })
@@ -123,8 +119,8 @@ class OrderHistory extends Component {
                                 <thead>
                                     <tr>
 
-                                        <th class="col s3">Task</th>   {/* laundaryTask */}
-                                        <th>Quantity</th> {/* laundaryclothCount */}
+                                        <th class="col s3">Task</th>   
+                                        <th>Quantity</th> 
                                         <th>Time</th>
                                         <th>Date</th>
                                     </tr>
@@ -163,7 +159,7 @@ class OrderHistory extends Component {
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11,19)}</td>
                                             <td>{item.createdAt.substring(0,10)}</td>
-                                            {/* <td>{item.time}</td> */}
+                                           
 
                                         </tr>;
                                     })}
@@ -190,7 +186,7 @@ class OrderHistory extends Component {
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11,19)}</td>
                                             <td>{item.createdAt.substring(0,10)}</td>
-                                            {/* <td>{item.time}</td> */}
+                                           
                                         </tr>;
                                     })}
                                 </tbody>
@@ -216,7 +212,7 @@ class OrderHistory extends Component {
                                             <td >{item.data}</td>
                                             <td>{item.createdAt.substring(11,19)}</td>
                                             <td>{item.createdAt.substring(0,10)}</td>
-                                            {/* <td>{item.time}</td> */}
+                                            
                                         </tr>;
                                     })}
                                 </tbody>
@@ -235,38 +231,7 @@ class OrderHistory extends Component {
             </div>
 
 
-            // <div>
-            //     <div className="  container section z-depth-5 blue-grey lighten-4  " >
-            //         <h2 className="center-align ">Your Order History</h2>
-            //         <table className="highlight">
-            //             <thead>
-            //                 <tr>
-            //                     <th>Order Number</th>
-            //                     <th>Category</th>
-            //                     <th>Item Name</th>
-            //                     <th>Item Price</th>
-            //                     <th>Quantity</th>
-            //                     <th>Total</th>
-            //                     <th>Time</th>
-            //                 </tr>
-            //             </thead>
-            //             <tbody>
-            //                 {this.state.orders.map((item) => {
-            //                     return <tr>
-            //                         <td className="center">{item.orderno}</td>
-            //                         <td>{item.category}</td>
-            //                         <td>{item.itemname}</td>
-            //                         <td>{item.itemprice}</td>
-            //                         <td>{item.quantity}</td>
-            //                         <td>{item.total}</td>
-            //                         <td>{item.time}</td>
-            //                     </tr>;
-            //                 })}
-            //             </tbody>
-            //         </table>
-            //         <h3 className="right-align">Total= 220/-</h3>
-            //     </div >
-            // </div >
+            
         )
     }
 }

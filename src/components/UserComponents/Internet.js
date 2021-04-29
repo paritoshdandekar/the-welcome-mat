@@ -66,10 +66,7 @@ class Internet extends Component {
         e.preventDefault();
         e.target.reset();
         this.state.data = arr.toString();
-        // this.state.data = {
-        //     check: arr.toString()
-        // };
-        const internet = {
+      const internet = {
             userId: this.props.match.params.id,
             specific: this.state.specific,
             status: "Pending",
@@ -82,8 +79,7 @@ class Internet extends Component {
         console.log(internet);
         
         
-        //alert(`${this.state.specific}` + "  Issues registered Successfully")
-        alert("Your request is recieved. We will contact you shortly" )
+       alert("Your request is recieved. We will contact you shortly" )
         this.setState = {
             userId: '',
             status: '',

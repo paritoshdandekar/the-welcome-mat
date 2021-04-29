@@ -28,8 +28,7 @@ class ChangeMenu extends Component {
         }
 
 
-        // alert(`${this.state.menu_name}` +""+ `${this.state.menu_price}` + `${this.state.menu_imglink}` + `${this.state.menu_type}` + "  Added New Item")
-        alert("Added New Item")
+       alert("Added New Item")
 
         axios.post('http://localhost:5000/menu/add', varMenu)
             .then(res => console.log(res.data));
@@ -163,7 +162,7 @@ class ChangeMenu extends Component {
                                         <div className="card small ">
 
                                             <div className="card-image">
-                                                 <img src={item.menu_imglink}/>  {/*../images/food.jpg */}
+                                                 <img src={item.menu_imglink}/>  
                                             </div>
                                             <div className="card-content">
                                                 <span>{item.menu_name}

@@ -14,7 +14,6 @@ import Login from './components/Login';
 
 
 function UserApp(props) {
-  // const id = props.history.location.state.id;
   return (
     <Router>
       <div className="App">

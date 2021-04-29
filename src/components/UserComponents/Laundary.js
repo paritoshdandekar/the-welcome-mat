@@ -52,7 +52,6 @@ class Laundary extends Component {
             laundarySlot: '',
             laundaryTask: []
         }
-        //alert("Yay!! Slot booked for " + `${this.state.laundaryclothCount}` + " clothes for time " + `${this.state.laundarySlot}` + " for " + `${this.state.laundaryTask}`)
         alert("Thank you. The attendee will be at your door on time." )
 
 
@@ -90,14 +89,14 @@ axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
                     <h3 className="center-align"> Laundry </h3>
                     <div className="col s12 m10 l6 push-l3 push-m1">
                         <form onSubmit={this.submitHandler} action="#" >
-                            {/* no. of cloths */}
+                            
                             <div class="valign-wrapper" class="card-panel">
                                 <div className="input-field section">
                                     <input id="clothCount" type="number" min="0" value={this.laundaryclothCount} name='laundaryclothCount' onChange={this.changeHandler} className="validate"></input>
                                     <label for="clothCount">Number of cloths</label>
                                 </div>
 
-                                {/* choose  */}
+                                
                                 <div className="input-field section">
                                     <select value={this.laundarySlot} name='laundarySlot' onChange={this.changeHandler} className="validate">
                                         <option value="" disabled selected >Choose your option</option>
@@ -112,7 +111,6 @@ axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
                                     <label for="Pickuptime" >Choose Laundary Pickup time:</label>
                                 </div>
 
-                                {/* what to do */}
                                 <div className="input-field section">
                                     <select multiple value={this.laundaryTask} name='laundaryTask' onChange={this.multipleChoiceChangeHandler} className="validate">
                                         <option value="" disabled>Choose your options</option>
@@ -123,7 +121,7 @@ axios.get('http://localhost:5000/invoice/'+this.props.match.params.id)
                                     <label>What do we do with your Stuff:</label>
                                 </div>
 
-                                {/* submit */}
+                                
                                 <div className="center">
                                     <button className="btn-small">Submit</button>
                                 </div>
